@@ -1,7 +1,44 @@
 {% extends "pages/views/template_frontend.twig" %}
 
+{% block home_slider %}
+	<ul class="bxslider">
+	  <li><img src="{{ base_url() }}assets/css/images/pic3.jpg" /></li>
+	  <li><img src="{{ base_url() }}assets/css/images/pic3.jpg" /></li>
+	</ul>
+{% endblock %}
+
 {% block frontend_content %}
 	<div class="">
-		asdf
+		News
+		<hr>
+		<div class="row" data-equalizer="news" data-equalize-on="medium">
+			<div class="small-12 columns">
+				<div class="small-4 columns" data-equalizer-watch="news">
+					<img src="{{ base_url() }}assets/css/images/pic1.jpg">
+				</div>
+				<div class="small-8 columns pos-rel" data-equalizer-watch="news">
+					<div class="small-12 columns news-title">
+						<h3>Lorem Ipsum Title</h3>
+					</div>
+					<div class="small-12 columns news-desc">
+						Lorem Ipsum sit dolor amet
+					</div>
+					<div class="small-12 columns pos-abs news-more">
+						<a href="#">See More...</a>
+					</div>
+					<div style="clear: both;"></div>
+				</div>
+			</div>
+		</div>
+
 	</div>
+{% endblock %}
+
+{% block frontend_js %}
+	<script src="{{ base_url() }}assets/js/jquery.bxslider.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		  $('.bxslider').bxSlider();
+		});
+	</script>
 {% endblock %}

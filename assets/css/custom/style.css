@@ -1,0 +1,105 @@
+/*template_frontend*/
+
+.top-bar, .top-bar, .top-bar ul{
+	background-color:black;
+	color:white;
+}
+
+.footer{
+	background-color:#79797a;
+}
+
+.pos-rel{
+	position:relative;
+}
+
+.pos-abs{
+	position:absolute;
+}
+
+.no-padding{
+	padding:0;
+}
+
+.home-icon>a{
+	text-decoration: none;
+}
+
+/*Home*/
+
+.news-title{
+	border-bottom:1px solid black;
+}
+
+.news-desc{
+	padding-top:5px;
+}
+
+.news-more{
+	bottom:0;
+	text-align: right;
+}
+
+/* Login Regis*/
+
+.identity-form{
+	margin-top:20px;
+	margin-bottom:20px;
+	box-shadow: 0 0 5px #ccc;
+	-webkit-box-shadow: 0 0 5px #ccc;
+	-moz-box-shadow: 0 0 5px #ccc;
+}
+
+.login-form{
+	max-width: 300px;
+}
+
+.title-form{
+	border-bottom:1px solid black;
+	margin-bottom:15px;
+	padding:0;
+}
+
+.title-form>h3{
+	padding-left:4%;
+}
+
+.middle-label{
+	padding:6px 0;
+}
+
+/*Promo*/
+.black-hover{
+	background-color:black;
+	opacity:0;
+	z-index:-1;
+	transition: opacity 0.5s linear;
+}
+
+.promo-desc{
+	z-index:-2;
+	color:white;
+}
+
+.description>img{
+	width:100%;
+}
+
+.small-promo-desc{
+	background-color: black;
+	color:white;
+	font-size: 10px;
+}
+
+/* Slider */
+.bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{
+	bottom:10px;
+}
+
+.bx-wrapper .bx-viewport{
+	left:0;
+}
+
+@media screen and (max-width: 699px){
+	
+}

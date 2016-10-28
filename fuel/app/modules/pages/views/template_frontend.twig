@@ -6,7 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
 	<link rel="stylesheet" href="{{ base_url() }}assets/foundation/css/foundation.min.css"/>
+  <link rel="stylesheet" href="{{ base_url() }}assets/css/jquery.bxslider.css">
 	<link rel="stylesheet" href="{{ base_url() }}assets/css/custom/style.css" />
+  {% block frontend_css %} {% endblock %}
+  {% block head_js %}{% endblock %}
 </head>
 
 <body>
@@ -14,9 +17,9 @@
   <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>
     <!-- off-canvas title bar for 'small' screen -->
     <div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="medium">
-      <div class="title-bar-left">
-        <a href="{{ base_url }}">
-        	<img src="{{ base_url() }}/assets/css/images/R.png" style="width: 100px">
+      <div class="title-bar-left home-icon">
+        <a href="home">
+        	<img src="{{ base_url() }}/assets/css/images/R.png" style="width: 40px">
         </a>
         <span class="title-bar-title">Rweb</span>
 
@@ -30,12 +33,11 @@
     <!-- off-canvas right menu -->
     <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
 
-      <ul class="vertical dropdown menu" data-dropdown-menu>
+      <ul class="vertical menu">
 
-        <li><a href="right_item_1">Promo</a></li>
-
-        <li><a href="right_item_2">Reward</a></li>
-
+        <li><a href="right_item_1">News</a></li>
+        <li><a href="promo">Promo</a></li>
+        <li><a href="right_item_3">Reward</a></li>
       </ul>
 
     </div>
@@ -48,48 +50,21 @@
 
       <div class="top-bar-left">
 
-        <ul class="dropdown menu" data-dropdown-menu>
+        <ul class="menu">
 
-          <li class="menu-text">Foundation</li>
-
-          <li class="has-submenu">
-
-            <a href="#">Item 1</a>
-
-            <ul class="menu submenu vertical" data-submenu>
-
-              <li><a href="left_wide_11">Left wide 1</a></li>
-
-              <li><a href="left_wide_12">Left wide 2</a></li>
-
-              <li><a href="left_wide_13">Left wide 3</a></li>
-
-            </ul>
-
-          </li>
-
-          <li class="has-submenu">
-
-            <a href="#">Item 2</a>
-
-            <ul class="menu submenu vertical" data-submenu>
-
-              <li><a href="left_wide_21">Left wide 1</a></li>
-
-              <li><a href="left_wide_22">Left wide 2</a></li>
-
-              <li><a href="left_wide_23">Left wide 3</a></li>
-
-            </ul>
-
-          </li>
-
+          <li><img src="{{ base_url() }}/assets/css/images/R.png" style="width: 40px"></li>
+          <li><a href="#">News</a></li>
+          <li><a href="promo">Promo</a></li>
+          <li><a href="#">Reward</a></li>
+          
         </ul>
 
       </div>
 
       <div class="top-bar-right">
-
+        <ul class="menu">
+          <li><a href="login">Login / Register</a></li>
+        </ul>
       </div>
 
     </div>
@@ -100,7 +75,9 @@
 
     <div class="off-canvas-content" data-off-canvas-content>
 
-      <div class="row column">
+      {% block home_slider %}{% endblock %}
+      
+      <div class="column row">
 
         {% block frontend_content %}{% endblock %}
 
@@ -108,15 +85,21 @@
 
     </div>
 
+
+    <div class="footer">
+      <div class="text-center">© 2016 All Rights Reserved</div>
+    </div>
   <!-- close wrapper, no more content after this -->
 
   </div>
 
 </div>
 
+<script src="{{ base_url() }}assets/js/jquery.min.js"></script>
 <script src="{{ base_url() }}assets/foundation/js/vendor/jquery.js"></script>
 <script src="{{ base_url() }}assets/foundation/js/vendor/what-input.js"></script>
 <script src="{{ base_url() }}assets/foundation/js/vendor/foundation.min.js"></script>
 <script src="{{ base_url() }}assets/foundation/js/app.js"></script>
+{% block frontend_js %}{% endblock %}
 </body>
 </html>
