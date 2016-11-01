@@ -1,0 +1,61 @@
+{% extends "pages/views/template_frontend.twig" %}
+
+
+{% block frontend_center_content %}
+    <form>
+        <div class="row">
+            <div class="small-12 medium-8 medium-offset-2 end column identity-form no-padding">
+                <div class="small-12 column title-form">
+                    Create Account
+                </div>
+                <hr>
+                <div class="small-12 medium-4 column text-label no-right-padding">
+                    <label for="fname" class="middle-label">First Name :</label>
+                </div>
+                <div class="small-12 medium-8 column">
+                    <input type="text" id="fname" placeholder="First Name">
+                </div>
+                <div class="small-12 medium-4 column text-label no-right-padding">
+                    <label for="lname" class="middle-label">Last Name :</label>
+                </div>
+                <div class="small-12 medium-8 column">
+                    <input type="text" id="lname" placeholder="Last Name">
+                </div>
+                <fieldset>
+                    <div class="small-12 medium-4 column text-label no-right-padding">
+                        <label>Gender :</label>
+                    </div>
+                    <div class="small-12 medium-8 column">
+                        <input type="radio" name="gender" value="Female" id="Female"><label for="Female">Female</label>
+                        <input type="radio" name="gender" value="Male" id="Male"><label for="Male">Male</label>
+                    </div>
+                </fieldset>
+                <div class="small-12 medium-4 column text-label no-right-padding">
+                    <label for="email" class="middle-label">Email :</label>
+                </div>
+                <div class="small-12 medium-8 column">
+                    <input type="text" id="email" placeholder="Email">
+                </div>
+                <div class="small-12 medium-4 column text-label no-right-padding">
+                    <label for="pass" class="middle-label">Password :</label>
+                </div>
+                <div class="small-12 medium-8 column">
+                    <input type="password" id="pass" placeholder="Password">
+                </div>
+                <div class="small-12 medium-4 column text-label no-right-padding">
+                    <label for="re-pass" class="middle-label">Retype Password :</label>
+                </div>
+                <div class="small-12 medium-8 column">
+                    <input type="password" id="re-pass" placeholder="Retype-Password">
+                </div>
+                <div class="small-6 column text-right">
+                    <button type="button" class="button small">Reset</button>
+                </div>
+                <div class="small-6 column">
+                    <input type="submit" class="button small" value="Register">
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

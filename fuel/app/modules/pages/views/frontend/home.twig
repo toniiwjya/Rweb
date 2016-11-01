@@ -1,34 +1,62 @@
 {% extends "pages/views/template_frontend.twig" %}
 
-{% block home_slider %}
+{% block frontend_full_content %}
 	<ul class="bxslider">
 	  <li><img src="{{ base_url() }}assets/css/images/pic3.jpg" /></li>
 	  <li><img src="{{ base_url() }}assets/css/images/pic3.jpg" /></li>
 	</ul>
 {% endblock %}
 
-{% block frontend_content %}
-	<div class="">
-		News
-		<hr>
-		<div class="row" data-equalizer="news" data-equalize-on="medium">
-			<div class="small-12 columns">
-				<div class="small-4 columns" data-equalizer-watch="news">
-					<img src="{{ base_url() }}assets/css/images/pic1.jpg">
-				</div>
-				<div class="small-8 columns pos-rel" data-equalizer-watch="news">
-					<div class="small-12 columns news-title">
-						<h3>Lorem Ipsum Title</h3>
-					</div>
-					<div class="small-12 columns news-desc">
-						Lorem Ipsum sit dolor amet
-					</div>
-					<div class="small-12 columns pos-abs news-more">
-						<a href="#">See More...</a>
-					</div>
-					<div style="clear: both;"></div>
-				</div>
+{% block frontend_center_content %}
+	<div class="news">
+		<div class="menu-title">
+			<div class="small-9 column">
+				News
 			</div>
+			<div class="small-3 column text-right no-padding">
+				<a href="#">See More</a>
+			</div>
+			<hr>
+		</div>
+		<div class="row" data-equalizer="news">
+			<div class="small-12 columns content">
+				<a href="#">
+					<div class="small-4 columns no-right-padding" data-equalizer-watch="news">
+						<img src="{{ base_url() }}assets/css/images/pic1.jpg">
+					</div>
+					<div class="small-8 columns pos-rel" data-equalizer-watch="news">
+						<div class="small-12 columns news-title no-left-padding">
+							Lorem Ipsum Title
+						</div>
+						<div class="small-12 columns news-desc">
+							Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet
+						</div>
+						<div class="news-more pos-abs">
+							More ...
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+				</a>
+			</div>
+			<div class="small-12 columns">
+				<a href="#">
+					<div class="small-4 columns no-right-padding" data-equalizer-watch="news">
+						<img src="{{ base_url() }}assets/css/images/pic1.jpg">
+					</div>
+					<div class="small-8 columns pos-rel" data-equalizer-watch="news">
+						<div class="small-12 columns news-title no-left-padding">
+							Lorem Ipsum Title
+						</div>
+						<div class="small-12 columns news-desc">
+							Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet
+						</div>
+						<div class="news-more pos-abs">
+							More ...
+						</div>
+						<div style="clear: both;"></div>
+					</div>
+				</a>
+			</div>		
 		</div>
 
 	</div>

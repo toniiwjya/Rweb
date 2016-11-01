@@ -14,4 +14,12 @@ class Controller_Frontend_Home extends \Controller
     public function action_register(){
         return \Response::forge(\View::forge('pages::frontend/register.twig'));
     }
+
+    public function action_news(){
+    	
+    }
+
+    public function action_news_detail(){
+    	return \Response::forge(\View::forge('pages::frontend/news_detail.twig'));
+    }
 }

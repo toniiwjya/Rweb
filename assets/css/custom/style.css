@@ -5,6 +5,18 @@
 	color:white;
 }
 
+.off-canvas, .off-canvas-wrapper{
+	background-color: black;
+}
+
+.title-bar-right>button{
+	top:12px;
+}
+
+.content{
+	margin-bottom: 10px;
+}
+
 .footer{
 	background-color:#79797a;
 }
@@ -25,19 +37,42 @@
 	text-decoration: none;
 }
 
+.no-left-padding{
+	padding-left:0px;
+}
+
+.no-right-padding{
+	padding-right:0px;
+}
+
+.menu-title{
+	font-weight: bold;
+	font-size: 14px;
+	margin-top:30px;
+}
+
+.menu-title>hr{
+	margin-top: 8px;
+}
+
 /*Home*/
 
 .news-title{
 	border-bottom:1px solid black;
+	font-size:16px;
+	font-weight: bold;
+	padding-bottom: 6px;
 }
 
 .news-desc{
 	padding-top:5px;
+	font-size:14px;
+	padding-top:10px;
 }
 
 .news-more{
 	bottom:0;
-	text-align: right;
+	right:0;
 }
 
 /* Login Regis*/
@@ -55,13 +90,17 @@
 }
 
 .title-form{
-	border-bottom:1px solid black;
-	margin-bottom:15px;
-	padding:0;
+	margin-top:5px;
+	margin-bottom:10px;
+	font-size: 20px;
 }
 
-.title-form>h3{
-	padding-left:4%;
+.identity-form>hr{
+	margin:0 10px 20px 10px;
+}
+
+.text-label{
+	text-align:right;
 }
 
 .middle-label{
@@ -69,6 +108,7 @@
 }
 
 /*Promo*/
+
 .black-hover{
 	background-color:black;
 	opacity:0;
@@ -79,16 +119,29 @@
 .promo-desc{
 	z-index:-2;
 	color:white;
-}
-
-.description>img{
-	width:100%;
+	font-size: 12px;
 }
 
 .small-promo-desc{
 	background-color: black;
 	color:white;
-	font-size: 10px;
+	font-size: 12px;
+}
+
+.promo-title{
+	font-weight: bold;
+	padding-top:20px;
+	padding-bottom: 5px;
+	border-bottom: 1px solid white;
+}
+
+.promo-brief{
+	padding-top:15px;
+	padding-bottom: 27px;
+}
+
+.description>img{
+	width:100%;
 }
 
 /* Slider */
@@ -100,6 +153,62 @@
 	left:0;
 }
 
-@media screen and (max-width: 699px){
+.bx-wrapper{
+	margin-bottom:0px;
+}
+
+@media screen and (max-width: 399px){
+	.news-desc{
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+}
+
+@media screen and (max-width: 639px){
+	body{
+		font-size:10px;
+	}
+
+	.menu-title{
+		margin-top:15px;
+	}
+
+	.bx-wrapper{
+		margin-bottom:0px;
+	}
+
+	.news-title{
+		font-size:12px;
+		padding-bottom: 4px;
+	}
+
+	.news-desc{
+		padding-top:5px;
+		font-size:10px;
+	}
+
+	/* Promo */
+	.promo-title{
+		padding-top:10px;
+		padding-bottom: 5px;
+	}
+
+	.promo-brief{
+		padding-top:5px;
+		padding-bottom: 10px;
+	}
+
+	/*Login&Regis*/
+	.text-label{
+		text-align: left;
+	}
+
+	.identity-form{
+		margin-top:0px;
+	}
 	
+	.identity-form>hr{
+		margin:0 10px 10px 10px;
+	}
 }
