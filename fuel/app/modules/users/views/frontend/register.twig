@@ -2,7 +2,7 @@
 
 
 {% block frontend_center_content %}
-    <form>
+    <form action="" method="post">
         <div class="row">
             <div class="small-12 medium-8 medium-offset-2 end column identity-form no-padding">
                 <div class="small-12 column title-form">
@@ -10,16 +10,10 @@
                 </div>
                 <hr>
                 <div class="small-12 medium-4 column text-label no-right-padding">
-                    <label for="fname" class="middle-label">First Name :</label>
+                    <label for="fName" class="middle-label">Full Name :</label>
                 </div>
                 <div class="small-12 medium-8 column">
-                    <input type="text" id="fname" placeholder="First Name">
-                </div>
-                <div class="small-12 medium-4 column text-label no-right-padding">
-                    <label for="lname" class="middle-label">Last Name :</label>
-                </div>
-                <div class="small-12 medium-8 column">
-                    <input type="text" id="lname" placeholder="Last Name">
+                    <input type="text" name="fName" id="fName" placeholder="John">
                 </div>
                 <fieldset>
                     <div class="small-12 medium-4 column text-label no-right-padding">
@@ -34,13 +28,13 @@
                     <label for="email" class="middle-label">Email :</label>
                 </div>
                 <div class="small-12 medium-8 column">
-                    <input type="text" id="email" placeholder="Email">
+                    <input type="text" name="email" id="email" placeholder="Email">
                 </div>
                 <div class="small-12 medium-4 column text-label no-right-padding">
                     <label for="pass" class="middle-label">Password :</label>
                 </div>
                 <div class="small-12 medium-8 column">
-                    <input type="password" id="pass" placeholder="Password">
+                    <input type="password" name="password" id="pass" placeholder="Password">
                 </div>
                 <div class="small-12 medium-4 column text-label no-right-padding">
                     <label for="re-pass" class="middle-label">Retype Password :</label>
