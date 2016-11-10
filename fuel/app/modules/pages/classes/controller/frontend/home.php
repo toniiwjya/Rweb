@@ -7,7 +7,7 @@ class Controller_Frontend_Home extends \Controller_Frontend
     	return \Response::forge(\View::forge('pages::frontend/home.twig'));
     }
     public function action_news(){
-    	
+        return \Response::forge(\View::forge('pages::frontend/news.twig'));
     }
     public function action_news_detail(){
     	return \Response::forge(\View::forge('pages::frontend/news_detail.twig'));
