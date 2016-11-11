@@ -1,14 +1,78 @@
 {% extends "pages/views/template_frontend.twig" %}
 
 {% block frontend_full_content %}
-	<ul class="bxslider">
-	  <li><img src="{{ base_url() }}assets/css/images/pic3.jpg" /></li>
-	  <li><img src="{{ base_url() }}assets/css/images/pic3.jpg" /></li>
+    <ul class="bxslider" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+	  <li><img src="{{ base_url() }}assets/css/images/slide-home.jpg" /></li>
+	  <li><img src="{{ base_url() }}assets/css/images/slide-home.jpg" /></li>
 	</ul>
 {% endblock %}
 
 {% block frontend_center_content %}
-	<div class="news">
+    <div class="small-12 columns">
+        <div class="headline">
+            <h2>Register - Earn Point - Reedem - Repeat</h2>
+        </div>
+        <div class="medium-10 medium-offset-1 small-12 end columns welcome">
+            Welcome to Rewards where every point you earn can lead to something wonderful.
+            Join the promo to get your Points. Check your Points balance, redeem Points online or manage your Rewards settings.
+        </div>
+        <div class="small-12 columns info">
+            <div class="medium-4 medium-offset-4 end column detail">
+                <div class="icon">
+                    <img src="{{ base_url() }}assets/css/images/customer-icon.png">
+                </div>
+                <h4>Log in to get your Points</h4>
+                <p>Check your Reward Points balance today and explore our collection of redemption options.</p>
+                <div class="small-12 columns" style="text-align: center;">
+                    <div class="button regis"><a href="{{ base_url() }}login">Log in now</a></div>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <div class="small-12 columns benefit">
+        <div class="headline">
+            <h2>BENEFIT OF REWARDS</h2>
+        </div>
+        <div class="medium-10 medium-offset-1 small-12 end columns welcome">
+            Every point you earn can lead to something wonderful. You can get so many items with your point !
+            Check your Reward Points balance today and explore our collection of redemption options.
+        </div>
+        <div class="small-12 columns box">
+            <div class="medium-up-4 small-up-2 column" data-equalizer="benefit">
+                <div class="column" data-equalizer-watch="benefit">
+                    <div class="reward"><img src="{{ base_url() }}assets/css/images/reward.jpg"></div>
+                    <div class="small-8 columns"><a href="{{ base_url() }}reward">Reedem</a></div>
+                    <div class="small-4 columns border-poin">
+                        <div class="poin">100 points</div>
+                    </div>
+                </div>
+                <div class="column" data-equalizer-watch="benefit">
+                    <div class="reward"><img src="{{ base_url() }}assets/css/images/reward.jpg"></div>
+                    <div class="small-8 columns"><a href="{{ base_url() }}reward">Reedem</a></div>
+                    <div class="small-4 columns border-poin">
+                        <div class="poin">100 points</div>
+                    </div>
+                </div>
+                <div class="column" data-equalizer-watch="benefit">
+                    <div class="reward"><img src="{{ base_url() }}assets/css/images/reward.jpg"></div>
+                    <div class="small-8 columns"><a href="{{ base_url() }}reward">Reedem</a></div>
+                    <div class="small-4 columns border-poin">
+                        <div class="poin">100 points</div>
+                    </div>
+                </div>
+                <div class="column" data-equalizer-watch="benefit">
+                    <div class="reward"><img src="{{ base_url() }}assets/css/images/reward.jpg"></div>
+                    <div class="small-8 columns"><a href="{{ base_url() }}reward">Reedem</a></div>
+                    <div class="small-4 columns border-poin">
+                        <div class="poin">100 points</div>
+                    </div>
+                </div>
+                <div style="clear:both;"></div>
+            </div>
+        </div>
+    </div>
+	<div class="small-12 columns news">
 		<div class="menu-title">
 			<div class="small-9 column">
 				News
@@ -20,9 +84,9 @@
 		</div>
 		<div class="row" data-equalizer="news">
 			<div class="small-12 columns content">
-				<a href="#">
-					<div class="small-4 columns no-right-padding" data-equalizer-watch="news">
-						<img src="{{ base_url() }}assets/css/images/pic1.jpg">
+				<a href="{{ base_url() }}news_detail">
+					<div class="small-4 columns no-right-padding img" data-equalizer-watch="news">
+						<img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
 					</div>
 					<div class="small-8 columns pos-rel" data-equalizer-watch="news">
 						<div class="small-12 columns news-title no-left-padding">
@@ -32,16 +96,16 @@
 							Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet
 						</div>
 						<div class="news-more pos-abs">
-							More ...
-						</div>
+                            <img src="{{ base_url() }}assets/css/images/right.png"> Read more
+                        </div>
 						<div style="clear: both;"></div>
 					</div>
 				</a>
 			</div>
 			<div class="small-12 columns">
-				<a href="#">
-					<div class="small-4 columns no-right-padding" data-equalizer-watch="news">
-						<img src="{{ base_url() }}assets/css/images/pic1.jpg">
+				<a href="{{ base_url() }}news_detail">
+					<div class="small-4 columns no-right-padding img" data-equalizer-watch="news">
+						<img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
 					</div>
 					<div class="small-8 columns pos-rel" data-equalizer-watch="news">
 						<div class="small-12 columns news-title no-left-padding">
@@ -51,7 +115,7 @@
 							Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet
 						</div>
 						<div class="news-more pos-abs">
-							More ...
+                            <img src="{{ base_url() }}assets/css/images/right.png"> Read more
 						</div>
 						<div style="clear: both;"></div>
 					</div>

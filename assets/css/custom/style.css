@@ -56,23 +56,105 @@
 }
 
 /*Home*/
+.content .img{
+    text-align: center;
+}
+.headline{
+    text-align: center;
+    color: #1585cf;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.headline h2{
+    font-family: "Open Sans Condensed",Sans-serif;
+}
+
+.welcome{
+    color: #7f8c8c;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.detail{
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(128,128,128,0.5);
+    margin-bottom: 50px;
+}
+
+.detail .icon{
+    text-align: center;
+    padding-top: 31px;
+    padding-bottom: 30px;
+}
+.detail h4{
+    text-align: center;
+    font-family: "Open Sans Condensed",Sans-serif;
+    color: #e2534b;
+}
+
+.detail p{
+    color: #7f8c8c;
+    font-size: 14px;
+    text-align: center;
+    font-family: "Roboto",Sans-serif;
+}
+
+.regis{
+    text-align: center;
+    background-color: #e2534b;
+    border-radius: 5px;
+}
+
+.regis a{
+    color: #ffffff;
+}
+.regis:focus, .regis:hover {
+    background-color: rgba(226, 83, 75, 0.82);
+    color: #ffffff;
+}
+
+.benefit .box{
+    margin-bottom: 50px;
+    margin-top: 20px;
+}
+.reward{
+
+}
+
+.border-poin{
+    padding: 0;
+}
+
+.border-poin .poin{
+    font-size: 12px;
+    color: #0a0a0a;
+    padding: 10px;
+    text-align: center;
+}
 
 .news-title{
 	border-bottom:1px solid black;
-	font-size:16px;
+	font-size:18px;
 	font-weight: bold;
 	padding-bottom: 6px;
+    font-family: "Open Sans Condensed",Sans-serif;
 }
 
 .news-desc{
 	padding-top:5px;
 	font-size:14px;
 	padding-top:10px;
+    color: #7f8c8c;
 }
 
 .news-more{
 	bottom:0;
 	right:0;
+    font-size: 14px;
 }
 
 /* Login Regis*/
@@ -188,13 +270,13 @@
     font-family: "Open Sans Condensed",Sans-serif;
     font-weight: 600;
 }
-.news-frame .post-date{
+.post-date{
     font-size: 12px;
     font-family: "Roboto",Sans-serif;
     color: #E00000;
     padding-top: 5px;
 }
-.news-frame .desc{
+.desc{
     color: #79797a;
     font-size: 14px;
     padding-top: 10px;
@@ -202,6 +284,17 @@
 }
 .news-frame a .read-more{
     font-size: 14px;
+}
+
+/*Detail News Page */
+.news-detail .title{
+    text-align: center;
+}
+.news-detail .post-date{
+    font-size: 12px;
+    font-family: "Roboto",Sans-serif;
+    color: #E00000;
+    padding-bottom: 20px;
 }
 
 @media screen and (max-width: 399px){
@@ -234,6 +327,10 @@
 		padding-top:5px;
 		font-size:10px;
 	}
+
+    .news-more{
+        font-size: 12px;
+    }
 
 	/* Promo */
 	.promo-title{
