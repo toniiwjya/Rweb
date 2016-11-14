@@ -2,7 +2,7 @@
 
 
 {% block frontend_center_content %}
-    <form action="" method="post">
+    <form data-abide novalidate action="" method="post">
         <div class="row">
             <div class="small-12 medium-8 medium-offset-2 end column identity-form no-padding">
                 <div class="small-12 column title-form">
@@ -13,7 +13,10 @@
                     <label for="fName" class="middle-label">Full Name :</label>
                 </div>
                 <div class="small-12 medium-8 column">
-                    <input type="text" name="fName" id="fName" placeholder="John">
+                    <input type="text" name="fName" id="fName" placeholder="John Jefferson" required>
+                    <span class="form-error">
+                        *Required
+                    </span>
                 </div>
                 <fieldset>
                     <div class="small-12 medium-4 column text-label no-right-padding">
@@ -28,22 +31,44 @@
                     <label for="email" class="middle-label">Email :</label>
                 </div>
                 <div class="small-12 medium-8 column">
-                    <input type="text" name="email" id="email" placeholder="Email">
+                    <input type="email" name="email" id="email" pattern="email" placeholder="sometext@domain" required>
+                    <span class="form-error">
+                        *Data MissMatch Criteria
+                    </span>
                 </div>
                 <div class="small-12 medium-4 column text-label no-right-padding">
                     <label for="pass" class="middle-label">Password :</label>
                 </div>
                 <div class="small-12 medium-8 column">
-                    <input type="password" name="password" id="pass" placeholder="Password">
+                    <input type="password" name="password" id="pass" placeholder="Minimal 6 Character" required>
+                    <span class="form-error">
+                        *Required
+                    </span>
                 </div>
                 <div class="small-12 medium-4 column text-label no-right-padding">
                     <label for="re-pass" class="middle-label">Retype Password :</label>
                 </div>
                 <div class="small-12 medium-8 column">
-                    <input type="password" id="re-pass" placeholder="Retype-Password">
+                    <input type="password" id="re-pass" placeholder="Retype-Password"  data-equalto="pass" required>
+                    <span class="form-error">
+                        *Password not match
+                    </span>
+                </div>
+                <div data-abide-error class="small-12 column error-msg" style="display:none;">
+                    Please check your input.
+                </div>
+                <div class="small-12 column error-msg">
+                    {% if error_message is iterable %}
+                        {% for error in error_message %}
+                            {{ error.get_message() }}
+                                {{ loop.index > 0 ? '<br>' : '' }}
+                            {% endfor %}
+                        {% else %}
+                            {{ error_message }}
+                    {% endif %}
                 </div>
                 <div class="small-6 column text-right">
-                    <button type="button" class="button small">Reset</button>
+                    <input type="reset" class="button small" id="reset">
                 </div>
                 <div class="small-6 column">
                     <input type="submit" class="button small" value="Register">
@@ -52,4 +77,12 @@
             </div>
         </div>
     </form>
+{% endblock %}
+
+{% block frontend_js %}
+   <script>
+        $('#reset').click(function(){
+            $('#fName').focus();
+        });
+   </script>
 {% endblock %}
