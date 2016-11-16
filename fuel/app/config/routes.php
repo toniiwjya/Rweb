@@ -10,5 +10,7 @@ return array(
 	'login'			=> 'users/frontend/login',
 	'register' 		=> 'users/frontend/register',
 	'promo'			=> 'promo',
+    'task'          => 'promo/task',
 	'reward'		=> 'reward',
+    'reedem'        => 'reward/reedem'
 );

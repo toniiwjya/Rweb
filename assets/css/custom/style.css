@@ -118,24 +118,53 @@
 }
 
 .benefit .box{
-    margin-bottom: 50px;
-    margin-top: 20px;
-}
-.reward{
-
+    margin-bottom: 20px;
 }
 
-.border-poin{
-    padding: 0;
+.reward {
+    position: relative;
+    width: 100%;
+    padding-bottom: 95%;
+    overflow: hidden;
 }
 
-.border-poin .poin{
-    font-size: 12px;
-    color: #0a0a0a;
-    padding: 10px;
+.reward .img {
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.reward .img img{
+    width: 100%;
+}
+
+.reward .poin {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    height: 70px;
+    width: 70px;
+    padding-top: 23px;
+    padding-left: 10px;
+    background: #f56743;
+    color: #fff;
+    border-radius: 33px;
+    font-size: 16px;
+    z-index: 10;
+    font-family: "Roboto",Sans-serif;
+}
+
+.reward .poin span img{
+    width: 20px;
+    padding-bottom: 5px;
+}
+
+.button-more{
     text-align: center;
 }
-
+.button-more .button{
+    border-radius: 50px;
+}
 .news-title{
 	border-bottom:1px solid black;
 	font-size:18px;
@@ -226,6 +255,7 @@
 	width:100%;
 }
 
+
 /* Slider */
 .bx-wrapper .bx-pager, .bx-wrapper .bx-controls-auto{
 	bottom:10px;
@@ -237,6 +267,10 @@
 
 .bx-wrapper{
 	margin-bottom:0px;
+}
+
+.bx-wrapper .bx-viewport ul.bxslider{
+    left: -20px;
 }
 
 /*News Page*/
@@ -297,12 +331,72 @@
     padding-bottom: 20px;
 }
 
+/*Reward*/
+.brand-reward{
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+.poin-reward{
+    font-size: 16px;
+    font-family: "Roboto",Sans-serif;
+    color: #000000;
+    font-weight: 600;
+    padding: 5px;
+    text-align: right;
+}
+.poin-reward img{
+    padding-bottom: 5px;
+}
+.brand-reward a{
+    color: #ffffff;
+}
+.button-reedem{
+    background: #f56743;
+    padding: 5px;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Roboto",Sans-serif;
+}
+.img-reward{
+    margin-bottom: 10px;
+}
+.img-reward img{
+    width: 100%;
+}
+.box{
+    margin-bottom: 20px;
+}
+
+
 @media screen and (max-width: 399px){
 	.news-desc{
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		overflow: hidden;
 	}
+}
+
+@media screen and (max-width: 999px) {
+    .reward .poin {
+        height: 60px;
+    width: 60px;
+    padding-left: 5px;
+    font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 699px) {
+    .reward .poin {
+top: 5px;
+    right: 5px;
+       height: 50px;
+    width: 50px;
+    padding-top: 15px;
+    padding-left: 3px;
+    font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 639px){

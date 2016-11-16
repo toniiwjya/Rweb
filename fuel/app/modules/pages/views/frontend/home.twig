@@ -1,7 +1,7 @@
 {% extends "pages/views/template_frontend.twig" %}
 
 {% block frontend_full_content %}
-    <ul class="bxslider" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <ul class="bxslider">
 	  <li><img src="{{ base_url() }}assets/css/images/slide-home.jpg" /></li>
 	  <li><img src="{{ base_url() }}assets/css/images/slide-home.jpg" /></li>
 	</ul>
@@ -38,37 +38,48 @@
             Every point you earn can lead to something wonderful. You can get so many items with your point !
             Check your Reward Points balance today and explore our collection of redemption options.
         </div>
-        <div class="small-12 columns box">
-            <div class="medium-up-4 small-up-2 column" data-equalizer="benefit">
-                <div class="column" data-equalizer-watch="benefit">
-                    <div class="reward"><img src="{{ base_url() }}assets/css/images/reward.jpg"></div>
-                    <div class="small-8 columns"><a href="{{ base_url() }}reward">Reedem</a></div>
-                    <div class="small-4 columns border-poin">
-                        <div class="poin">100 points</div>
-                    </div>
+        <div class="small-12 columns">
+            <div class="medium-12 small-12 columns" data-equalizer="benefit" style="margin-top: 50px;margin-bottom: 20px;">
+                <div class="small-12 medium-4 box columns" data-equalizer-watch="benefit">
+                    <a href="{{ base_url() }}reward">
+                        <div class="reward">
+                            <div class="img">
+                                <img src="{{ base_url() }}assets/css/images/reward.jpg">
+                            </div>
+                            <div class="poin">
+                                <span>100 <img src="{{ base_url() }}assets/css/images/coin.png"></span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="column" data-equalizer-watch="benefit">
-                    <div class="reward"><img src="{{ base_url() }}assets/css/images/reward.jpg"></div>
-                    <div class="small-8 columns"><a href="{{ base_url() }}reward">Reedem</a></div>
-                    <div class="small-4 columns border-poin">
-                        <div class="poin">100 points</div>
-                    </div>
+                <div class="small-12 medium-4 box columns" data-equalizer-watch="benefit">
+                    <a href="{{ base_url() }}reward">
+                        <div class="reward">
+                            <div class="img">
+                                <img src="{{ base_url() }}assets/css/images/reward.jpg">
+                            </div>
+                            <div class="poin">
+                                <span>100 <img src="{{ base_url() }}assets/css/images/coin.png"></span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
-                <div class="column" data-equalizer-watch="benefit">
-                    <div class="reward"><img src="{{ base_url() }}assets/css/images/reward.jpg"></div>
-                    <div class="small-8 columns"><a href="{{ base_url() }}reward">Reedem</a></div>
-                    <div class="small-4 columns border-poin">
-                        <div class="poin">100 points</div>
-                    </div>
-                </div>
-                <div class="column" data-equalizer-watch="benefit">
-                    <div class="reward"><img src="{{ base_url() }}assets/css/images/reward.jpg"></div>
-                    <div class="small-8 columns"><a href="{{ base_url() }}reward">Reedem</a></div>
-                    <div class="small-4 columns border-poin">
-                        <div class="poin">100 points</div>
-                    </div>
+                <div class="small-12 medium-4 box columns" data-equalizer-watch="benefit">
+                    <a href="{{ base_url() }}reward">
+                        <div class="reward">
+                            <div class="img">
+                                <img src="{{ base_url() }}assets/css/images/reward.jpg">
+                            </div>
+                            <div class="poin">
+                                <span>100 <img src="{{ base_url() }}assets/css/images/coin.png"></span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
                 <div style="clear:both;"></div>
+            </div>
+            <div class="medium-12 small-12 columns button-more">
+                <a href="{{ base_url() }}reward"><div class="button">View more Reward</div></a>
             </div>
         </div>
     </div>
@@ -85,10 +96,10 @@
 		<div class="row" data-equalizer="news">
 			<div class="small-12 columns content">
 				<a href="{{ base_url() }}news_detail">
-					<div class="small-4 columns no-right-padding img" data-equalizer-watch="news">
+					<div class="small-12 medium-4 columns no-right-padding img" data-equalizer-watch="news">
 						<img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
 					</div>
-					<div class="small-8 columns pos-rel" data-equalizer-watch="news">
+					<div class="small-12 medium-8 columns pos-rel" data-equalizer-watch="news">
 						<div class="small-12 columns news-title no-left-padding">
 							Lorem Ipsum Title
 						</div>
@@ -104,10 +115,10 @@
 			</div>
 			<div class="small-12 columns">
 				<a href="{{ base_url() }}news_detail">
-					<div class="small-4 columns no-right-padding img" data-equalizer-watch="news">
+					<div class="small-12 medium-4 columns no-right-padding img" data-equalizer-watch="news">
 						<img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
 					</div>
-					<div class="small-8 columns pos-rel" data-equalizer-watch="news">
+					<div class="small-12 medium-8 columns pos-rel" data-equalizer-watch="news">
 						<div class="small-12 columns news-title no-left-padding">
 							Lorem Ipsum Title
 						</div>
