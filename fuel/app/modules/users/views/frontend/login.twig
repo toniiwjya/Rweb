@@ -13,13 +13,22 @@
                     <label for="email" class="middle-label">Email :</label>
                 </div>
                 <div class="small-12 medium-8 column no-left-padding">
-                    <input type="text" id="email" placeholder="Your email">
+                    <input type="email" name="email" id="email" pattern="email" placeholder="Your email" required>
+                    <span class="form-error">
+                        *Input Your Email
+                    </span>
                 </div>
                 <div class="small-12 medium-4 column text-label">
                     <label for="pass" class="middle-label">Password :</label>
                 </div>
                 <div class="small-12 medium-8 column no-left-padding">
-                    <input type="password" id="pass" placeholder="Password">
+                    <input type="password" name="password" id="pass" placeholder="Password" required>
+                    <span class="form-error">
+                        *Required
+                    </span>
+                </div>
+                <div class="small-12 column error-msg">
+                    {{ login_message }}                
                 </div>
                 <div class="small-6 column text-right">
                     <a href="register"><button type="button" class="button small">Register</button></a>
@@ -27,6 +36,15 @@
                 <div class="small-6 column">
                     <input type="submit" class="button small" value="Login">
                 </div>
+                <div class="small-12 column">
+                    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
+                </div>
+                <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
                 <div style="clear:both"></div>
             </div>
         </div>

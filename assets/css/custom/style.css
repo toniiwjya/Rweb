@@ -5,6 +5,15 @@
 	color:white;
 }
 
+.top-bar-right{
+	padding-top:12px;
+}
+
+.title-bar-title{
+	font-size:14px;
+	padding-left: 5px;
+}
+
 .off-canvas, .off-canvas-wrapper{
 	background-color: black;
 }
@@ -128,9 +137,6 @@
 .benefit .box{
     margin-bottom: 50px;
     margin-top: 20px;
-}
-.reward{
-
 }
 
 .border-poin{
@@ -316,6 +322,9 @@
 @media screen and (max-width: 639px){
 	body{
 		font-size:10px;
+	}
+	.vertical a{
+	font-size:14px;
 	}
 
 	.menu-title{

@@ -20,8 +20,12 @@ class Controller_Frontend_Register extends \Controller_Frontend
                 $this->_data_template['error_message'] = $_err;
                 return;
             }
+            if(Model_Members::check_regis($_post_data['email'])){
+                $this->_data_template['error_message'] = 'Email has been used to register';
+                return;
+            }
             try{
-                $member = Model_Register::fill($_post_data);
+                Model_Register::fill($_post_data);
                 \Response::redirect(\Uri::base().'login');  
             }
             catch (\Exception $e){
