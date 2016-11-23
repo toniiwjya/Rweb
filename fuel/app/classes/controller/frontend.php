@@ -3,7 +3,11 @@
 class Controller_Frontend extends Controller
 {
 	protected $_is_login = FALSE;
-	
+
+    public function before(){
+        session_start();
+    }
+
 	private function _check_login_session() {
         $_member_id = \Session::get('member_id');
         if (!empty($_member_id)) {

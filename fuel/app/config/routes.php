@@ -8,6 +8,7 @@ return array(
 	'news'			=> 'pages/frontend/home/news',
 	'news_detail'	=> 'pages/frontend/home/news_detail',
 	'login'			=> 'users/frontend/login',
+	'fb/login'		=> 'users/frontend/login/fb',
 	'register' 		=> 'users/frontend/register',
 	'promo'			=> 'promo',
     'task'          => 'promo/task',

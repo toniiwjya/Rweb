@@ -1,13 +1,14 @@
 <?php
 namespace Users;
 
-class Controller_Frontend_Login extends \Controller
+class Controller_Frontend_Login extends \Controller_Frontend
 {
     public function action_index(){
+        $this->_data_template['fb_login'] = Model_Login::get_fb_url();
     	if(empty($this->_data_template)){
             $this->_data_template=[];
         }
-    	$this->_do_login();
+        $this->_do_login();
     	return \Response::forge(\View::forge('users::frontend/login.twig',$this->_data_template,FALSE));
     }
 
@@ -21,4 +22,9 @@ class Controller_Frontend_Login extends \Controller
     		}
     	}
     }
+
+    public static function action_fb(){
+         Model_login::login_fb();
+    }
+
  }

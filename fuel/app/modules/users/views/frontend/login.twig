@@ -2,7 +2,7 @@
 
 
 {% block frontend_center_content %}
-    <form data-abide novalidate action="" method="post">
+    <form action="" method="post">
         <div class="row">
             <div class="small-12 medium-8 medium-offset-2 end column identity-form no-padding">
                 <div class="small-12 column title-form">
@@ -30,21 +30,11 @@
                 <div class="small-12 column error-msg">
                     {{ login_message }}                
                 </div>
-                <div class="small-6 column text-right">
+                <div class="small-12 column text-center">
                     <a href="register"><button type="button" class="button small">Register</button></a>
+                    <input type="submit" class="button small" name="login" value="Login">
+                    <a href="{{ fb_login }}"><button type="button" class="button small">Login with FB</button></a>
                 </div>
-                <div class="small-6 column">
-                    <input type="submit" class="button small" value="Login">
-                </div>
-                <div class="small-12 column">
-                    <div class="fb-login-button" data-max-rows="1" data-size="medium" data-show-faces="false" data-auto-logout-link="false"></div>
-                </div>
-                <div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
-</div>
                 <div style="clear:both"></div>
             </div>
         </div>
