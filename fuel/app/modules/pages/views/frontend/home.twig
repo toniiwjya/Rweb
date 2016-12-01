@@ -40,42 +40,20 @@
         </div>
         <div class="small-12 columns">
             <div class="medium-12 small-12 columns" data-equalizer="benefit" style="margin-top: 50px;margin-bottom: 20px;">
+                {% for list in list_reward %}
                 <div class="small-12 medium-4 box columns" data-equalizer-watch="benefit">
-                    <a href="{{ base_url() }}reward">
+                    <a href="{{ base_url() }}reward/{{list.id}}">
                         <div class="reward">
                             <div class="img">
                                 <img src="{{ base_url() }}assets/css/images/reward.jpg">
                             </div>
                             <div class="poin">
-                                <span>100 <img src="{{ base_url() }}assets/css/images/coin.png"></span>
+                                <span>{{ list.point }} <img src="{{ base_url() }}assets/css/images/coin.png"></span>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="small-12 medium-4 box columns" data-equalizer-watch="benefit">
-                    <a href="{{ base_url() }}reward">
-                        <div class="reward">
-                            <div class="img">
-                                <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                            </div>
-                            <div class="poin">
-                                <span>100 <img src="{{ base_url() }}assets/css/images/coin.png"></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="small-12 medium-4 box columns" data-equalizer-watch="benefit">
-                    <a href="{{ base_url() }}reward">
-                        <div class="reward">
-                            <div class="img">
-                                <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                            </div>
-                            <div class="poin">
-                                <span>100 <img src="{{ base_url() }}assets/css/images/coin.png"></span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                {% endfor %}
                 <div style="clear:both;"></div>
             </div>
             <div class="medium-12 small-12 columns button-more">
@@ -94,17 +72,18 @@
 			<hr>
 		</div>
 		<div class="row" data-equalizer="news">
+            {% for news in list_news %}
 			<div class="small-12 columns content">
-				<a href="{{ base_url() }}news_detail">
+				<a href="{{ base_url() }}news_detail/{{ news.id }}">
 					<div class="small-12 medium-4 columns no-right-padding img" data-equalizer-watch="news">
 						<img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
 					</div>
 					<div class="small-12 medium-8 columns pos-rel" data-equalizer-watch="news">
 						<div class="small-12 columns news-title no-left-padding">
-							Lorem Ipsum Title
+							{{ news.title }}
 						</div>
 						<div class="small-12 columns news-desc">
-							Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet
+							{{ news.description|length > 250 ? news.description|slice(0,250) ~ '...' : news.description }}
 						</div>
 						<div class="news-more pos-abs">
                             <img src="{{ base_url() }}assets/css/images/right.png"> Read more
@@ -113,25 +92,7 @@
 					</div>
 				</a>
 			</div>
-			<div class="small-12 columns">
-				<a href="{{ base_url() }}news_detail">
-					<div class="small-12 medium-4 columns no-right-padding img" data-equalizer-watch="news">
-						<img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
-					</div>
-					<div class="small-12 medium-8 columns pos-rel" data-equalizer-watch="news">
-						<div class="small-12 columns news-title no-left-padding">
-							Lorem Ipsum Title
-						</div>
-						<div class="small-12 columns news-desc">
-							Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet
-						</div>
-						<div class="news-more pos-abs">
-                            <img src="{{ base_url() }}assets/css/images/right.png"> Read more
-						</div>
-						<div style="clear: both;"></div>
-					</div>
-				</a>
-			</div>		
+            {% endfor %}
 		</div>
 
 	</div>
