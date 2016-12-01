@@ -6,16 +6,22 @@ class Controller_Frontend extends Controller
 
     public function before(){
         session_start();
+        $this->_check_login_session();
+        $this->_data_template['is_login'] = $this->_is_login;
+        $this->_data_template['member'] = $this->_member;
     }
 
 	private function _check_login_session() {
-        $_member_id = \Session::get('member_id');
-        if (!empty($_member_id)) {
-            $member = Userregistration\Model_Members::query()->where('id', $_member_id)->where('status', 1)->get_one();
+        $user_id = \Session::get('user_id');
+        if (!empty($user_id)) {
+            $member = Users\Model_Members::query()->where('id', $user_id)->get_one();
+
             if (!empty($member)) {
                 $this->_is_login = TRUE;
                 $this->_member = $member;
             }
+        }else{
+            $this->_member='';
         }
     }
        

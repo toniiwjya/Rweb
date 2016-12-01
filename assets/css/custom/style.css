@@ -235,6 +235,13 @@
 	padding:6px 0;
 }
 
+.success-msg{
+    font-size:14px;
+    color:green;
+    padding-bottom: 15px;
+    text-align: center;
+}
+
 /*Promo*/
 
 .black-hover{

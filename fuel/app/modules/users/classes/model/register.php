@@ -16,8 +16,6 @@ class Model_Register extends \Model {
 			'email' => $post_data['email'],
 			'gender' => $post_data['gender'],
 			'role_id' => '2',
-			'address' => '-',
-			'phone' => '-',
 			'password' => password_hash($post_data['password'],PASSWORD_DEFAULT),
 		));
 		$member->save();
