@@ -64,12 +64,25 @@
 
       </div>
 
+      
       <div class="top-bar-right">
-        <ul class="menu">
+        <ul class="dropdown menu" data-dropdown-menu>
+          {% if is_login == FALSE  %}
           <li><a href="login">Login / Register</a></li>
+          {% endif %}
+          {% if is_login == TRUE %}
+          <li>
+            <a href="#">Hello, {{ member.fName }}</a>
+            <ul class="menu">
+              <li><a href="profile">Edit Profile</a></li>
+              <li><a href="logout">Logout</a></li>
+            </ul>
+          </li>
+          {% endif %}
         </ul>
       </div>
 
+      
     </div>
 
 

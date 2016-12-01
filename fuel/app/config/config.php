@@ -287,7 +287,10 @@ return array(
 		 * A path must be set in module_paths for this to work.
 		 */
 		 'modules'  => array(
-		 	'pages'
+		 	'pages',
+		 	'promo',
+		 	'users',
+		 	'reward',
 		 ),
 
 		/**

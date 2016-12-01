@@ -2,13 +2,16 @@
 
 
 {% block frontend_center_content %}
-    <form action="" method="post">
+    <form data-abide novalidate action="" method="post">
         <div class="row">
             <div class="small-12 medium-8 medium-offset-2 end column identity-form no-padding">
                 <div class="small-12 column title-form">
                     Login
                 </div>
                 <hr>
+                <div class="small-12 column success-msg">
+                    {{ success_regis }}
+                </div>
                 <div class="small-12 medium-4 column text-label">
                     <label for="email" class="middle-label">Email :</label>
                 </div>

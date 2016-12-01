@@ -7,6 +7,7 @@ return array(
 	'home'  		=> 'pages/frontend/home',
 	'news'			=> 'pages/frontend/home/news',
 	'news_detail'	=> 'pages/frontend/home/news_detail',
+	'logout'		=> 'pages/frontend/home/logout',
 	'login'			=> 'users/frontend/login',
 	'fb/login'		=> 'users/frontend/login/fb',
 	'register' 		=> 'users/frontend/register',
