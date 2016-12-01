@@ -25,26 +25,40 @@
 .title-bar-right>button{
 	top:12px;
 }
-
+.menu li>a{
+    color: #ffffff;
+}
+.top-bar-left .menu .logo >a:hover{
+    border: none;
+}
+.top-bar-left .menu li>a:hover, .top-bar-left .menu li> a.active{
+    border: 1px solid #ffffff;
+    border-radius: 50px;
+}
 .content{
 	margin-bottom: 10px;
 }
 
 .footer{
-	background-color:#ffffff;
-    border-top: 1px solid;
-    border-top-color: #e9e9e9;
+	background-color:#000000;
     padding: 10px;
 }
 
 .footer ul{
     display: inline-block;
+    margin-left: 0;
     list-style-type: none;
 }
 
 .footer ul > li{
     display: inline-block;
     padding: 5px;
+}
+
+.text-center p{
+    color: #ffffff;
+    font-size: 14px;
+    font-family: "Roboto",Sans-serif;
 }
 
 .pos-rel{
@@ -316,8 +330,8 @@
 
 /*News Page*/
 .news-page{
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 .news-page .detail-newspage .title{
@@ -354,6 +368,10 @@
     list-style-type: none;
     display: inline-block;
     margin-bottom: 0;
+    border-bottom: 1px solid #e9e9e9;
+    border-top: 1px solid #e9e9e9;
+    margin-left: 0;
+    width: 100%;
 }
 
 .share ul>li{
@@ -362,6 +380,74 @@
 }
 .share ul>li span{
     font-family: "Roboto",Sans-serif;
+}
+
+/*News Detail Page*/
+.news-detail .title-newsdetail > h3{
+    font-family: "Roboto",Sans-serif;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+.title-newsdetail{
+    text-align: center;
+}
+.title-newsdetail .date{
+    font-size: 12px;
+    font-family: "Roboto",Sans-serif;
+    color: red;
+}
+
+.news-detail .desc{
+    font-family: "Open Sans",Sans-serif;
+    font-size: 14px;
+    text-align: justify;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+.news-detail .desc .share{
+    list-style-type: none;
+    display: inline-block;
+    margin-bottom: 0;
+    margin-left: 0;
+    width: 100%;
+}
+
+.news-detail .desc .share>li{
+    display: inline-block;
+    padding: 5px;
+}
+.news-detail .desc .share>li span{
+    font-family: "Roboto",Sans-serif;
+}
+
+.share-detail{
+    padding: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.share-detail .btn > p{
+    font-size: 16px;
+    font-family: "Open Sans",Sans-serif;
+    margin-bottom: 20px;
+}
+
+.share-detail .btn >ul {
+    display: inline-block;
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.share-detail .btn ul > li{
+    text-align: center;
+    padding: 10px;
+    padding-bottom: 0;
+    display: inline-block;
+    padding-top: 0;
 }
 
 /*Reward*/
