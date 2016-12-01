@@ -1,71 +1,134 @@
 {% extends "pages/views/template_frontend.twig" %}
 
 {% block frontend_full_content %}
-    <ul class="news-slide">
-        <li><img src="{{ base_url() }}assets/css/images/slide-example.jpg" /></li>
-        <li><img src="{{ base_url() }}assets/css/images/slide-example.jpg" /></li>
-        <li><img src="{{ base_url() }}assets/css/images/slide-example.jpg" /></li>
-    </ul>
+    <img src="{{ base_url() }}assets/css/images/news.jpg" />
 {% endblock %}
 {% block frontend_center_content %}
-<div class="title-head">
-    <h1>News</h1>
-</div>
-    <div class="detail">
-        <div class="row" data-equalizer="news">
-            <div class="small-12 columns news-frame">
-                <div class="medium-4 small-12 columns news-img" data-equalizer-watch="news">
-                    <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
-                </div>
-                <div class="medium-8 small-12 columns" data-equalizer-watch="news">
-                    <span class="title"><h3>News Title</h3></span>
-                    <span class="post-date">Posted on 09 November 2016</span>
-                    <div class="desc">
-                        Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet
-                    </div>
-                    <a href="{{ base_url() }}news_detail">
-                        <div class="read-more"><img src="{{ base_url() }}assets/css/images/right.png"> Read more</div>
-                    </a>
-                </div>
+    <div class="small-12 columns news-page">
+        <div class="small-1 columns">
+            <div class="post-date">
+                <span class="date">30</span><br>
+                Nov 2016
             </div>
-            <div class="small-12 columns news-frame">
-                <div class="medium-4 small-12 columns news-img" data-equalizer-watch="news">
-                    <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
-                </div>
-                <div class="medium-8 small-12 columns" data-equalizer-watch="news">
-                    <span class="title"><h3>News Title</h3></span>
-                    <span class="post-date">Posted on 09 November 2016</span>
-                    <div class="desc">
-                        Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet
-                    </div>
-                    <a href="{{ base_url() }}news_detail">
-                        <div class="read-more"><img src="{{ base_url() }}assets/css/images/right.png"> Read more</div>
-                    </a>
-                </div>
+        </div>
+        <div class="small-11 columns detail-newspage">
+            <div class="small-12 columns title no-padding">
+                News Title
             </div>
-            <div class="small-12 columns news-frame">
-                <div class="medium-4 small-12 columns news-img" data-equalizer-watch="news">
-                    <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
+            <div class="small-12 columns news-headline no-padding" data-equalizer="news">
+                <div class="small-4 columns no-padding" data-equalizer-watch="news">
+                    <img src="{{ base_url() }}assets/css/images/news-thumb.jpg">
                 </div>
-                <div class="medium-8 small-12 columns" data-equalizer-watch="news">
-                    <span class="title"><h3>News Title</h3></span>
-                    <span class="post-date">Posted on 09 November 2016</span>
-                    <div class="desc">
-                        Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet Lorem Ipsum sit dolor amet
+                <div class="small-8 columns pos-rel no-right-padding" data-equalizer-watch="news">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br>
+                    <a href="{{ base_url() }}news_detail">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a>
+                    <div class="small-12 columns pos-abs share">
+                        <ul>
+                            <li><span>Share</span></li>
+                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
+                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
+                        </ul>
                     </div>
-                    <a href="{{ base_url() }}news_detail">
-                        <div class="read-more"><img src="{{ base_url() }}assets/css/images/right.png"> Read more</div>
-                    </a>
                 </div>
             </div>
         </div>
     </div>
-{% endblock %}
-{% block frontend_js %}
-    <script src="{{ base_url() }}assets/js/jquery.bxslider.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.news-slide').bxSlider();
-        });
-    </script>
+
+    <div class="small-12 columns news-page">
+        <div class="small-1 columns">
+            <div class="post-date">
+                <span class="date">30</span><br>
+                Nov 2016
+            </div>
+        </div>
+        <div class="small-11 columns detail-newspage">
+            <div class="small-12 columns title no-padding">
+                News Title
+            </div>
+            <div class="small-12 columns news-headline no-padding" data-equalizer="news">
+                <div class="small-4 columns no-padding" data-equalizer-watch="news">
+                    <img src="{{ base_url() }}assets/css/images/news-thumb.jpg">
+                </div>
+                <div class="small-8 columns pos-rel no-right-padding" data-equalizer-watch="news">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br>
+                    <a href="{{ base_url() }}news_detail">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a>
+                    <div class="small-12 columns pos-abs share">
+                        <ul>
+                            <li><span>Share</span></li>
+                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
+                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="small-12 columns news-page">
+        <div class="small-1 columns">
+            <div class="post-date">
+                <span class="date">30</span><br>
+                Nov 2016
+            </div>
+        </div>
+        <div class="small-11 columns detail-newspage">
+            <div class="small-12 columns title no-padding">
+                News Title
+            </div>
+            <div class="small-12 columns news-headline no-padding" data-equalizer="news">
+                <div class="small-4 columns no-padding" data-equalizer-watch="news">
+                    <img src="{{ base_url() }}assets/css/images/news-thumb.jpg">
+                </div>
+                <div class="small-8 columns pos-rel no-right-padding" data-equalizer-watch="news">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br>
+                    <a href="{{ base_url() }}news_detail">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a>
+                    <div class="small-12 columns pos-abs share">
+                        <ul>
+                            <li><span>Share</span></li>
+                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
+                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="small-12 columns news-page">
+        <div class="small-1 columns">
+            <div class="post-date">
+                <span class="date">30</span><br>
+                Nov 2016
+            </div>
+        </div>
+        <div class="small-11 columns detail-newspage">
+            <div class="small-12 columns title no-padding">
+                News Title
+            </div>
+            <div class="small-12 columns news-headline no-padding" data-equalizer="news">
+                <div class="small-4 columns no-padding" data-equalizer-watch="news">
+                    <img src="{{ base_url() }}assets/css/images/news-thumb.jpg">
+                </div>
+                <div class="small-8 columns pos-rel no-right-padding" data-equalizer-watch="news">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br>
+                    <a href="{{ base_url() }}news_detail">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a>
+                    <div class="small-12 columns pos-abs share">
+                        <ul>
+                            <li><span>Share</span></li>
+                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
+                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

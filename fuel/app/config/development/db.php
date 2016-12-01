@@ -6,7 +6,7 @@
 return array(
 	'default' => array(
 		'connection'  => array(
-			'dsn'        => 'mysql:host=localhost;dbname=rweb',
+			'dsn'        => 'mysql:host=localhost;dbname=reward',
 			'username'   => 'root',
 			'password'   => '',
 		),
