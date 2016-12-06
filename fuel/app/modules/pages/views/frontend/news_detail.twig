@@ -1,10 +1,11 @@
 {% extends "pages/views/template_frontend.twig" %}
 
 {% block frontend_center_content %}
-	<div class="news-detail">
+    <div class="columns news-detail">
+	<div class="small-12 medium-10 medium-centered columns">
 		<div class="small-12 title-newsdetail">
             <h3>News Title</h3>
-            <span class="date">Posted on 30 November 2016</span>
+            <p class="date">Posted on 30 November 2016</p>
 			<img src="{{ base_url() }}assets/css/images/slide-example.jpg">
 		</div>
 		<div class="small-12 desc">
@@ -39,4 +40,5 @@
             </div>
         </div>
 	</div>
+    </div>
 {% endblock %}

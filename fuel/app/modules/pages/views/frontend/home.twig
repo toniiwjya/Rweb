@@ -1,6 +1,6 @@
 {% extends "pages/views/template_frontend.twig" %}
 
-{% block frontend_full_content %}
+{% block frontend_banner %}
     <ul class="bxslider">
 	  <li><img src="{{ base_url() }}assets/css/images/slide-home.jpg" /></li>
 	  <li><img src="{{ base_url() }}assets/css/images/slide-home.jpg" /></li>
@@ -8,7 +8,8 @@
 {% endblock %}
 
 {% block frontend_center_content %}
-    <div class="small-12 columns">
+    <div class="column head">
+        <div class="small-10 small-centered columns">
         <div class="headline">
             <h2>Register - Earn Point - Reedem - Repeat</h2>
         </div>
@@ -30,7 +31,28 @@
         </div>
         <div style="clear:both;"></div>
     </div>
-    <div class="small-12 columns benefit">
+    </div>
+
+    <div class="column middle-home">
+        <div class="small-9 small-centered columns">
+        <div class="small-6 columns middle-left">
+            <div class="icon"><img src="{{ base_url() }}assets/css/images/chat.png"></div>
+            <div class="desc-info">
+                <h3>Share daily promo and earn<br/>your point</h3>
+                <p>To get more point, you can share daily promo in your social media or watching video in this promo. </p>
+            </div>
+            <div class="btn-join">
+                <a href=""><h5>Start earning now...</h5></a>
+            </div>
+        </div>
+        <small class="small-6 columns">
+            <img src="{{ base_url() }}assets/css/images/people.png">
+        </small>
+    </div>
+    </div>
+
+    <div class="column benefit-home">
+    <div class="small-10 small-centered columns">
         <div class="headline">
             <h2>BENEFIT OF REWARDS</h2>
         </div>
@@ -45,7 +67,7 @@
                     <a href="{{ base_url() }}reward/{{list.id}}">
                         <div class="reward">
                             <div class="img">
-                                <img src="{{ base_url() }}assets/css/images/reward.jpg">
+                                <img src="{{ base_url() }}assets/css/images/reward-example.jpg">
                             </div>
                             <div class="poin">
                                 <span>{{ list.point }} <img src="{{ base_url() }}assets/css/images/coin.png"></span>
@@ -61,24 +83,22 @@
             </div>
         </div>
     </div>
-	<div class="small-12 columns news">
-		<div class="menu-title">
-			<div class="small-9 column">
-				News
-			</div>
-			<div class="small-3 column text-right no-padding">
-				<a href="#">See More</a>
-			</div>
-			<hr>
+    </div>
+
+    <div class="column news-home">
+	<div class="small-10 small-centered columns">
+		<div class="small-12 columns menu-title">
+            <h3>NEWS</h3>
 		</div>
-		<div class="row" data-equalizer="news">
+		<div class="small-12 columns" data-equalizer="news">
             {% for news in list_news %}
-			<div class="small-12 columns content">
-				<a href="{{ base_url() }}news_detail/{{ news.id }}">
-					<div class="small-12 medium-4 columns no-right-padding img" data-equalizer-watch="news">
-						<img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
+			<div class="small-12 columns content no-padding">
+					<div class="small-12 medium-3 columns no-padding img" data-equalizer-watch="news">
+                        <a href="{{ base_url() }}news_detail/{{ news.id }}">
+                            <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
+                        </a>
 					</div>
-					<div class="small-12 medium-8 columns pos-rel" data-equalizer-watch="news">
+					<div class="small-12 medium-9 columns pos-rel" data-equalizer-watch="news">
 						<div class="small-12 columns news-title no-left-padding">
 							{{ news.title }}
 						</div>
@@ -86,16 +106,17 @@
 							{{ news.description|length > 250 ? news.description|slice(0,250) ~ '...' : news.description }}
 						</div>
 						<div class="news-more pos-abs">
-                            <img src="{{ base_url() }}assets/css/images/right.png"> Read more
+                            <a href="{{ base_url() }}news_detail/{{ news.id }}">
+                            <img src="{{ base_url() }}assets/css/images/right.png"> Read more</a>
                         </div>
 						<div style="clear: both;"></div>
 					</div>
-				</a>
 			</div>
             {% endfor %}
 		</div>
 
 	</div>
+    </div>
 {% endblock %}
 
 {% block frontend_js %}
@@ -103,6 +124,6 @@
 	<script>
 		$(document).ready(function(){
 		  $('.bxslider').bxSlider();
-		});
+        });
 	</script>
 {% endblock %}
