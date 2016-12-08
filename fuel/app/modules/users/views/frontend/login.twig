@@ -3,10 +3,10 @@
 
 {% block frontend_center_content %}
     <form data-abide novalidate action="" method="post">
-        <div class="row">
-            <div class="small-12 medium-8 medium-offset-2 end column identity-form no-padding">
+        <div class="column login">
+            <div class="small-12 medium-6 medium-centered column identity-form no-padding">
                 <div class="small-12 column title-form">
-                    Login
+                    <img src="{{ base_url() }}assets/css/images/customer-icon.png" style="width: 20px;"> User Login
                 </div>
                 <hr>
                 <div class="small-12 column success-msg">
@@ -36,7 +36,7 @@
                 <div class="small-12 column text-center">
                     <a href="register"><button type="button" class="button small">Register</button></a>
                     <input type="submit" class="button small" name="login" value="Login">
-                    <a href="{{ fb_login }}"><button type="button" class="button small">Login with FB</button></a>
+                    <a href="{{ fb_login }}"><button type="button" class="button small">Login with Facebook</button></a>
                 </div>
                 <div style="clear:both"></div>
             </div>

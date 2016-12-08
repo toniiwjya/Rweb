@@ -1,70 +1,38 @@
 {% extends "pages/views/template_frontend.twig" %}
 
-{% block frontend_full_content %}
-    <img src="{{ base_url() }}assets/css/images/news.jpg" />
+{% block frontend_banner %}
+    <img src="{{ base_url() }}assets/css/images/news-banner.jpg" style="width: 100%;" />
 {% endblock %}
 {% block frontend_center_content %}
-    <div class="small-12 columns news-page">
-        <div class="small-1 columns">
-            <div class="post-date">
-                <span class="date">30</span><br>
-                Nov 2016
-            </div>
-        </div>
-        <div class="small-11 columns detail-newspage">
+    <div class="column news-page">
+    <div class="small-12 medium-10 medium-centered columns">
+        <div class="medium-12 small-12 columns detail-newspage">
             <div class="small-12 columns title no-padding">
                 News Title
             </div>
             <div class="small-12 columns news-headline no-padding" data-equalizer="news">
-                <div class="small-4 columns no-padding" data-equalizer-watch="news">
+                <div class="medium-4 small-12 columns no-padding" data-equalizer-watch="news">
                     <img src="{{ base_url() }}assets/css/images/news-thumb.jpg">
                 </div>
-                <div class="small-8 columns pos-rel no-right-padding" data-equalizer-watch="news">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br>
-                    <a href="{{ base_url() }}news_detail">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a>
-                    <div class="small-12 columns pos-abs share">
+                <div class="medium-8 small-12 columns no-right-padding" data-equalizer-watch="news">
+                    <div class=" small-6 columns post-date">
+                        Posted on 30 November 2016
+                    </div>
+                    <div class="small-6 columns share">
                         <ul>
                             <li><span>Share</span></li>
                             <li><a href="" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
                             <li><a href="" ><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
                         </ul>
                     </div>
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br>
+                    <a href="{{ base_url() }}news_detail">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
-    <div class="small-12 columns news-page">
-        <div class="small-1 columns">
-            <div class="post-date">
-                <span class="date">30</span><br>
-                Nov 2016
-            </div>
-        </div>
-        <div class="small-11 columns detail-newspage">
-            <div class="small-12 columns title no-padding">
-                News Title
-            </div>
-            <div class="small-12 columns news-headline no-padding" data-equalizer="news">
-                <div class="small-4 columns no-padding" data-equalizer-watch="news">
-                    <img src="{{ base_url() }}assets/css/images/news-thumb.jpg">
-                </div>
-                <div class="small-8 columns pos-rel no-right-padding" data-equalizer-watch="news">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br>
-                    <a href="{{ base_url() }}news_detail">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a>
-                    <div class="small-12 columns pos-abs share">
-                        <ul>
-                            <li><span>Share</span></li>
-                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
-                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 {% endblock %}
