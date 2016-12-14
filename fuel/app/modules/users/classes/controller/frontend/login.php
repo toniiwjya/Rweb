@@ -34,5 +34,4 @@ class Controller_Frontend_Login extends \Controller_Frontend
             \Response::redirect(\Uri::base().'login');
         }
     }
-
  }

@@ -307,6 +307,7 @@ footer .social-media > li > a.instagram:hover {
 .identity-form{
 	margin-top:20px;
 	margin-bottom:20px;
+    border-radius: 10px;
 	box-shadow: 0 0 5px #ccc;
 	-webkit-box-shadow: 0 0 5px #ccc;
 	-moz-box-shadow: 0 0 5px #ccc;
@@ -531,6 +532,9 @@ footer .social-media > li > a.instagram:hover {
 }
 
 /*Reward*/
+.reward-page{
+    background: #ffffff;
+}
 .brand-reward{
     margin-bottom: 20px;
     margin-top: 30px;
@@ -550,10 +554,18 @@ footer .social-media > li > a.instagram:hover {
 .brand-reward a{
     color: #ffffff;
 }
-.button-reedem{
-    background: #f56743;
-    padding: 5px;
-    border-radius: 25px;
+
+.tabs.vertical>li {
+    border: 1px solid #e6e6e6;
+}
+.btn-reedem{
+    text-align: center;
+}
+
+.btn-reedem > .button{
+    width: 100px;
+    padding: 10px;
+    border-radius: 20px;
     text-align: center;
     font-size: 16px;
     font-family: "Roboto",Sans-serif;
@@ -568,6 +580,45 @@ footer .social-media > li > a.instagram:hover {
     margin-bottom: 20px;
 }
 
+.thankyou-page{
+    background: #ffffff;
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+
+[type=email],[type=number],[type=password], [type=text], textarea{
+    border-radius: 5px;
+    border: 1px solid #1893e4;
+    color: #000000;
+    font-size: 14px;
+}
+
+/*.submit-button{*/
+    /*text-align: center;*/
+    /*padding: 5px;*/
+/*}*/
+
+/*Edit Profile*/
+.profile{
+    background: #ffffff;
+    padding: 25px;
+}
+
+input[type=button], input[type=reset], input[type=submit] {
+    border-radius: 5px;
+}
+
+.form-profile > h3{
+    text-align: center;
+}
+
+.save-btn{
+    text-align: center;
+}
+
+.label-profile{
+    font-weight: bold;
+}
 
 @media screen and (max-width: 399px){
 	.news-desc{

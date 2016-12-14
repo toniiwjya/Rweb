@@ -7,6 +7,7 @@ return array(
 	'home'  		=> 'pages/frontend/home',
 	'news'			=> 'pages/frontend/home/news',
 	'news_detail'	=> 'pages/frontend/home/news_detail',
+    'profile'       => 'pages/frontend/home/profile',
 	'logout'		=> 'pages/frontend/home/logout',
 	'login'			=> 'users/frontend/login',
 	'fb/login'		=> 'users/frontend/login/fb',
@@ -14,5 +15,5 @@ return array(
 	'promo'			=> 'promo',
     'task'          => 'promo/task',
 	'reward'		=> 'reward',
-    'reedem'        => 'reward/reedem'
+    'thankyou'        => 'reward/thankyou'
 );
