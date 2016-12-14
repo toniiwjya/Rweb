@@ -7,13 +7,15 @@ return array(
 	'home'  			=> 'pages/frontend/home',
 	'news'				=> 'pages/frontend/home/news',
 	'news_detail/(:id)'	=> 'pages/frontend/home/news_detail',
+    'profile'       	=> 'pages/frontend/home/profile',
 	'logout'			=> 'pages/frontend/home/logout',
 	'login'				=> 'users/frontend/login',
 	'fb/login'			=> 'users/frontend/login/fb',
 	'register' 			=> 'users/frontend/register',
 	'promo'				=> 'promo',
-    'task'         		=> 'promo/task',
+    'task'          	=> 'promo/task',
     'join'				=> 'promo/join',
 	'reward'			=> 'reward',
-    'reedem'        	=> 'reward/reedem'
+    'thankyou'      	=> 'reward/thankyou'
+
 );

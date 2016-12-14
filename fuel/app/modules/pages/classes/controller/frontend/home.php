@@ -19,6 +19,9 @@ class Controller_Frontend_Home extends \Controller_Frontend
 
     	return \Response::forge(\View::forge('pages::frontend/news_detail.twig',$this->_data_template,FALSE));
     }
+    public function action_profile(){
+        return \Response::forge(\View::forge('pages::frontend/profile.twig',$this->_data_template,FALSE));
+    }
 
     public function action_logout(){
         \Session::destroy();

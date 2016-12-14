@@ -1,8 +1,9 @@
 {% extends "pages/views/template_frontend.twig" %}
 
-{% block frontend_full_content %}
-  <div class="medium-3 columns no-padding">
-    <ul class="tabs vertical" id="example-vert-tabs" data-tabs>
+{% block frontend_center_content %}
+    <div class="column reward-page" data-equalizer="reward-height">
+        <div class="medium-3 columns no-padding" data-equalizer-watch="reward-height">
+            <ul class="tabs vertical" id="example-vert-tabs" data-tabs>
       <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">Brand A Reward</a></li>
       <li class="tabs-title"><a href="#panel2v">Brand B Reward</a></li>
       <li class="tabs-title"><a href="#panel3v">Brand C Reward</a></li>
@@ -10,381 +11,39 @@
       <li class="tabs-title"><a href="#panel5v">Brand E Reward</a></li>
       <li class="tabs-title"><a href="#panel6v">Brand F Reward</a></li>
     </ul>
+        </div>
+        <div class="medium-9 columns no-padding" data-equalizer-watch="reward-height">
+            <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
+                <div class="tabs-panel is-active" id="panel1v">
+                    <h4>Brand A Reward</h4>
+                    <div class="medium-12 small-12 columns brand-reward" data-equalizer="reward">
+                        <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
+                            <div class="small-12 columns img-reward">
+                                <img src="{{ base_url() }}assets/css/images/reward.jpg">
+                            </div>
+
+                            <div class="small-12 columns btn-reedem">
+                                <a class="button" href="{{ base_url() }}reedem">100 point</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs-panel" id="panel2v">
+                    <h4>Brand B Reward</h4>
+                </div>
+                <div class="tabs-panel" id="panel3v">
+                    <h4>Brand C Reward</h4>
+                </div>
+                <div class="tabs-panel" id="panel4v">
+                    <h4>Brand D Reward</h4>
+                </div>
+                <div class="tabs-panel" id="panel5v">
+                    <h4>Brand E Reward</h4>
+                </div>
+                <div class="tabs-panel" id="panel6v">
+                      <h4>Brand F Reward</h4>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="medium-9 columns no-padding">
-    <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
-      <div class="tabs-panel is-active" id="panel1v">
-          <h4>Brand A Reward</h4>
-          <div class="medium-12 small-12 columns brand-reward" data-equalizer="reward">
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="tabs-panel" id="panel2v">
-          <h4>Brand B Reward</h4>
-          <div class="medium-12 small-12 columns brand-reward" data-equalizer="reward">
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="tabs-panel" id="panel3v">
-          <h4>Brand C Reward</h4>
-          <div class="medium-12 small-12 columns brand-reward" data-equalizer="reward">
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="tabs-panel" id="panel4v">
-          <h4>Brand D Reward</h4>
-          <div class="medium-12 small-12 columns brand-reward" data-equalizer="reward">
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="tabs-panel" id="panel5v">
-          <h4>Brand E Reward</h4>
-          <div class="medium-12 small-12 columns brand-reward" data-equalizer="reward">
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-      <div class="tabs-panel" id="panel6v">
-          <h4>Brand F Reward</h4>
-          <div class="medium-12 small-12 columns brand-reward" data-equalizer="reward">
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                  <div class="small-12 columns img-reward">
-                      <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                  </div>
-                  <div class="small-up-2 column">
-                      <div class="column no-padding">
-                          <a href="{{ base_url() }}reedem">
-                              <div class="button-reedem">
-                                  <button>Reedem</button>
-                              </div>
-                          </a>
-                      </div>
-                      <div class="column no-padding">
-                          <div class="poin-reward">
-                              <span>100 <img src="{{ base_url() }}assets/css/images/coin-black.png"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-    </div>
-  </div>
 {% endblock %}
