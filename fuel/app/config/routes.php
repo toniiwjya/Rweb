@@ -14,6 +14,7 @@ return array(
 	'register' 		=> 'users/frontend/register',
 	'promo'			=> 'promo',
     'task'          => 'promo/task',
+    'join'			=> 'promo/join',
 	'reward'		=> 'reward',
     'thankyou'        => 'reward/thankyou'
 );
