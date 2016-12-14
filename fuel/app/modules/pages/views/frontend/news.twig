@@ -6,9 +6,10 @@
 {% block frontend_center_content %}
     <div class="column news-page">
     <div class="small-12 medium-10 medium-centered columns">
+        {% for news in list_news %}
         <div class="medium-12 small-12 columns detail-newspage">
             <div class="small-12 columns title no-padding">
-                News Title
+                {{ news.title }}
             </div>
             <div class="small-12 columns news-headline no-padding" data-equalizer="news">
                 <div class="medium-4 small-12 columns no-padding" data-equalizer-watch="news">
@@ -16,23 +17,42 @@
                 </div>
                 <div class="medium-8 small-12 columns no-right-padding" data-equalizer-watch="news">
                     <div class=" small-6 columns post-date">
-                        Posted on 30 November 2016
+                        Posted on {{ news.created_at|date("d F Y") }}
                     </div>
                     <div class="small-6 columns share">
                         <ul>
                             <li><span>Share</span></li>
                             <li><a href="" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
-                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
+                            <li><a href="#" id="facebook-share"><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
                         </ul>
                     </div>
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.<br>
-                    <a href="{{ base_url() }}news_detail">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a>
+                    {{ news.description|length > 250 ? news.description|slice(0,250) ~ '...' : news.description }} <br>
+                    <a href="{{ base_url() }}news_detail/{{ news.id }}">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
     </div>
 
 {% endblock %}
+
+{% block frontend_js %}
+<script>
+$(document).ready(function(){
+    $('#facebook-share').on('click', function(){
+        FB.ui({
+            display: 'popup',
+            method:  'share',
+            href: 'http://facebook.com',
+        },function(response) {
+            if (response && response.post_id) {
+                    console.log('shared is done');
+                    //ToDO::add query point here
+            }
+        });
+    });
+});
+</script>
+{% endblock %}
+

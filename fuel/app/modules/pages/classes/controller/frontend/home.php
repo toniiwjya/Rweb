@@ -13,6 +13,10 @@ class Controller_Frontend_Home extends \Controller_Frontend
         return \Response::forge(\View::forge('pages::frontend/news.twig',$this->_data_template,FALSE));
     }
     public function action_news_detail(){
+        $id = $this->param('id');
+        $news_detail = \Pages\Model_News::query()->where('id',$id)->get();;
+        $this->_data_template['news_detail'] = $news_detail;
+
     	return \Response::forge(\View::forge('pages::frontend/news_detail.twig',$this->_data_template,FALSE));
     }
 

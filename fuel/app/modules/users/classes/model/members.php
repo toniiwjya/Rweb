@@ -70,4 +70,14 @@ class Model_Members extends \Orm\Model {
         } while(strlen($pw)<$length);
         return str_shuffle($pw);
     }
+
+    protected static $_has_many = array(
+        'activity' => array(
+            'key_from'       => 'id',
+            'model_to'       => 'Promo\\Model_ActivityPromo',
+            'key_to'         => 'user_id',
+            'cascade_save'   => true,
+            'cascade_delete' => false,
+        )
+    );
 }

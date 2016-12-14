@@ -9,11 +9,24 @@ class Controller_Promo extends \Controller_Frontend
 		return \Response::forge(\View::forge('promo::frontend/promo.twig',$this->_data_template,FALSE));
 	}
     public function action_task(){
+        
+        if(empty(\Session::get('user_id'))){
+            \Session::set_flash('ask_login','Please login before continue');
+            return \Response::redirect(\Uri::base().'login');
+        }
+
+        $user_id = \Session::get('user_id');
+
+        //Query to filter task base on user's promo
+        $subQuery = Model_ActivityPromo::query()->select('promo_id')->where('user_id',\Session::get('user_id'));
+        $this->_data_template['list_task'] = Model_Task::query()
+                                                        ->where('promo_id','IN', $subQuery->get_query(true))
+                                                        ->get();
         return \Response::forge(\View::forge('promo::frontend/task.twig',$this->_data_template,FALSE));
     }
 
     public function action_join(){
-    	$post_data = \Input::post();
+        $post_data = \Input::post();
     	
     	if(empty(\Session::get('user_id'))){
     		\Session::set_flash('ask_login','Please login before continue');

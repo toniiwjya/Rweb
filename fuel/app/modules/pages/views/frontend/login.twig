@@ -1,0 +1,33 @@
+{% extends "pages/views/template_frontend.twig" %}
+
+
+{% block frontend_content %}
+    <form>
+        <div class="row">
+            <div class="small-8 small-offset-2 column identity-form no-padding" style="border:1px solid black">
+                <div class="small-12 column title-form">
+                    <h3>Login</h3>
+                </div>
+                <div class="small-12 medium-3 column">
+                    <label for="email" class="text-right middle-label">Email :</label>
+                </div>
+                <div class="small-12 medium-9 column">
+                    <input type="text" id="email" placeholder="Email">
+                </div>
+                <div class="small-12 medium-3 column">
+                    <label for="pass" class="text-right middle-label">Password :</label>
+                </div>
+                <div class="small-12 medium-9 column">
+                    <input type="password" id="pass" placeholder="Password">
+                </div>
+                <div class="small-6 column text-right">
+                    <button type="button" class="button">Register</button>
+                </div>
+                <div class="small-6 column">
+                    <input type="submit" class="button" value="Login">
+                </div>
+                <div style="clear:both"></div>
+            </div>
+        </div>
+    </form>
+{% endblock %}

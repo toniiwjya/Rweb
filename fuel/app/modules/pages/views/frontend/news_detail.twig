@@ -3,33 +3,16 @@
 {% block frontend_center_content %}
     <div class="columns news-detail">
 	<div class="small-12 medium-10 medium-centered columns">
+    {% for news in news_detail %}
 		<div class="small-12 title-newsdetail">
-            <h3>News Title</h3>
-            <p class="date">Posted on 30 November 2016</p>
+            <h3>{{ news.title }}</h3>
+            <p class="date">Posted on {{ news.created_at|date("d F Y") }}</p>
 			<img src="{{ base_url() }}assets/css/images/slide-example.jpg">
 		</div>
 		<div class="small-12 desc">
-			Lorem ipsum dolor sit amet, ut agam mucius vis, sea nibh appareat reformidans te, ea affert doctus officiis has. No nibh aliquando usu, homero molestiae cum ne. In volumus nominati usu. Fugit praesent no mei. Modus omnium euripidis sed ei, est et facer voluptatum. Ad nonumy altera delectus vix, omnis dictas nonumes his ut.
-
-			In audire vituperata mei, id vis agam mucius. Stet altera cetero vis at. Animal erroribus quaerendum pro eu. Ex duo magna autem porro, cu nulla sapientem mei.
-
-			Has verear fastidii eu, sea te exerci audire. Usu an libris labitur meliore. In eum accusata delicata constituam, mundi graeco mel cu, ius eu luptatum iracundia. Sit ut habeo nulla vidisse, mea consul disputationi te. Ei modus quaestio mea, placerat torquatos usu ex. Mei graeco inciderint an, pri ex posse nemore. Vivendo quaerendum sit ad, volutpat partiendo pro ea, pri omnes regione adipiscing et.
-
-			Has ad justo oporteat, inani munere mea te, sed ad quot diceret convenire. An lorem assum reprehendunt eam. Te has facilisi insolens torquatos, an has cibo consul. Feugait torquatos ne nec, vis et movet volumus. Discere invenire theophrastus vel an, saperet voluptua eum ea. Cu erant adipiscing mei, duo te meliore interpretaris. Cu delenit fastidii quaerendum duo, pro ad mundi appellantur.
-
-			Vis cu diceret verterem, mei ne purto evertitur, euripidis neglegentur eu vis. Te per omittam eligendi delicata, id vix alii alienum definitionem, et per consetetur interpretaris. Vix te veniam singulis, has at probo tation. Fabulas fastidii necessitatibus te mea, probo commodo facilisis nam no.
-            <br/><br/>
-            Lorem ipsum dolor sit amet, ut agam mucius vis, sea nibh appareat reformidans te, ea affert doctus officiis has. No nibh aliquando usu, homero molestiae cum ne. In volumus nominati usu. Fugit praesent no mei. Modus omnium euripidis sed ei, est et facer voluptatum. Ad nonumy altera delectus vix, omnis dictas nonumes his ut.
-
-            In audire vituperata mei, id vis agam mucius. Stet altera cetero vis at. Animal erroribus quaerendum pro eu. Ex duo magna autem porro, cu nulla sapientem mei.
-
-            Has verear fastidii eu, sea te exerci audire. Usu an libris labitur meliore. In eum accusata delicata constituam, mundi graeco mel cu, ius eu luptatum iracundia. Sit ut habeo nulla vidisse, mea consul disputationi te. Ei modus quaestio mea, placerat torquatos usu ex. Mei graeco inciderint an, pri ex posse nemore. Vivendo quaerendum sit ad, volutpat partiendo pro ea, pri omnes regione adipiscing et.
-
-            Has ad justo oporteat, inani munere mea te, sed ad quot diceret convenire. An lorem assum reprehendunt eam. Te has facilisi insolens torquatos, an has cibo consul. Feugait torquatos ne nec, vis et movet volumus. Discere invenire theophrastus vel an, saperet voluptua eum ea. Cu erant adipiscing mei, duo te meliore interpretaris. Cu delenit fastidii quaerendum duo, pro ad mundi appellantur.
-
-            Vis cu diceret verterem, mei ne purto evertitur, euripidis neglegentur eu vis. Te per omittam eligendi delicata, id vix alii alienum definitionem, et per consetetur interpretaris. Vix te veniam singulis, has at probo tation. Fabulas fastidii necessitatibus te mea, probo commodo facilisis nam no.
+			{{ news.description }}
 		</div>
-
+    {% endfor %}
         <div class="small-12 columns share-detail">
             <div class="btn">
                 <p>Share with your friend</p>

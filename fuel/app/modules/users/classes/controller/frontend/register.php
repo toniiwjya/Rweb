@@ -10,11 +10,10 @@ class Controller_Frontend_Register extends \Controller_Frontend
     	$this->_do_registration();
         return \Response::forge(\View::forge('users::frontend/register.twig',$this->_data_template,FALSE));
     }
-
+//Need to move to Model, use flash
     private function _do_registration(){
     	$_post_data = \Input::post();
     	if (count($_post_data) > 0) {
-    		$this->_data_template['post_data'] = $_post_data;
             $_err = Model_Register::form_validate();
             if(count($_err) > 0){
                 $this->_data_template['error_message'] = $_err;

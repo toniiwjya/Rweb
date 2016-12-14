@@ -37,10 +37,10 @@
     <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
 
       <ul class="vertical menu">
-        <li><a href="login">Login / Register</a></li>
-        <li><a href="news">News</a></li>
-        <li><a href="promo">Promo</a></li>
-        <li><a href="reward">Reward</a></li>
+        <li><a href="{{ base_url() }}login">Login / Register</a></li>
+        <li><a href="{{ base_url() }}news">News</a></li>
+        <li><a href="{{ base_url() }}promo">Promo</a></li>
+        <li><a href="{{ base_url() }}reward">Reward</a></li>
       </ul>
 
     </div>
@@ -53,22 +53,22 @@
       <div class="top-bar-left">
         <ul class="menu">
           <li class="logo"><a href="{{ base_url() }}"><img src="{{ base_url() }}/assets/css/images/R.png" style="width: 40px"></a></li>
-          <li><a href="news">News</a></li>
-          <li><a href="promo">Promo</a></li>
-          <li><a href="reward">Reward</a></li>
+          <li><a href="{{ base_url() }}news">News</a></li>
+          <li><a href="{{ base_url() }}promo">Promo</a></li>
+          <li><a href="{{ base_url() }}reward">Reward</a></li>
         </ul>
       </div>
       <div class="top-bar-right">
         <ul class="dropdown menu" data-dropdown-menu>
           {% if is_login == FALSE  %}
-          <li><a href="login">Login / Register</a></li>
+          <li><a href="{{ base_url() }}login">Login / Register</a></li>
           {% endif %}
           {% if is_login == TRUE %}
           <li>
             <a href="#">Hello, {{ member.fName }}</a>
             <ul class="menu">
-              <li><a href="profile">Edit Profile</a></li>
-              <li><a href="logout">Logout</a></li>
+              <li><a href="{{ base_url() }}profile">Edit Profile</a></li>
+              <li><a href="{{ base_url() }}logout">Logout</a></li>
             </ul>
           </li>
           {% endif %}
@@ -131,6 +131,25 @@
 <script src="{{ base_url() }}assets/foundation/js/vendor/what-input.js"></script>
 <script src="{{ base_url() }}assets/foundation/js/vendor/foundation.min.js"></script>
 <script src="{{ base_url() }}assets/foundation/js/app.js"></script>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '200434553745901',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+        FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+</script>
 {% block frontend_js %}{% endblock %}
 </body>
 </html>

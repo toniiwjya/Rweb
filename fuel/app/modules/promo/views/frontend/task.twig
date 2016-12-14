@@ -12,9 +12,10 @@
             <h3>Task 0/5</h3>
         </div>
         <div class="small-12 columns content">
-            <div class="small-12 medium-4 columns">
+            {% for task in list_task %}
+            <div class="small-12 medium-4 columns end">
                 <div class="title">
-                    <h5>Title Task</h5>
+                    <h5>{{ task.name }}</h5>
                 </div>
                 <div class="image-task">
                     <div class="img">
@@ -24,42 +25,11 @@
                         </div>
                     </div>
                     <div class="poin">
-                        <span>5 <img src="{{ base_url() }}assets/css/images/coin.png"></span>
+                        <span>{{ task.point }} <img src="{{ base_url() }}assets/css/images/coin.png"></span>
                     </div>
                 </div>
             </div>
-            <div class="small-12 medium-4 columns">
-                <div class="title">
-                    <h5>Title Task</h5>
-                </div>
-                <div class="image-task">
-                    <div class="img">
-                        <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
-                        <div class="click">
-                            <button>Click here</button>
-                        </div>
-                    </div>
-                    <div class="poin">
-                        <span>5 <img src="{{ base_url() }}assets/css/images/coin.png"></span>
-                    </div>
-                </div>
-            </div>
-            <div class="small-12 medium-4 columns">
-                <div class="title">
-                    <h5>Title Task</h5>
-                </div>
-                <div class="image-task">
-                    <div class="img">
-                        <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
-                        <div class="click">
-                            <button>Click here</button>
-                        </div>
-                    </div>
-                    <div class="poin">
-                        <span>5 <img src="{{ base_url() }}assets/css/images/coin.png"></span>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -70,4 +40,8 @@
         </div>
     </div>
 </div>
+
+<script>
+   
+</script>
 {% endblock %}
