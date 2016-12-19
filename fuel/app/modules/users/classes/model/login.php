@@ -18,7 +18,7 @@ class Model_Login extends \Model {
 	public static function validate_login($post_data){
 		$member = Model_Members::query()->where('email', $post_data['email'])->get_one();
 		if(!empty($member)){
-			if(hash_equals($member->password,crypt($post_data['password'],$member->password)))
+			if(strcasecmp(\Crypt::decode($member->password), $post_data['password']))
 			{
 				\Session::set('user_id',$member->id);
 				return TRUE;
