@@ -11,6 +11,7 @@
     {#Font type#}
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
   {% block frontend_css %} {% endblock %}
   {% block head_js %}{% endblock %}
 </head>
@@ -37,10 +38,22 @@
     <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
 
       <ul class="vertical menu">
-        <li><a href="{{ base_url() }}login">Login / Register</a></li>
-        <li><a href="{{ base_url() }}news">News</a></li>
-        <li><a href="{{ base_url() }}promo">Promo</a></li>
-        <li><a href="{{ base_url() }}reward">Reward</a></li>
+          {% if is_login == FALSE  %}
+              <li><a href="{{ base_url() }}register">Login / Register</a></li>
+              <li><a href="{{ base_url() }}news">News</a></li>
+              <li><a href="{{ base_url() }}promo">Promo</a></li>
+              <li><a href="{{ base_url() }}reward">Reward</a></li>
+          {% endif %}
+          {% if is_login == TRUE %}
+              <li>
+                  <a href="{{ base_url() }}profile">{{ member.fName }}</a>
+              </li>
+              <li><a href="{{ base_url() }}news">News</a></li>
+              <li><a href="{{ base_url() }}promo">Promo</a></li>
+              <li><a href="{{ base_url() }}reward">Reward</a></li>
+              <li><a href="{{ base_url() }}logout">Logout</a></li>
+          {% endif %}
+
       </ul>
 
     </div>
@@ -61,7 +74,7 @@
       <div class="top-bar-right">
         <ul class="dropdown menu" data-dropdown-menu>
           {% if is_login == FALSE  %}
-          <li><a href="{{ base_url() }}login">Login / Register</a></li>
+          <li><a href="{{ base_url() }}register">Login / Register</a></li>
           {% endif %}
           {% if is_login == TRUE %}
           <li>
@@ -93,32 +106,32 @@
 
     <footer class="medium-12 columns footer">
         <div class="medium-6 columns no-padd footer-left">
-                <ul>
-                    <li class="logo">
-                        <img src="{{ base_url() }}assets/css/images/R.png" style="width: 25px"/>
-                    </li>
-                    <li>
-                       <span class="copyright">Copyright &copy; 2016 All Rights Reserved</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="medium-6 columns no-padd footer-right">
-                <ul>
-                    <li>
-                        <ul class="social-media">
-                            <li>
-                                <a href="" target="_blank" class="instagram"><img src="{{ base_url() }}assets/css/images/instagram.png"/></a>
-                            </li>
-                            <li>
-                                <a href="" target="_blank" class="twit"><img src="{{ base_url() }}assets/css/images/twitter.png"/></a>
-                            </li>
-                            <li>
-                                <a href="" target="_blank" class="facebook"><img src="{{ base_url() }}assets/css/images/fb.png"/></a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+            <ul>
+                <li class="logo">
+                    <img src="{{ base_url() }}assets/css/images/R.png" style="width: 25px"/>
+                </li>
+                <li>
+                    <span class="copyright">Copyright &copy; 2016 All Rights Reserved</span>
+                </li>
+            </ul>
+        </div>
+        <div class="medium-6 columns no-padd footer-right">
+            <ul>
+                <li>
+                    <ul class="social-media">
+                        <li>
+                            <a href="" target="_blank" class="instagram"><img src="{{ base_url() }}assets/css/images/instagram.png"/></a>
+                        </li>
+                        <li>
+                            <a href="" target="_blank" class="twit"><img src="{{ base_url() }}assets/css/images/twitter.png"/></a>
+                        </li>
+                        <li>
+                            <a href="" target="_blank" class="facebook"><img src="{{ base_url() }}assets/css/images/fb.png"/></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
     </footer>
   <!-- close wrapper, no more content after this -->
 

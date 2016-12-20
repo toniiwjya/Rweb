@@ -18,12 +18,24 @@
                     <h4>Brand A Reward</h4>
                     <div class="medium-12 small-12 columns brand-reward" data-equalizer="reward">
                         <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                            <div class="small-12 columns img-reward">
-                                <img src="{{ base_url() }}assets/css/images/reward.jpg">
+                            <div class="small-12 columns box-content no-padding">
+                                <div class="small-12 columns img-reward">
+                                    <img src="{{ base_url() }}assets/css/images/reward.jpg">
+                                </div>
+                                <div class="small-12 columns btn-reedem">
+                                    <a class="button">100 point</a>
+                                </div>
                             </div>
-
-                            <div class="small-12 columns btn-reedem">
-                                <a class="button" href="{{ base_url() }}reedem">100 point</a>
+                            <div class="small-12 columns confirm no-padding">
+                                <p>Are you sure want to redeem 100 point for this reward?</p>
+                                <div class="small-12 columns">
+                                    <div class="small-6 columns btn-confirm">
+                                        <a href="{{ base_url() }}thankyou"><button class="button">Yes</button></a>
+                                    </div>
+                                    <div class="small-6 columns btn-confirm">
+                                        <a href=""><button class="button">Cancel</button></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -46,4 +58,16 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block frontend_js %}
+<script>
+    $(document).ready(function(){
+        $(".confirm").hide();
+        $(".button").on("click", function(){
+            $(".box-content").hide();
+            $(".confirm").show();
+        });
+    });
+</script>
 {% endblock %}

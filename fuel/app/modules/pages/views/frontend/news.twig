@@ -7,27 +7,29 @@
     <div class="column news-page">
     <div class="small-12 medium-10 medium-centered columns">
         {% for news in list_news %}
-        <div class="medium-12 small-12 columns detail-newspage">
-            <div class="small-12 columns title no-padding">
-                {{ news.title }}
-            </div>
-            <div class="small-12 columns news-headline no-padding" data-equalizer="news">
-                <div class="medium-4 small-12 columns no-padding" data-equalizer-watch="news">
-                    <img src="{{ base_url() }}assets/css/images/news-thumb.jpg">
+        <div class="medium-12 small-12 columns">
+            <div class="small-12 columns detail-newspage">
+                <div class="small-12 columns title no-padding">
+                    {{ news.title }}
                 </div>
-                <div class="medium-8 small-12 columns no-right-padding" data-equalizer-watch="news">
-                    <div class=" small-6 columns post-date">
-                        Posted on {{ news.created_at|date("d F Y") }}
+                <div class="small-12 columns news-headline no-padding" data-equalizer="news">
+                    <div class="medium-4 small-12 columns no-padding" data-equalizer-watch="news">
+                        <img src="{{ base_url() }}assets/css/images/news-thumb.jpg">
                     </div>
-                    <div class="small-6 columns share">
-                        <ul>
-                            <li><span>Share</span></li>
-                            <li><a href="" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
-                            <li><a href="#" id="facebook-share"><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
-                        </ul>
+                    <div class="medium-8 small-12 columns no-right-padding" data-equalizer-watch="news">
+                        <div class=" small-12 medium-6 columns post-date">
+                            Posted on {{ news.created_at|date("d F Y") }}
+                        </div>
+                        <div class="small-6 columns share hide-for-small-only">
+                            <ul>
+                                <li><span>Share</span></li>
+                                <li><a href="" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
+                                <li><a href="#" id="facebook-share"><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
+                            </ul>
+                        </div>
+                        {{ news.description|length > 250 ? news.description|slice(0,250) ~ '...' : news.description }}
+                        <p class="more"><a href="{{ base_url() }}news_detail/{{ news.id }}">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a></p>
                     </div>
-                    {{ news.description|length > 250 ? news.description|slice(0,250) ~ '...' : news.description }} <br>
-                    <a href="{{ base_url() }}news_detail/{{ news.id }}">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a>
                 </div>
             </div>
         </div>

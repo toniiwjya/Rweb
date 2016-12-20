@@ -9,20 +9,13 @@
                 {#<h6>Upload a different photo...</h6>#}
                 {#<input type="file" class="text-center center-block well well-sm">#}
             {#</div>#}
-            <div class="medium-8 medium-centered columns form-profile">
+            <div class="medium-8 medium-centered small-12 columns form-profile">
                 <h3>Edit your profile</h3>
                 <form data-abide novalidate action="" method="post">
-                    <label class="label-profile">Name</label>
-                    <input type="text" value="Full Name">
-
-                    <label class="label-profile">Email</label>
-                    <input type="email" value="example@gmail.com">
-
-                    <label class="label-profile">Phone</label>
-                    <input type="number" value="081245678945">
-
-                    <label class="label-profile">Address</label>
-                    <textarea>Your address</textarea>
+                    <input type="text" value="Full Name" id="name">
+                    <input type="email" value="example@gmail.com" id="email">
+                    <input type="number" value="081245678945" id="phone">
+                    <textarea id="address">Your address</textarea>
                     <div class="medium-12 columns save-btn">
                         <input class="button" value="Save Changes" type="button">
                     </div>
