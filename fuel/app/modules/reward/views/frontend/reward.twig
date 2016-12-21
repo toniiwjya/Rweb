@@ -1,48 +1,38 @@
 {% extends "pages/views/template_frontend.twig" %}
 
 {% block frontend_center_content %}
-    <div class="column reward-page" data-equalizer="reward-height">
+    <div class="column reward-page no-padding" data-equalizer="reward-height">
         <div class="medium-3 columns no-padding" data-equalizer-watch="reward-height">
             <ul class="tabs vertical" id="example-vert-tabs" data-tabs>
-      <li class="tabs-title is-active"><a href="#panel1v" aria-selected="true">Brand A Reward</a></li>
-      <li class="tabs-title"><a href="#panel2v">Brand B Reward</a></li>
-      <li class="tabs-title"><a href="#panel3v">Brand C Reward</a></li>
-      <li class="tabs-title"><a href="#panel4v">Brand D Reward</a></li>
-      <li class="tabs-title"><a href="#panel5v">Brand E Reward</a></li>
-      <li class="tabs-title"><a href="#panel6v">Brand F Reward</a></li>
-    </ul>
+              {% for brand in brand_reward %}
+              <li class="tabs-title {{ loop.first?'is-active':'' }}"><a href="#panel{{ brand.id }}">{{ brand.name }}</a></li>
+              {% endfor %}
+            </ul>
         </div>
         <div class="medium-9 columns no-padding" data-equalizer-watch="reward-height">
             <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
-                <div class="tabs-panel is-active" id="panel1v">
-                    <h4>Brand A Reward</h4>
-                    <div class="medium-12 small-12 columns brand-reward" data-equalizer="reward">
-                        <div class="small-12 medium-4 box columns" data-equalizer-watch="reward">
-                            <div class="small-12 columns img-reward">
-                                <img src="{{ base_url() }}assets/css/images/reward.jpg">
-                            </div>
 
-                            <div class="small-12 columns btn-reedem">
-                                <a class="button" href="{{ base_url() }}reedem">100 point</a>
+                {% for brand in brand_reward %}
+                    <div class="tabs-panel {{ loop.first?'is-active':'' }}" id="panel{{ brand.id }}">
+                        <h4>{{ brand.name }} Reward</h4>
+                        {% for reward in reward_list %}
+                            {% if(brand.id==reward.brand_id) %}
+                            <div class="medium-4 small-12 columns brand-reward end" data-equalizer="reward">
+                                <div class="small-12 box columns" data-equalizer-watch="reward">
+                                    <div class="small-12 columns img-reward">
+                                        <img src="{{ base_url() }}assets/css/images/reward.jpg">
+                                    </div>
+
+                                    <div class="small-12 columns btn-reedem">
+                                        <a class="button" href="{{ base_url() }}reedem/{{ reward.id }}">100 point</a>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                            {% endif %}
+                        {% endfor %}
                     </div>
-                </div>
-                <div class="tabs-panel" id="panel2v">
-                    <h4>Brand B Reward</h4>
-                </div>
-                <div class="tabs-panel" id="panel3v">
-                    <h4>Brand C Reward</h4>
-                </div>
-                <div class="tabs-panel" id="panel4v">
-                    <h4>Brand D Reward</h4>
-                </div>
-                <div class="tabs-panel" id="panel5v">
-                    <h4>Brand E Reward</h4>
-                </div>
-                <div class="tabs-panel" id="panel6v">
-                      <h4>Brand F Reward</h4>
-                </div>
+
+                {% endfor %}
             </div>
         </div>
     </div>

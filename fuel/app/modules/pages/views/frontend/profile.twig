@@ -13,18 +13,72 @@
                 <h3>Edit your profile</h3>
                 <form data-abide novalidate action="" method="post">
                     <label class="label-profile">Name</label>
-                    <input type="text" value="Full Name">
 
-                    <label class="label-profile">Email</label>
-                    <input type="email" value="example@gmail.com">
+                    <div class="small-12 columns no-padding">
+                        <input type="text" value="{{ profile.fName }}" name="fName" required placeholder="Full Name">
+                        <span class="form-error">
+                            *Check your input
+                        </span>
+                    </div>
 
-                    <label class="label-profile">Phone</label>
-                    <input type="number" value="081245678945">
+                    <div class="small-12 columns no-padding">
+                        <label class="label-profile">Email</label>
+                        <input type="email" value="{{ profile.email }}" name="email" disabled>
+                        <span class="form-error">
+                            *Check your input
+                        </span>
+                    </div>
 
-                    <label class="label-profile">Address</label>
-                    <textarea>Your address</textarea>
+                    <div class="small-12 columns no-padding">
+                        <label class="label-profile">Phone</label>
+                        <input type="text" value="{{ profile.phone }}" name="phone" required placeholder="+62" pattern="[0-9]">
+                        <span class="form-error">
+                            *Check your input
+                        </span>
+                    </div>
+
+                    <fieldset>
+                        <div class="small-12 medium-4 column text-label no-right-padding">
+                            <label>Gender :</label>
+                        </div>
+                        <div class="small-12 medium-8 column">
+                            <input type="radio" name="gender" value="Female" id="Female" required {{ profile.gender=='Female' ? 'checked' : ''}}><label for="Female">Female</label>
+                            <input type="radio" name="gender" value="Male" id="Male" {{ profile.gender=='Male' ? 'checked' : ''}}><label for="Male">Male</label>
+                        </div>
+                    </fieldset>
+
+                    <div class="small-12 columns no-padding">
+                        <label class="label-profile">Address</label>
+                        <textarea required name="address" required>{{ profile.address }}</textarea>
+                        <span class="form-error">
+                            *Check your input
+                        </span>
+                    </div>
+
+                    <label for="pass">New Password :</label>
+                    <input type="password" name="new-password" id="new-pass" placeholder="Minimal 6 Character">
+                
+                    <label for="re-pass">Retype New Password :</label>
+                    <input type="password" id="re-pass" placeholder="Retype-Password"  data-equalto="new-pass">
+                    <span class="form-error">
+                        *Password not match
+                    </span>
+
+                    <div class="small-12 column error-msg">
+                        {% if error_message is iterable %}
+                            {% for error in error_message %}
+                                {{ error.get_message() }}
+                                    {{ loop.index > 0 ? '<br>' : '' }}
+                                {% endfor %}
+                            {% else %}
+                                {{ error_message }}
+                        {% endif %}
+                    </div>
+                    <div class="small-12 column success-msg">
+                        {{ success_update }}
+                    </div>
                     <div class="medium-12 columns save-btn">
-                        <input class="button" value="Save Changes" type="button">
+                        <input type="submit" class="button" value="Save Changes">
                     </div>
                 </form>
             </div>

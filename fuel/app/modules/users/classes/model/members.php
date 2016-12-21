@@ -71,6 +71,34 @@ class Model_Members extends \Orm\Model {
         return str_shuffle($pw);
     }
 
+     public static function update_profile($post_data,$user_id){
+        $update = self::query()->where('id',$user_id)->get_one();
+        $update->fName = $post_data['fName'];
+        $update->phone = $post_data['phone'];
+        $update->gender = $post_data['gender'];
+        $update->address = $post_data['address'];
+        $update->save();
+    }
+
+    public static function validate_profile($_post_data){
+
+        $val = \Validation::forge('validate_profile');
+        $val->add_field('fName','Full Name','required');
+        if($_post_data['new-password']){
+            $val->add_field('new-password','New Password','min_length[6]');    
+        }
+        $val->add_field('gender','Gender','required');
+        $val->add_field('address','Address','required');
+        $val->add_field('phone','Phone','required|min_length[10]');
+        $val->set_message('required','Field :label is required!');
+        $val->set_message('min_length','Field :label require minimum 6 character!');
+        if($val->run()){
+            return[];
+        } else {
+            return $val->error();
+        }
+    }   
+
     protected static $_has_many = array(
         'activity' => array(
             'key_from'       => 'id',
@@ -80,4 +108,5 @@ class Model_Members extends \Orm\Model {
             'cascade_delete' => false,
         )
     );
+   
 }

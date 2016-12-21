@@ -23,7 +23,7 @@
                         <ul>
                             <li><span>Share</span></li>
                             <li><a href="" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
-                            <li><a href="#" id="facebook-share"><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
+                            <li><a href="#" class="facebook-share" id="{{ news.id }}"><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
                         </ul>
                     </div>
                     {{ news.description|length > 250 ? news.description|slice(0,250) ~ '...' : news.description }} <br>
@@ -40,7 +40,7 @@
 {% block frontend_js %}
 <script>
 $(document).ready(function(){
-    $('#facebook-share').on('click', function(){
+    $('.facebook-share').on('click', function(){
         FB.ui({
             display: 'popup',
             method:  'share',

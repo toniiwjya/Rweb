@@ -28,7 +28,7 @@ class Model_Register extends \Model {
 		$val->add_field('password','Password','required|min_length[6]');
 		$val->add_field('gender','Gender','required');
 		$val->set_message('required','Field :label is required!');
-		$val->set_message('min_length','Field :label require minimum character!');
+		$val->set_message('min_length','Field :label require minimum 6 character!');
 		if($val->run()){
 			return[];
 		} else {

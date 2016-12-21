@@ -31,7 +31,14 @@ class Model_Reward extends \Orm\Model {
 		),
 	);
 
-	
-	
+	protected static $_belongs_to = array(
+	    'brand' => array(
+	        'key_from' => 'brand_id',
+	        'model_to' => 'Model_Brand',
+	        'key_to' => 'id',
+	        'cascade_save' => true,
+	        'cascade_delete' => false,
+	    )
+	);
 
 }

@@ -39,7 +39,7 @@ class Controller_Promo extends \Controller_Frontend
     	$selected_promo = Model_Promo::query()->where('id',$post_data['id'])->get_one();
     	if($selected_promo['slot']>0){
     		//Check if user already join selected promo
-    		$validate_user = Model_ActivityPromo::query()->where('user_id',$user_id)->get_one();
+    		$validate_user = Model_ActivityPromo::query()->where('user_id',$user_id)->where('promo_id',$post_data['id'])->get_one();
     		if(empty($validate_user)){
     			$join = Model_ActivityPromo::forge(array(
     			'user_id' => $user_id,
