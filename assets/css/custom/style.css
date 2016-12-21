@@ -5,7 +5,9 @@
 	color: #ffffff;
     z-index: 1;
 }
-
+.button{
+    border-radius: 5px;
+}
 .top-bar-right{
 	padding-top:12px;
 }
@@ -54,6 +56,7 @@
 
 footer {
     background: #282a2e;
+
 }
 
 footer ul {
@@ -160,17 +163,46 @@ footer .social-media > li > a.instagram:hover {
     padding: 25px;
 }
 
-.middle-left{
-    padding-top: 100px;
+.middle-right{
+    float: right;
+}
+.wrap > .middle-left{
+    display: table;
+    float: left;
+}
+
+.middle-left > .middle-content{
+    display: table-cell;
+    vertical-align: middle;
 }
 .desc-info > h3 {
     color: #1f9eef;
     font-weight: 600;
+    font-size: 22px;
     font-family: "Roboto",Sans-serif;
 }
 
-.content .img{
-    text-align: left;
+.btn-join a > h5{
+    font-size: 14px;
+}
+
+.desc-info > p{
+    font-size: 14px;
+}
+.content-news{
+    padding: 15px;
+    border: 2px solid #ebebeb;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.content-news:hover{
+    box-shadow: 0 0 15px #d2cdcd;
+}
+
+.content-news .img > img{
+    width: 100%;
+    margin-bottom: 10px;
 }
 .headline{
     text-align: center;
@@ -181,6 +213,12 @@ footer .social-media > li > a.instagram:hover {
 
 .headline h2{
     font-family: "Open Sans Condensed",Sans-serif;
+}
+.news-home .menu-title > h2{
+    font-family: "Open Sans Condensed",Sans-serif;
+    color: #000000;
+    font-weight: bold;
+    text-align: center;
 }
 
 .welcome{
@@ -198,7 +236,7 @@ footer .social-media > li > a.instagram:hover {
 
 .detail .icon{
     text-align: center;
-    padding-top: 31px;
+    padding-top: 30px;
     padding-bottom: 30px;
 }
 .detail h4{
@@ -251,8 +289,8 @@ footer .social-media > li > a.instagram:hover {
 
 .reward .poin {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 5px;
+    right: 5px;
     height: 70px;
     width: 70px;
     padding-top: 23px;
@@ -276,17 +314,14 @@ footer .social-media > li > a.instagram:hover {
     border-radius: 50px;
 }
 .news-title{
-	border-bottom:1px solid black;
 	font-size:18px;
 	font-weight: bold;
-	padding-bottom: 6px;
-    font-family: "Open Sans Condensed",Sans-serif;
+    font-family: "Roboto",Sans-serif;
+    color: #000000;
 }
 
 .news-desc{
-	padding-top:5px;
 	font-size:14px;
-	padding-top:10px;
     color: #7f8c8c;
 }
 
@@ -302,6 +337,96 @@ footer .social-media > li > a.instagram:hover {
     background: #ffffff;
     padding-bottom: 50px;
     padding-top: 50px;
+}
+.colorgraph {
+    height: 3px;
+    border-top: 0;
+    background: #2199e8;
+    border-radius: 5px;
+}
+
+.login input#email {
+    background-image: url(../images/mail-icon.png);
+    background-repeat: no-repeat;
+    background-position: 10px;
+    margin-top: 10px;
+    border: 1px solid #56b0db;
+    padding-left: 50px;
+    background-color: #ffffff;
+}
+
+.login input#pass {
+    background-image: url(../images/password-icon.png);
+    background-repeat: no-repeat;
+    background-position: 15px;
+    margin-top: 10px;
+    border: 1px solid #56b0db;
+    padding-left: 50px;
+    background-color: #ffffff;
+}
+
+.form-profile input#email {
+    background-image: url(../images/mail-icon.png);
+    background-repeat: no-repeat;
+    background-position: 15px;
+    margin-top: 10px;
+    border: 1px solid #56b0db;
+    padding-left: 50px;
+    background-color: #ffffff;
+}
+
+.form-profile textarea#address {
+    background-image: url(../images/address-icon.png);
+    background-repeat: no-repeat;
+    background-position: 15px;
+    margin-top: 10px;
+    border: 1px solid #56b0db;
+    padding-left: 50px;
+    background-color: #ffffff;
+    min-height: 75px;
+}
+
+.form-profile input#phone {
+    background-image: url(../images/phone-icon.png);
+    background-repeat: no-repeat;
+    background-position: 15px;
+    margin-top: 10px;
+    border: 1px solid #56b0db;
+    padding-left: 50px;
+    background-color: #ffffff;
+}
+.form-profile input#name {
+    background-image: url(../images/icon-login.png);
+    background-repeat: no-repeat;
+    background-position: 15px;
+    margin-top: 10px;
+    border: 1px solid #56b0db;
+    padding-left: 50px;
+    background-color: #ffffff;
+}
+
+.btn-login{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.login-fb{
+    text-align: center;
+}
+.login-fb > p{
+    margin-bottom: 5px;
+    margin-top: 10px;
+}
+.create{
+    font-family: "Merriweather",sans-serif;
+}
+.register{
+    background: #ffffff;
+    padding-bottom: 50px;
+    padding-top: 50px;
+}
+.head-regis{
+    text-align: center;
 }
 
 .identity-form{
@@ -347,6 +472,11 @@ footer .social-media > li > a.instagram:hover {
     background: white;
     padding-bottom: 50px;
     padding-top: 50px;
+}
+.error-validate{
+    margin-bottom: 10px;
+    text-align: center;
+    color: red;
 }
 .black-hover{
 	background-color:black;
@@ -413,11 +543,25 @@ footer .social-media > li > a.instagram:hover {
     padding-bottom: 50px;
     background: #ffffff;
 }
-
+.news-page .detail-newspage{
+    border: 2px solid #ebebeb;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.news-page .detail-newspage:hover{
+    box-shadow: 0 0 15px #d2cdcd;
+}
 .news-page .detail-newspage .title{
     font-size: 18px;
     font-weight: bold;
     font-family: "Roboto",Sans-serif;
+    margin-bottom: 5px;
+}
+
+.more{
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .post-date{
@@ -460,8 +604,8 @@ footer .social-media > li > a.instagram:hover {
 /*News Detail Page*/
 .news-detail{
     background: #ffffff;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .news-detail .title-newsdetail > h3{
@@ -563,12 +707,16 @@ footer .social-media > li > a.instagram:hover {
 }
 
 .btn-reedem > .button{
-    width: 100px;
+    width: auto;
     padding: 10px;
     border-radius: 20px;
     text-align: center;
     font-size: 16px;
     font-family: "Roboto",Sans-serif;
+}
+
+.btn-confirm a > button{
+    border-radius: 10px;
 }
 .img-reward{
     margin-bottom: 10px;
@@ -580,17 +728,53 @@ footer .social-media > li > a.instagram:hover {
     margin-bottom: 20px;
 }
 
+.confirm{
+    padding-top: 10%;
+    padding: 25px;
+    border: 1px solid grey;
+}
+
+.confirm > p{
+    text-align: center;
+}
+
 .thankyou-page{
     background: #ffffff;
     padding-top: 25px;
     padding-bottom: 50px;
 }
+.head-thank{
+    text-align: center;
+}
 
+.head-thank > h1{
+    font-family: 'Merriweather', serif;
+}
+
+.head-thank > p{
+    font-family: "Roboto",Sans-serif;
+    margin-top: 1rem;
+}
 [type=email],[type=number],[type=password], [type=text], textarea{
     border-radius: 5px;
-    border: 1px solid #1893e4;
+    border: 1px solid #c5c2c2;
     color: #000000;
-    font-size: 14px;
+    font-size: 16px;
+    padding: 1.5rem;
+    margin-bottom: 5px;
+}
+
+label{
+    font-family: "Open Sans",sans-serif;
+    font-weight: 600;
+}
+.button.small {
+    font-size: 16px;
+}
+
+.btn-regis{
+    margin-top: 10px;
+    text-align: center;
 }
 
 /*.submit-button{*/
@@ -601,12 +785,22 @@ footer .social-media > li > a.instagram:hover {
 /*Edit Profile*/
 .profile{
     background: #ffffff;
-    padding: 25px;
+    padding-top: 60px;
+    padding-bottom: 60px;
 }
 
 input[type=button], input[type=reset], input[type=submit] {
     border-radius: 5px;
 }
+
+[type=color]:focus, [type=date]:focus, [type=datetime-local]:focus, [type=datetime]:focus, [type=email]:focus, [type=month]:focus, [type=number]:focus, [type=password]:focus, [type=search]:focus, [type=tel]:focus, [type=text]:focus, [type=time]:focus, [type=url]:focus, [type=week]:focus, textarea:focus {
+    border: 1px solid #56b0db;
+    background-color: #fefefe;
+    outline: none;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    transition: box-shadow .5s,border-color .25s ease-in-out;
+}
+
 
 .form-profile > h3{
     text-align: center;
@@ -614,42 +808,49 @@ input[type=button], input[type=reset], input[type=submit] {
 
 .save-btn{
     text-align: center;
+    margin-top: 15px;
 }
 
-.label-profile{
-    font-weight: bold;
-}
 
-@media screen and (max-width: 399px){
-	.news-desc{
-		text-overflow: ellipsis;
-		white-space: nowrap;
-		overflow: hidden;
-	}
-}
-
-@media screen and (max-width: 999px) {
+@media screen and (min-width: 640px) and (max-width: 840px) {
     .reward .poin {
         height: 60px;
-    width: 60px;
-    padding-left: 5px;
-    font-size: 14px;
+        width: 60px;
+        padding-left: 5px;
+        font-size: 14px;
+    }
+    .desc-info > h3 {
+        font-size: 18px;
+    }
+    .btn-join a > h5, .desc-info > p{
+        font-size: 12px;
+    }
+    .detail .icon {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .detail h4{
+        font-size: 20px;
+    }
+    .detail p{
+        font-size: 12px;
+    }
+    .headline h2{
+        font-size: 28px;
     }
 }
 
-@media screen and (max-width: 699px) {
+@media screen and (min-width: 640px) and (max-width: 699px) {
     .reward .poin {
-top: 5px;
-    right: 5px;
-       height: 50px;
-    width: 50px;
-    padding-top: 15px;
-    padding-left: 3px;
-    font-size: 12px;
+        top: 5px;
+        right: 5px;
+        height: 50px;
+        width: 50px;
+        padding-top: 15px;
+        padding-left: 3px;
+        font-size: 12px;
     }
-}
 
-@media screen and (max-width: 639px){
 	body{
 		font-size:10px;
 	}
@@ -689,7 +890,6 @@ top: 5px;
 		padding-top:5px;
 		padding-bottom: 10px;
 	}
-
 	/*Login&Regis*/
 	.text-label{
 		text-align: left;
@@ -702,4 +902,42 @@ top: 5px;
 	.identity-form>hr{
 		margin:0 10px 10px 10px;
 	}
+
+    .desc-info > h3 {
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 639px){
+    .wrap > .middle-left{
+        display: block;
+        padding-top: 20px;
+    }
+    .middle-right{
+        text-align: center;
+    }
+    .detail .icon{
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+}
+@media screen and (max-width: 399px){
+    .news-desc{
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    .desc-info > h3 {
+        font-size: 14px;
+    }
+    .headline h2{
+        font-size: 18px;
+    }
+    .welcome {
+        font-size: 12px;
+    }
+    .detail p{
+        font-size: 12px;
+    }
 }

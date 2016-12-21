@@ -11,7 +11,6 @@
         </div>
         <div class="medium-9 columns no-padding" data-equalizer-watch="reward-height">
             <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
-
                 {% for brand in brand_reward %}
                     <div class="tabs-panel {{ loop.first?'is-active':'' }}" id="panel{{ brand.id }}">
                         <h4>{{ brand.name }} Reward</h4>
@@ -27,13 +26,35 @@
                                         <a class="button" href="{{ base_url() }}reedem/{{ reward.id }}">100 point</a>
                                     </div>
                                 </div>
+                                <div class="small-12 columns confirm no-padding">
+                                    <p>Are you sure want to redeem 100 point for this reward?</p>
+                                    <div class="small-12 columns">
+                                        <div class="small-6 columns btn-confirm">
+                                            <a href="{{ base_url() }}thankyou"><button class="button">Yes</button></a>
+                                        </div>
+                                        <div class="small-6 columns btn-confirm">
+                                            <a href=""><button class="button">Cancel</button></a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             {% endif %}
                         {% endfor %}
                     </div>
-
                 {% endfor %}
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block frontend_js %}
+<script>
+    $(document).ready(function(){
+        $(".confirm").hide();
+        $(".button").on("click", function(){
+            $(".box-content").hide();
+            $(".confirm").show();
+        });
+    });
+</script>
 {% endblock %}
