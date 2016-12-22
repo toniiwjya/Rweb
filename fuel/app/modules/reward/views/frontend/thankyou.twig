@@ -3,6 +3,17 @@
 {% block frontend_center_content %}
     <div class="column thankyou-page">
         <div class="medium-10 medium-centered columns">
+            {#<div class="small-12 columns confirm no-padding">#}
+                {#<p>Are you sure want to redeem {{ reward.point }} point for this reward?</p>#}
+                {#<div class="small-12 columns">#}
+                    {#<div class="small-6 columns btn-confirm">#}
+                        {#<a class="button">Yes</a>#}
+                    {#</div>#}
+                    {#<div class="small-6 columns btn-confirm">#}
+                        {#<a href="" class="button">Cancel</a>#}
+                    {#</div>#}
+                {#</div>#}
+            {#</div>#}
             <div class="head-thank">
                 <h1>Thank You!</h1>
                 <img src="{{ base_url() }}assets/css/images/thankyou.png">
@@ -13,3 +24,15 @@
         </div>
     </div>
 {% endblock %}
+
+{#{% block frontend_js %}#}
+    {#<script>#}
+        {#$(document).ready(function(){#}
+            {#$(".head-thank").hide();#}
+            {#$(".button").on("click", function(){#}
+                {#$(".confirm").hide();#}
+                {#$(".head-thank").show();#}
+            {#});#}
+        {#});#}
+    {#</script>#}
+{#{% endblock %}#}

@@ -39,7 +39,7 @@
 
       <ul class="vertical menu">
           {% if is_login == FALSE  %}
-              <li><a href="{{ base_url() }}register">Login / Register</a></li>
+              <li><a href="{{ base_url() }}login">Login / Register</a></li>
               <li><a href="{{ base_url() }}news">News</a></li>
               <li><a href="{{ base_url() }}promo">Promo</a></li>
               <li><a href="{{ base_url() }}reward">Reward</a></li>
@@ -74,7 +74,7 @@
       <div class="top-bar-right">
         <ul class="dropdown menu" data-dropdown-menu>
           {% if is_login == FALSE  %}
-          <li><a href="{{ base_url() }}register">Login / Register</a></li>
+          <li><a href="{{ base_url() }}login">Login / Register</a></li>
           {% endif %}
           {% if is_login == TRUE %}
           <li>

@@ -353,7 +353,7 @@ footer .social-media > li > a.instagram:hover {
 .login input#email {
     background-image: url(../images/mail-icon.png);
     background-repeat: no-repeat;
-    background-position: 10px;
+    background-position: 15px;
     margin-top: 10px;
     border: 1px solid #56b0db;
     padding-left: 50px;
@@ -369,7 +369,15 @@ footer .social-media > li > a.instagram:hover {
     padding-left: 50px;
     background-color: #ffffff;
 }
-
+.form-profile input#new-pass ,.form-profile input#re-pass {
+    background-image: url(../images/password-icon.png);
+    background-repeat: no-repeat;
+    background-position: 15px;
+    margin-top: 10px;
+    border: 1px solid #56b0db;
+    padding-left: 50px;
+    background-color: #ffffff;
+}
 .form-profile input#email {
     background-image: url(../images/mail-icon.png);
     background-repeat: no-repeat;
@@ -377,7 +385,8 @@ footer .social-media > li > a.instagram:hover {
     margin-top: 10px;
     border: 1px solid #56b0db;
     padding-left: 50px;
-    background-color: #ffffff;
+    background-color: #e6e6e6;
+    cursor: not-allowed;
 }
 
 .form-profile textarea#address {
@@ -390,7 +399,9 @@ footer .social-media > li > a.instagram:hover {
     background-color: #ffffff;
     min-height: 75px;
 }
-
+.form-profile fieldset{
+    margin-top: 10px;
+}
 .form-profile input#phone {
     background-image: url(../images/phone-icon.png);
     background-repeat: no-repeat;
@@ -458,7 +469,7 @@ footer .social-media > li > a.instagram:hover {
 }
 
 .text-label{
-	text-align:right;
+	text-align:left;
 }
 
 .middle-label{
@@ -762,7 +773,7 @@ footer .social-media > li > a.instagram:hover {
 }
 [type=email],[type=number],[type=password], [type=text], textarea{
     border-radius: 5px;
-    border: 1px solid #c5c2c2;
+    border: 1px solid #56b0db;
     color: #000000;
     font-size: 16px;
     padding: 1.5rem;
@@ -772,6 +783,7 @@ footer .social-media > li > a.instagram:hover {
 label{
     font-family: "Open Sans",sans-serif;
     font-weight: 600;
+    line-height: 1.4;
 }
 .button.small {
     font-size: 16px;
