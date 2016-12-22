@@ -8,13 +8,12 @@ class Controller_Promo extends \Controller_Frontend
 		$this->_data_template['validate_user_promo'] = \Session::get_flash('validate_user_promo');
 		return \Response::forge(\View::forge('promo::frontend/promo.twig',$this->_data_template,FALSE));
 	}
+
     public function action_task(){
-        
         if(empty(\Session::get('user_id'))){
             \Session::set_flash('ask_login','Please login before continue');
             return \Response::redirect(\Uri::base().'login');
         }
-
         $user_id = \Session::get('user_id');
 
         //Query to filter task base on user's promo

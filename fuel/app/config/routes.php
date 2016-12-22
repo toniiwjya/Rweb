@@ -9,6 +9,7 @@ return array(
 	'news_detail/(:id)'	=> 'pages/frontend/home/news_detail',
     'profile'       	=> 'pages/frontend/home/profile',
 	'logout'			=> 'pages/frontend/home/logout',
+    'done'				=> 'pages/frontend/home/add_point',
 	'login'				=> 'users/frontend/login',
 	'fb/login'			=> 'users/frontend/login/fb',
 	'register' 			=> 'users/frontend/register',
@@ -16,6 +17,6 @@ return array(
     'task'          	=> 'promo/task',
     'join'				=> 'promo/join',
 	'reward'			=> 'reward',
-    'thankyou'      	=> 'reward/thankyou'
+    'thankyou'      	=> 'reward/thankyou',
 
 );

@@ -43,14 +43,22 @@
 <script>
 $(document).ready(function(){
     $('.facebook-share').on('click', function(){
+        var news_id = $(this).attr('id');
         FB.ui({
             display: 'popup',
             method:  'share',
             href: 'http://facebook.com',
         },function(response) {
             if (response && response.post_id) {
-                    console.log('shared is done');
-                    //ToDO::add query point here
+                    $.ajax({
+                        url : '{{ base_url() }}/done',
+                        method : 'post',
+                        data : news_id,
+                        success : function(response){
+                            alert("GOGOGO!");
+                        }
+                    });
+
             }
         });
     });
