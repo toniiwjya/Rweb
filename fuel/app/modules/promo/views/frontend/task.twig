@@ -5,42 +5,43 @@
 {% endblock %}
 
 {% block frontend_center_content %}
-<div class="small-12 task">
-    <h2>Complete your task and get the Points !</h2>
-    <div class="small-12 columns">
-        <div class="small-6 columns">
-            <h3>Task 0/5</h3>
-        </div>
-        <div class="small-12 columns content">
-            {% for task in list_task %}
-            <div class="small-12 medium-4 columns end">
-                <div class="title">
-                    <h5>{{ task.name }}</h5>
+    <div class="column task">
+        <div class="medium-10 medium-centered columns">
+            <h3>Complete your task and get the Points !</h3>
+            <div class="small-12 columns">
+                <div class="small-6 columns">
+                    <h4>Task 0/5</h4>
                 </div>
-                <div class="image-task">
-                    <div class="img">
-                        <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
-                        <div class="click">
-                            <button>Click here</button>
+                <div class="small-12 columns content">
+                    {% for task in list_task %}
+                        <div class="small-12 medium-4 columns end">
+                            <div class="title">
+                                <h5>{{ task.name }}</h5>
+                            </div>
+                            <div class="image-task">
+                                <div class="img">
+                                    <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
+                                    <div class="click">
+                                        <button>Click here</button>
+                                    </div>
+                                </div>
+                                <div class="poin">
+                                    <span>{{ task.point }} pts</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="poin">
-                        <span>{{ task.point }} <img src="{{ base_url() }}assets/css/images/coin.png"></span>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
-            {% endfor %}
+
+            <div class="small-12 columns">
+                <h4>Complete :</h4>
+                <div class="history">
+
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="small-12 columns">
-        <h4>Complete :</h4>
-        <div class="history">
-
-        </div>
-    </div>
-</div>
-
 <script>
    
 </script>

@@ -1,9 +1,12 @@
 .task{
     font-family: "Open Sans Condensed", sans-serif;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    background: #FFFFFF;
 }
 
-.task h2{
-    font-family: "Open Sans Condensed", sans-serif;
+.task h3{
+    font-family: "Merriweather", sans-serif;
     text-align: center;
 }
 
@@ -11,10 +14,6 @@
     text-align: center;
 }
 
-.content{
-    margin-bottom: 50px;
-    margin-top: 20px;
-}
 
 .image-task {
     position: relative;
@@ -35,24 +34,20 @@
 
 .poin {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    height: 65px;
-    width: 65px;
-    padding-top: 20px;
-    padding-left: 10px;
-    background: #f56743;
+    top: 5px;
+    right: 5px;
+    height: 70px;
+    width: 70px;
+    padding-top: 8%;
+    text-align: center;
+    background: #1f9eef;
     color: #fff;
     border-radius: 33px;
     font-size: 16px;
-    z-index: 10;
-    font-family: "Roboto",Sans-serif;
+    font-weight: 500;
+    font-family: "Merriweather",Sans-serif;
 }
 
-.poin span img{
-    width: 20px;
-    padding-bottom: 5px;
-}
 .click {
     color: #ffffff;
     font-family: "Roboto",Sans-serif;
@@ -66,11 +61,11 @@
 }
 
 @media screen and (max-width: 799px){
-    .poin {
-        height: 50px;
-        width: 50px;
-        font-size: 14px;
-        padding-top: 15px;
-        padding-left: 5px;
-    }
+    /*.poin {*/
+        /*height: 50px;*/
+        /*width: 50px;*/
+        /*font-size: 14px;*/
+        /*padding-top: 15px;*/
+        /*padding-left: 5px;*/
+    /*}*/
 }
