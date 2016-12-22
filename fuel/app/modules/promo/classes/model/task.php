@@ -15,7 +15,19 @@ class Model_Task extends \Orm\Model{
 			)
 		),
 		'description',
+		'img',
+		'type',
 		'point',
+	);
+
+	protected static $_has_many = array(
+		'activity_user' => array(
+			'key_from'		 => 'id',
+			'model_to'		 => 'Users\\Model_ActivityUser',
+			'key_to' 		 => 'source_id',
+			'cascade_save'	 => true,
+			'cascade_delete' => false,
+		),
 	);
 
 	protected static $_belongs_to = array(

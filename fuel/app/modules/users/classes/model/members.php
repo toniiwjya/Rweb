@@ -100,12 +100,26 @@ class Model_Members extends \Orm\Model {
     }   
 
     protected static $_has_many = array(
-        'activity' => array(
+        'activity_promo' => array(
             'key_from'       => 'id',
             'model_to'       => 'Promo\\Model_ActivityPromo',
             'key_to'         => 'user_id',
             'cascade_save'   => true,
             'cascade_delete' => false,
+        ),
+        'activity_user' => array(
+            'key_from'       => 'id',
+            'model_to'       => 'Model_ActivityUser',
+            'key_to'         => 'user_id',
+            'cascade_save'   => true,
+            'cascade_delete' => false,
+        ),
+        'order' => array(
+            'key_from'      => 'id',
+            'model_to'      => 'Reward\\Model_Order',
+            'key_to'        => 'user_id',
+            'cascade_save'  => true,
+            'cascade_delete'=> false,
         )
     );
    
