@@ -17,8 +17,13 @@
             <div class="btn">
                 <p>Share with your friend</p>
                 <ul>
+<<<<<<< HEAD
                     <li><a href="#" class="facebook-share" id="{{ news.id }}"><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
                     <li><a href=""><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
+=======
+                    <li><a href="#" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
+                    <li><a href="#" class="facebook-share" id="{{ news.id }}"><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
+>>>>>>> 2f909d20327ac21851293ea7b4be41849cc77080
                 </ul>
             </div>
         </div>
@@ -26,6 +31,7 @@
     </div>
 {% endblock %}
 
+<<<<<<< HEAD
 {% block frontend_js %}
     <script>
         $(document).ready(function(){
@@ -43,4 +49,27 @@
             });
         });
     </script>
+=======
+
+{% block frontend_js %}
+<script>
+$(document).ready(function(){
+    $('.facebook-share').on('click', function(){
+        FB.ui({
+            display: 'popup',
+            method:  'share',
+            href: 'http://facebook.com',
+        },function(response) {
+            if (response && response.post_id) {
+                    console.log('shared is done');
+                    //ToDO::add query point here
+                    $.ajax({
+                        url : ''
+                    });
+            }
+        });
+    });
+});
+</script>
+>>>>>>> 2f909d20327ac21851293ea7b4be41849cc77080
 {% endblock %}

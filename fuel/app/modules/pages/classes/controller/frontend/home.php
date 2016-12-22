@@ -4,14 +4,13 @@ namespace Pages;
 class Controller_Frontend_Home extends \Controller_Frontend
 {
     public function action_index(){
-        if(empty($this->_data_template)){
-            $this->_data_template=[];
-        }
     	return \Response::forge(\View::forge('pages::frontend/home.twig',$this->_data_template,FALSE));
     }
+
     public function action_news(){
         return \Response::forge(\View::forge('pages::frontend/news.twig',$this->_data_template,FALSE));
     }
+
     public function action_news_detail(){
         $id = $this->param('id');
         $news_detail = \Pages\Model_News::query()->where('id',$id)->get();;
@@ -19,6 +18,7 @@ class Controller_Frontend_Home extends \Controller_Frontend
 
     	return \Response::forge(\View::forge('pages::frontend/news_detail.twig',$this->_data_template,FALSE));
     }
+
     public function action_profile(){
         $user_id = \Session::get('user_id');
         $this->_data_template['profile'] = \Users\Model_Members::query()->where('id',$user_id)->get_one();
@@ -30,6 +30,17 @@ class Controller_Frontend_Home extends \Controller_Frontend
     public function action_logout(){
         \Session::destroy();
         \Response::redirect(\Uri::base());
+    }
+
+    public function action_add_point(){
+        $_post_data = \Input::post();
+        if(empty(\Session::get('user_id'))){
+            \Session::set_flash('ask_login','Please login before continue');
+            return \Response::redirect(\Uri::base().'login');
+        }
+        $news = Model_News::query()->where('id',$_post_data['news_id'])->get_one();
+        $user_id = \Session::get('user_id');
+        Model_activityUser::add_point($news->brand_id,$user_id);
     }
 
 
