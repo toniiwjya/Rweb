@@ -17,15 +17,8 @@
                         <img src="{{ base_url() }}assets/css/images/news-thumb.jpg">
                     </div>
                     <div class="medium-8 small-12 columns no-right-padding" data-equalizer-watch="news">
-                        <div class=" small-12 medium-6 columns post-date">
+                        <div class=" small-12 medium-12 columns post-date">
                             Posted on {{ news.created_at|date("d F Y") }}
-                        </div>
-                        <div class="small-6 columns share">
-                            <ul>
-                                <li><span>Share</span></li>
-                                <li><a href="" ><img src="{{ base_url() }}assets/css/images/twitter-share.png"></a></li>
-                                <li><a href="#" class="facebook-share" id="{{ news.id }}"><img src="{{ base_url() }}assets/css/images/fb-share.png"></a></li>
-                            </ul>
                         </div>
                         {{ news.description|length > 250 ? news.description|slice(0,250) ~ '...' : news.description }}
                         <p class="more"><a href="{{ base_url() }}news_detail/{{ news.id }}">Read more <img src="{{ base_url() }}assets/css/images/right.png"></a></p>
@@ -38,23 +31,3 @@
     </div>
 
 {% endblock %}
-
-{% block frontend_js %}
-<script>
-$(document).ready(function(){
-    $('.facebook-share').on('click', function(){
-        FB.ui({
-            display: 'popup',
-            method:  'share',
-            href: 'http://facebook.com',
-        },function(response) {
-            if (response && response.post_id) {
-                    console.log('shared is done');
-                    //ToDO::add query point here
-            }
-        });
-    });
-});
-</script>
-{% endblock %}
-
