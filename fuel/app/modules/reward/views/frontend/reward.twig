@@ -44,6 +44,28 @@
                                         </form>
                                     </div>
                                 </div>
+                                <div class="small-12 medium-4 columns no-padding">
+                                    <div class="tiny reveal confirm" id="popup-{{ reward.id }}" data-reveal>
+                                        <div class="title-confirm"><h5>Confirm</h5></div>
+                                        <div class="small-2 columns padd-confirm" style="text-align: right">
+                                            <img src="{{ base_url() }}assets/css/images/sign-question-icon.png">
+                                        </div>
+                                        <div class="small-10 columns padd-confirm">
+                                            <p>Are you sure want to redeem {{ reward.point }} point for this reward?</p>
+                                        </div>
+                                        <div class="small-12 columns">
+                                            <div class="small-6 columns btn-confirm text-right">
+                                                <a data-close class="button">No</a>
+                                            </div>
+                                            <div class="small-6 columns btn-confirm text-left">
+                                                <a href="{{ base_url() }}thankyou" class="button">Yes</a>
+                                            </div>
+                                        </div>
+                                        <button class="close-button" data-close aria-label="Close modal" type="button">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
                             {% endif %}
                         {% endfor %}
@@ -52,5 +74,18 @@
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block frontend_js %}
+    {#<script>#}
+        {#$(document).ready(function(){#}
+            {#$('.confirm').hide();#}
+            {#$(".button").click(function(){#}
+                {#$('.confirm').show();#}
+                {#$('.box').hide();#}
+            {#});#}
+        {#});#}
+
+    {#</script>#}
 {% endblock %}
 

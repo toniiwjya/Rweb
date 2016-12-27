@@ -291,9 +291,8 @@ footer .social-media > li > a.instagram:hover {
     position: absolute;
     top: 5px;
     right: 5px;
-    height: 70px;
-    width: 70px;
-    padding-top: 10%;
+    height: 65px;
+    width: 65px;
     text-align: center;
     background: #1f9eef;
     color: #fff;
@@ -301,11 +300,12 @@ footer .social-media > li > a.instagram:hover {
     font-size: 16px;
     font-weight: 500;
     font-family: "Merriweather",Sans-serif;
+    display: table;
 }
 
-.reward .poin span img{
-    width: 20px;
-    padding-bottom: 5px;
+.reward .poin span {
+    display:table-cell;
+    vertical-align: middle;
 }
 
 .tabs-panel{
@@ -731,8 +731,9 @@ footer .social-media > li > a.instagram:hover {
     font-family: "Roboto",Sans-serif;
 }
 
-.btn-confirm a > button{
+.btn-confirm a > .button{
     border-radius: 10px;
+    background-color: #808080;
 }
 .img-reward{
     margin-bottom: 10px;
@@ -745,15 +746,35 @@ footer .social-media > li > a.instagram:hover {
 }
 
 .confirm{
-    padding-top: 10%;
-    padding: 25px;
+    padding: 0;
     border: 1px solid grey;
+    border-radius: 5px;
 }
 
+.padd-confirm{
+    margin-top: 10px;
+}
+.confirm .title-confirm{
+    border: 1px solid #367fa9;
+    padding: 5px;
+    background-color: #3c8dbc;
+}
+.confirm .title-confirm > h5{
+    margin-bottom: 0;
+    color: white;
+    font-size: 16px;
+}
 .confirm > p{
     text-align: center;
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.5;
 }
-
+.confirm .close-button {
+    color: #ffffff;
+    top:0;
+    right: 3px;
+}
 .thankyou-page{
     background: #ffffff;
     padding-top: 25px;
