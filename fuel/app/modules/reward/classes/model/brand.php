@@ -32,7 +32,7 @@ class Model_Brand extends \Orm\Model {
 		),
 	    'reward' => array(
 	        'key_from' => 'id',
-	        'model_to' => 'Model_Reward',
+	        'model_to' => 'Reward\\Model_Reward',
 	        'key_to' => 'brand_id',
 	        'cascade_save' => true,
 	        'cascade_delete' => false,

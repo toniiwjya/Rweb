@@ -109,7 +109,7 @@ class Model_Members extends \Orm\Model {
         ),
         'activity_user' => array(
             'key_from'       => 'id',
-            'model_to'       => 'Model_ActivityUser',
+            'model_to'       => 'Users\\Model_activityUser',
             'key_to'         => 'user_id',
             'cascade_save'   => true,
             'cascade_delete' => false,
@@ -120,7 +120,14 @@ class Model_Members extends \Orm\Model {
             'key_to'        => 'user_id',
             'cascade_save'  => true,
             'cascade_delete'=> false,
-        )
+        ),
+        'point' => array(
+            'key_from'  => 'id',
+            'model_to'  => 'Users\\Model_userPoint',
+            'key_to'    => 'user_id',
+            'cascade_save'  => true,
+            'cascade_delete'=> false,
+        ),
     );
    
 }

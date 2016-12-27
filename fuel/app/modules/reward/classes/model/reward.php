@@ -35,7 +35,7 @@ class Model_Reward extends \Orm\Model {
 	protected static $_has_many = array(
 		'order' => array(
 			'key_from'		 => 'id',
-			'model_to'		 => 'Model_Order',
+			'model_to'		 => 'Reward\\Model_Order',
 			'key_to' 		 => 'reward_id',
 			'cascade_save'	 => true,
 			'cascade_delete' => false,
@@ -45,7 +45,7 @@ class Model_Reward extends \Orm\Model {
 	protected static $_belongs_to = array(
 	    'brand' => array(
 	        'key_from' => 'brand_id',
-	        'model_to' => 'Model_Brand',
+	        'model_to' => 'Reward\\Model_Brand',
 	        'key_to' => 'id',
 	        'cascade_save' => true,
 	        'cascade_delete' => false,

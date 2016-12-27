@@ -16,20 +16,32 @@
                         <div class="small-9 column">
                             <h4>{{ brand.name }} Reward</h4>
                         </div>
-                        <div class="small-3 column text-right">
-                            Point : {{ }}
-                        </div>
+                        {% for point in point_user %}
+                            {% if(brand.id==point.brand_id) %}
+                                <div class="small-3 column text-right">
+                                    Point : {{ point.point }}
+                                </div>
+                            {% else %}
+                                <div class="small-3 column text-right">
+                                    <a href="{{ base_url() }}promo">Join this Promo Now!</a>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                         <div style="clear:both"></div>
                         {% for reward in reward_list %}
                             {% if(brand.id==reward.brand_id) %}
+                            
+                        {{ err_msg }}
                             <div class="medium-4 small-12 columns brand-reward end" data-equalizer="reward">
                                 <div class="small-12 box columns" data-equalizer-watch="reward">
                                     <div class="small-12 columns img-reward">
                                         <img src="{{ base_url() }}assets/css/images/reward.jpg">
                                     </div>
                                     <div class="small-12 columns btn-reedem">
-                                        {#<a class="button" href="{{ base_url() }}reedem/{{ reward.id }}">{{ reward.point }} point</a>#}
-                                        <a class="button" href="{{ base_url() }}thankyou">{{ reward.point }} point</a>
+                                        <form method="post" action="{{ base_url() }}thankyou" >
+                                            <input type="hidden" name="id" value="{{ reward.id }}">
+                                            <input type="submit"  class="button small" value="{{ reward.point }} point">
+                                        </form>
                                     </div>
                                 </div>
                             </div>

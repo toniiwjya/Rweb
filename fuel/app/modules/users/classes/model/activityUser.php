@@ -1,6 +1,6 @@
 <?php
 
-namespace Pages;
+namespace Users;
 
 class Model_activityUser extends \Orm\Model{
 	
@@ -9,26 +9,24 @@ class Model_activityUser extends \Orm\Model{
 	protected static $_properties = array(
 		'id',
 		'user_id',
-		'source_id',
+		'task_id',
 		'brand_id',
-		'category',
 		'date'
 	);
 
-	public static function add_point($brand_id,$user_id){
+	public static function add_point($user_id,$task_id,$brand_id){
 		$data = self::forge(array(
 			'user_id'	=> $user_id,
-			'source_id'	=> $brand_id,
-			'category'	=> '1',
+			'task_id'	=> $task_id,
+			'brand_id'	=> $brand_id,
 			'date'		=> date("Y-m-d H:i:s"),
-
 		));
-
 		$data->save();
-	}
 
-	public static function calc_add_point($user_id){
-		// self::query()->where('user_id',$user_id);
+		$get_point = \Promo\Model_Task::query()->where('id',$task_id)->get_one();
+		$update_point = Model_userPoint::query()->where('user_id',$user_id)->where('brand_id',$brand_id)->get_one();
+		$update_point->point += $get_point['point'];
+		$update_point->save(); 
 	}
 
 	protected static $_belongs_to = array(
@@ -39,15 +37,8 @@ class Model_activityUser extends \Orm\Model{
 			'cascade_save'	 => true,
 			'cascade_delete' => false,
 		),
-		'order' => array(
-			'key_from' 		 => 'source_id',
-			'model_to' 		 => 'Reward\\Model_Order',
-			'key_to'		 => 'id',
-			'cascade_save'	 => true,
-			'cascade_delete' => false,
-		),
 		'task' => array(
-			'key_from' 		 => 'source_id',
+			'key_from' 		 => 'task_id',
 			'model_to' 		 => 'Promo\\Model_Task',
 			'key_to'		 => 'id',
 			'cascade_save'	 => true,

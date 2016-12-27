@@ -31,8 +31,6 @@
     </div>
 
 {% endblock %}
-<<<<<<< HEAD
-=======
 
 {% block frontend_js %}
 <script>
@@ -48,17 +46,11 @@ $(document).ready(function(){
                     $.ajax({
                         url : '{{ base_url() }}/done',
                         method : 'post',
-                        data : news_id,
-                        success : function(response){
-                            alert("GOGOGO!");
-                        }
+                        data : {news_id},
                     });
-
             }
         });
     });
 });
 </script>
 {% endblock %}
-
->>>>>>> 2f909d20327ac21851293ea7b4be41849cc77080

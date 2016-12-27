@@ -26,7 +26,7 @@
 	                    </div>
 	                    <div class="small-12 columns">
 	                        <div class="small-6 columns text-right">
-	                            <button type="button" class="button small">View</button>
+	                            <a href="{{base_url()}}{{ list_promo.id }}"><button type="button" class="button small">View</button></a>
 	                        </div>
 	                        <div class="small-6 columns">
 	                            <form method="post" action="{{ base_url() }}join" >
@@ -47,7 +47,7 @@
 	                    </div>
 	                    <div class="small-12 columns">
 	                        <div class="small-6 columns text-right">
-	                            <button type="button" class="button small">View</button>
+	                            <a href="{{ base_url() }}news_detail/{{ list_promo.news.id }}"><button type="button" class="button small">View</button></a>
 	                        </div>
 	                        <div class="small-6 columns">
 	                            <form method="post" action="{{ base_url() }}join" >

@@ -24,7 +24,7 @@ class Model_Task extends \Orm\Model{
 		'activity_user' => array(
 			'key_from'		 => 'id',
 			'model_to'		 => 'Users\\Model_ActivityUser',
-			'key_to' 		 => 'source_id',
+			'key_to' 		 => 'task_id',
 			'cascade_save'	 => true,
 			'cascade_delete' => false,
 		),

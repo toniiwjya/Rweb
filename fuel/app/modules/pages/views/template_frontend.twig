@@ -51,6 +51,7 @@
               <li><a href="{{ base_url() }}news">News</a></li>
               <li><a href="{{ base_url() }}promo">Promo</a></li>
               <li><a href="{{ base_url() }}reward">Reward</a></li>
+              <li><a href="{{ base_url() }}task">Task</a></li>
               <li><a href="{{ base_url() }}logout">Logout</a></li>
           {% endif %}
 
@@ -69,6 +70,9 @@
           <li><a href="{{ base_url() }}news">News</a></li>
           <li><a href="{{ base_url() }}promo">Promo</a></li>
           <li><a href="{{ base_url() }}reward">Reward</a></li>
+          {% if is_login == TRUE %}
+          <li><a href="{{ base_url() }}task">Task</a></li>
+          {% endif %}
         </ul>
       </div>
       <div class="top-bar-right">

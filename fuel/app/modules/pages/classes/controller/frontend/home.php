@@ -39,8 +39,9 @@ class Controller_Frontend_Home extends \Controller_Frontend
             return \Response::redirect(\Uri::base().'login');
         }
         $news = Model_News::query()->where('id',$_post_data['news_id'])->get_one();
+        $task = \Promo\Model_Task::query()->where('promo_id',$news->promo_id)->where('type','Share')->get_one();
         $user_id = \Session::get('user_id');
-        Model_activityUser::add_point($news->brand_id,$user_id);
+        \Users\Model_activityUser::add_point($user_id,$task->id,$news->brand_id);
     }
 
 

@@ -46,9 +46,18 @@ class Controller_Promo extends \Controller_Frontend
 	    		));
 	    		$join->save();
 
+                $point = \Users\Model_userPoint::forge(array(
+                    'user_id'   => $user_id,
+                    'brand_id'  => $selected_promo->brand_id,
+                    'point'     => '0'
+                ));
+
+                $point->save();
+
 	    		$selected_promo['slot'] -= 1;
 	    		$selected_promo->slot = $selected_promo['slot'];
 	    		$selected_promo->save();
+
 	    		return \Response::redirect(\Uri::base().'task');
     		}else{
     			\Session::set_flash('validate_user_promo','You have been registered in this '.$selected_promo->name.' promo');
