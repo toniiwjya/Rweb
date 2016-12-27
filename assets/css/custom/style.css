@@ -308,6 +308,10 @@ footer .social-media > li > a.instagram:hover {
     vertical-align: middle;
 }
 
+.tabs-panel{
+    padding-bottom: 2px;
+}
+
 .button-more{
     text-align: center;
 }

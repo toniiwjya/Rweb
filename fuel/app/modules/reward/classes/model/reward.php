@@ -14,6 +14,7 @@ class Model_Reward extends \Orm\Model {
 				'required',
 			)
 		),
+		'img',
 		'point' =>  array(
 			'validation' => array(
 				'required',
@@ -28,6 +29,16 @@ class Model_Reward extends \Orm\Model {
 			'validation' => array(
 				'required',
 			)
+		),
+	);
+
+	protected static $_has_many = array(
+		'order' => array(
+			'key_from'		 => 'id',
+			'model_to'		 => 'Model_Order',
+			'key_to' 		 => 'reward_id',
+			'cascade_save'	 => true,
+			'cascade_delete' => false,
 		),
 	);
 
