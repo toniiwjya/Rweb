@@ -31,34 +31,3 @@
     </div>
 
 {% endblock %}
-<<<<<<< HEAD
-=======
-
-{% block frontend_js %}
-<script>
-$(document).ready(function(){
-    $('.facebook-share').on('click', function(){
-        var news_id = $(this).attr('id');
-        FB.ui({
-            display: 'popup',
-            method:  'share',
-            href: 'http://facebook.com',
-        },function(response) {
-            if (response && response.post_id) {
-                    $.ajax({
-                        url : '{{ base_url() }}/done',
-                        method : 'post',
-                        data : news_id,
-                        success : function(response){
-                            alert("GOGOGO!");
-                        }
-                    });
-
-            }
-        });
-    });
-});
-</script>
-{% endblock %}
-
->>>>>>> 2f909d20327ac21851293ea7b4be41849cc77080
