@@ -4,8 +4,8 @@ namespace Users;
 class Controller_Frontend_Register extends \Controller_Frontend
 {
     public function action_index(){
-        if(empty($this->_data_template)){
-            $this->_data_template=[];
+        if(!empty(\Session::get('user_id'))){
+            \Response::redirect(\Uri::base());
         }
     	$this->_do_registration();
         return \Response::forge(\View::forge('users::frontend/register.twig',$this->_data_template,FALSE));

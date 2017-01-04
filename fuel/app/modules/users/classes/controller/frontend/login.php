@@ -4,6 +4,9 @@ namespace Users;
 class Controller_Frontend_Login extends \Controller_Frontend
 {
     public function action_index(){
+        if(!empty(\Session::get('user_id'))){
+            \Response::redirect(\Uri::base());
+        }
         $this->_data_template['fb_login'] = Model_Login::get_fb_url();
         $this->_data_template['success_regis'] = \Session::get_flash('success_regis');
         $this->_data_template['fail_fb'] = \Session::get_flash('fail_fb');

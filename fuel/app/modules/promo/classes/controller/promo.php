@@ -10,11 +10,12 @@ class Controller_Promo extends \Controller_Frontend
 	}
 
     public function action_task(){
-        if(empty(\Session::get('user_id'))){
+        $user_id = \Session::get('user_id');
+        
+        if(empty($user_id)){
             \Session::set_flash('ask_login','Please login before continue');
             return \Response::redirect(\Uri::base().'login');
         }
-        $user_id = \Session::get('user_id');
 
         //Query to filter task base on user's promo
         $subQuery = Model_ActivityPromo::query()->select('promo_id')->where('user_id',\Session::get('user_id'));

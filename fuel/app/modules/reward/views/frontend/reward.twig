@@ -13,25 +13,29 @@
             <div class="tabs-content vertical" data-tabs-content="example-vert-tabs">
                 {% for brand in brand_reward %}
                     <div class="tabs-panel {{ loop.first?'is-active':'' }}" id="panel{{ brand.id }}">
-                        <div class="small-9 column">
+                        <div class="small-6 column">
                             <h4>{{ brand.name }} Reward</h4>
                         </div>
+
+                        <div class="small-3 column">
+                            {{ err_msg }}
+                        </div>
+
                         {% for point in point_user %}
                             {% if(brand.id==point.brand_id) %}
-                                <div class="small-3 column text-right">
+                                <div class="small-3 column end text-right">
                                     Point : {{ point.point }}
                                 </div>
                             {% else %}
-                                <div class="small-3 column text-right">
+                                <div class="small-3 column end text-right">
                                     <a href="{{ base_url() }}promo">Join this Promo Now!</a>
                                 </div>
                             {% endif %}
                         {% endfor %}
                         <div style="clear:both"></div>
+                        
                         {% for reward in reward_list %}
-                            {% if(brand.id==reward.brand_id) %}
-                            
-                        {{ err_msg }}
+                            {% if(brand.id==reward.brand_id) %}                        
                             <div class="medium-4 small-12 columns brand-reward end" data-equalizer="reward">
                                 <div class="small-12 box columns" data-equalizer-watch="reward">
                                     <div class="small-12 columns img-reward">

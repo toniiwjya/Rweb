@@ -13,8 +13,7 @@ class Model_Order extends \Orm\Model{
 		'date'
 	);
 
-	public static function check_valid($data){
-		$user_id = \Session::get('user_id');
+	public static function check_valid($data,$user_id){
 
 		//Check if user have point for the reward
 		$reward_to_be_redeem = Model_Reward::query()->where('id',$data)->get_one();
