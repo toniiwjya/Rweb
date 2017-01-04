@@ -23,10 +23,10 @@
                     <div class="icon">
                         <img src="{{ base_url() }}assets/css/images/customer-icon.png">
                     </div>
-                    <h4>Log in to get your Points</h4>
+                    <h4>Join to get your Points</h4>
                     <p>Check your Reward Points balance today and explore our collection of redemption options.</p>
                     <div class="small-12 columns" style="text-align: center;">
-                        <div class="button regis"><a href="{{ base_url() }}login">Log in now</a></div>
+                        <div class="button regis"><a href="{{ base_url() }}register">Join now</a></div>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
         </div>
         <div class="small-12 columns">
             <div class="medium-12 small-12 columns" data-equalizer="benefit" style="margin-top: 50px;margin-bottom: 20px;">
-                {% for list in list_reward %}
+                {% for list in list_reward | slice(0, 3)%}
                 <div class="small-12 medium-4 box columns" data-equalizer-watch="benefit">
                     <a href="{{ base_url() }}reward/{{list.id}}">
                         <div class="reward">
@@ -95,7 +95,7 @@
             <h2>NEWS</h2>
         </div>
 		<div class="small-12 columns" data-equalizer="news">
-            {% for news in list_news %}
+            {% for news in list_news | slice(0, 3) %}
             <a href="{{ base_url() }}news_detail/{{ news.id }}">
 			<div class="small-12 medium-4 columns">
                 <div class="small-12 columns content-news" data-equalizer-watch="news">
