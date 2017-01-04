@@ -23,9 +23,9 @@
     <div class="title-bar" data-responsive-toggle="widemenu" data-hide-for="medium">
       <div class="title-bar-left home-icon">
         <a href="{{ base_url() }}">
-        	<img src="{{ base_url() }}/assets/css/images/R.png" style="width: 40px">
+        	<img src="{{ base_url() }}/assets/css/images/logo.png">
         </a>
-        <span class="title-bar-title">Rweb</span>
+        {#<span class="title-bar-title">Rweb</span>#}
 
       </div>
 
@@ -35,11 +35,11 @@
 
     </div>
     <!-- off-canvas right menu -->
-    <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right">
+    <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas data-position="right" data-hide-for="medium">
 
       <ul class="vertical menu">
           {% if is_login == FALSE  %}
-              <li><a href="{{ base_url() }}login">Login / Register</a></li>
+              <li><a href="{{ base_url() }}login">Login</a></li>
               <li><a href="{{ base_url() }}news">News</a></li>
               <li><a href="{{ base_url() }}promo">Promo</a></li>
               <li><a href="{{ base_url() }}reward">Reward</a></li>
@@ -63,10 +63,10 @@
 
     <!-- "wider" top-bar menu for 'medium' and up -->
 <div data-sticky-container>
-        <div id="widemenu" class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%" data-top-anchor="1">
+        <div id="widemenu" class="top-bar sticky is-stuck is-at-top" data-sticky data-options="marginTop:0;" style="width:100%" data-top-anchor="1" data-btm-anchor="content:bottom">
       <div class="top-bar-left">
         <ul class="menu">
-          <li class="logo"><a href="{{ base_url() }}"><img src="{{ base_url() }}/assets/css/images/R.png" style="width: 40px"></a></li>
+          <li class="logo"><a href="{{ base_url() }}"><img src="{{ base_url() }}/assets/css/images/logo.png"></a></li>
           <li><a href="{{ base_url() }}news">News</a></li>
           <li><a href="{{ base_url() }}promo">Promo</a></li>
           <li><a href="{{ base_url() }}reward">Reward</a></li>
@@ -78,7 +78,8 @@
       <div class="top-bar-right">
         <ul class="dropdown menu" data-dropdown-menu>
           {% if is_login == FALSE  %}
-          <li><a href="{{ base_url() }}login">Login / Register</a></li>
+              <li><a href="{{ base_url() }}login">Login</a></li>
+              <li class="started-home"><a href="{{ base_url() }}register">Get started</a></li>
           {% endif %}
           {% if is_login == TRUE %}
           <li>
@@ -107,12 +108,14 @@
       </div>
 
     </div>
+  <!-- close wrapper, no more content after this -->
 
+  </div>
     <footer class="medium-12 columns footer">
         <div class="medium-6 columns no-padd footer-left">
             <ul>
                 <li class="logo">
-                    <img src="{{ base_url() }}assets/css/images/R.png" style="width: 25px"/>
+                    <img src="{{ base_url() }}assets/css/images/logo-footer.png"/>
                 </li>
                 <li>
                     <span class="copyright">Copyright &copy; 2016 All Rights Reserved</span>
@@ -137,10 +140,6 @@
             </ul>
         </div>
     </footer>
-  <!-- close wrapper, no more content after this -->
-
-  </div>
-
 </div>
 
 <script src="{{ base_url() }}assets/js/jquery.min.js"></script>
@@ -149,6 +148,7 @@
 <script src="{{ base_url() }}assets/foundation/js/vendor/foundation.min.js"></script>
 <script src="{{ base_url() }}assets/foundation/js/app.js"></script>
 <script>
+
     window.fbAsyncInit = function() {
         FB.init({
             appId      : '200434553745901',

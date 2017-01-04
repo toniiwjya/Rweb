@@ -36,9 +36,8 @@
     position: absolute;
     top: 5px;
     right: 5px;
-    height: 70px;
-    width: 70px;
-    padding-top: 8%;
+    height: 65px;
+    width: 65px;
     text-align: center;
     background: #1f9eef;
     color: #fff;
@@ -46,6 +45,12 @@
     font-size: 16px;
     font-weight: 500;
     font-family: "Merriweather",Sans-serif;
+    display: table;
+}
+
+.poin > span {
+    display:table-cell;
+    vertical-align: middle;
 }
 
 .click {
