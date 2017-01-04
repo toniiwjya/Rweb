@@ -869,7 +869,8 @@ footer .social-media > li > a.instagram:hover {
     border: 1px solid #56b0db;
     color: #000000;
     font-size: 16px;
-    padding: 1.5rem;
+    padding: 1rem;
+    height: 3rem;
     margin-bottom: 5px;
 }
 

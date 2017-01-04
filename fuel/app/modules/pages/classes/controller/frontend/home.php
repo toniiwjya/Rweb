@@ -3,9 +3,12 @@ namespace Pages;
 
 class Controller_Frontend_Home extends \Controller_Frontend
 {
+    public function before(){
+        parent::before();
+    }
+    
     public function action_index(){
         $this->_data_template['list_reward'] = \Reward\Model_Reward::query()->where('status',1)->order_by('id')->limit(5)->get();
-        $this->_data_template['list_news'] = \Pages\Model_News::query()->get();
     	return \Response::forge(\View::forge('pages::frontend/home.twig',$this->_data_template,FALSE));
     }
 

@@ -9,6 +9,7 @@ class Controller_Frontend extends Controller
         $this->_check_login_session();
         $this->_data_template['is_login'] = $this->_is_login;
         $this->_data_template['member'] = $this->_member;
+        $this->_data_template['list_news'] = \Pages\Model_News::query()->get();
     }
 
 	private function _check_login_session() {
@@ -24,6 +25,10 @@ class Controller_Frontend extends Controller
         }else{
             $this->_member='';
         }
+    }
+
+    private function _check_limit_task(){
+        $this->_member;
     }
        
 }
