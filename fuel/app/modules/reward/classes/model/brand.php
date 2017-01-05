@@ -38,13 +38,6 @@ class Model_Brand extends \Orm\Model {
     );
 
 	protected static $_has_many = array(
-		'news' => array(
-			'key_from'		 => 'id',
-			'model_to'		 => 'Pages\\Model_News',
-			'key_to' 		 => 'brand_id',
-			'cascade_save'	 => true,
-			'cascade_delete' => false,
-		),
 		'promo' => array(
 			'key_from'		 => 'id',
 			'model_to'		 => 'Promo\\Model_Promo',

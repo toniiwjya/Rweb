@@ -893,6 +893,11 @@ label{
     /*padding: 5px;*/
 /*}*/
 
+/*Task*/
+.click{
+    padding-left:10px;
+}
+
 /*Edit Profile*/
 .profile{
     background: #ffffff;
