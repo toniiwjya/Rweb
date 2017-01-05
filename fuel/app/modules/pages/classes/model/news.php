@@ -8,7 +8,6 @@ class Model_News extends \Orm\Model{
 
 	protected static $_properties = array(
 		'id',
-		'brand_id',
 		'promo_id',
 		'title' => array(
 			'validation' => array(
@@ -25,13 +24,6 @@ class Model_News extends \Orm\Model{
 	);
 
 	protected static $_belongs_to = array(
-		'brand' => array(
-			'key_from' 		 => 'brand_id',
-			'model_to' 		 => 'Reward\\Model_Brand',
-			'key_to'		 => 'id',
-			'cascade_save'	 => true,
-			'cascade_delete' => false,
-		),
 		'promo' => array(
 			'key_from' 		 => 'promo_id',
 			'model_to' 		 => 'Promo\\Model_Promo',

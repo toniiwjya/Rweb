@@ -43,16 +43,20 @@ class Controller_Frontend_Home extends \Controller_Frontend
 
     public function action_add_point(){
         $_post_data = \Input::post();
-        if(empty(\Session::get('user_id'))){
+        $user_id = \Session::get('user_id');
+
+        if(empty($user_id)){
             \Session::set_flash('ask_login','Please login before continue');
             return \Response::redirect(\Uri::base().'login');
         }
-        $news = Model_News::query()->where('id',$_post_data['news_id'])->get_one();
-        $task = \Promo\Model_Task::query()->where('promo_id',$news->promo_id)->where('type','Share')->get_one();
-        $user_id = \Session::get('user_id');
-        \Users\Model_activityUser::add_point($user_id,$task->id,$news->brand_id);
+        switch($_post_data['type']){
+            case 'Share': $news = Model_News::query()->related('promo')->where('id',$_post_data['id'])->get_one();
+                        $task = \Promo\Model_Task::query()->where('promo_id',$news->promo_id)->where('type','Share')->get_one();
+                        \Users\Model_activityUser::add_point($user_id,$task->id,$news->promo->brand_id);
+            break;
+        }
+        
     }
-
 
     private function _update_profile($user_id){
         $_post_data = \Input::post();
