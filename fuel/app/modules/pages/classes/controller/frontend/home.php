@@ -8,6 +8,8 @@ class Controller_Frontend_Home extends \Controller_Frontend
     }
     
     public function action_index(){
+        $banner_data = \Pages\Model_Homebanner::query()->where('status', 1)->order_by('seq')->get();
+        $this->_data_template['banner_data'] = $banner_data;
         $this->_data_template['list_reward'] = \Reward\Model_Reward::query()->where('status',1)->order_by('id')->limit(5)->get();
     	return \Response::forge(\View::forge('pages::frontend/home.twig',$this->_data_template,FALSE));
     }

@@ -20,7 +20,7 @@
                             </div>
                             <div class="image-task">
                                 <div class="img">
-                                    <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
+                                    <img src="{{ base_url()~task.get_image_path()~task.image }}">
                                     <div class="click">
                                         <button>Click here</button>
                                     </div>

@@ -1,0 +1,160 @@
+{% extends "backend/template.twig" %}
+
+{% block backend_css %}
+	{{ parent() }}
+	{{ asset_css('jquery-ui-1.11.0.min.css') | raw }}
+	{{ asset_add_path('assets/jquery-tree/css', 'css') }}
+	{{ asset_css('jquery.tree.css') | raw }}
+{% endblock %}
+
+{% block backend_content_header %}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+	<h1>{# Set page title and subtitle manually #}
+		Admin Roles
+		<small>Set Permission</small>
+	</h1>
+	{# Also set breadcrumb manually #}
+	<ol class="breadcrumb">
+		<li><a href="{{ base_url() }}backend">Home</a></li>
+		<li>Admin Management</li>
+		<li><a href="{{ base_url() }}backend/admin-role-permission">Admin Roles</a></li>
+		<li class="active">Set Permission</li>
+	</ol>
+</section>
+{% endblock %}
+
+{% block backend_content %}
+
+{% if success_message | length > 0 %}
+<div class="alert alert-success alert-dismissable">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	{{ success_message | raw }}
+</div>
+{% endif %}
+
+{% if error_message | length > 0 %}
+<div class="alert alert-danger alert-dismissable">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	{{ error_message | raw }}
+</div>
+{% endif %}
+
+	<form id="set-permission-admin" action="" method="post">
+		<input type="hidden" name="set_permission" value="1" />
+		<div class="box box-solid">
+			<div class="box-body text-right">
+				<button class="btn btn-primary" type="submit">
+					Save
+				</button>
+				<a href="{{ base_url() }}backend/admin-role-permission">
+					<button class="btn btn-default" type="button">Back</button>
+				</a>
+			</div>
+		</div>
+		<div id="tree">
+			<ul>
+				{% for menu_key, menu in menu_list %}
+					{% set has_submenu = (menu.submenus | length > 0) ? true : false %}
+					{% if menu.role_permission | length > 0 %}
+						{% set menu_checked = 'checked' %}
+						{% set menu_create_checked = (menu.role_permission.access_create == 1) ? 'checked' : '' %}
+						{% set menu_read_checked = (menu.role_permission.access_read  == 1) ? 'checked' : '' %}
+						{% set menu_update_checked = (menu.role_permission.access_update == 1) ? 'checked' : '' %}
+						{% set menu_delete_checked = (menu.role_permission.access_delete == 1) ? 'checked' : '' %}
+					{% else %}
+						{% set menu_checked = '' %}
+						{% set menu_create_checked = '' %}
+						{% set menu_read_checked = '' %}
+						{% set menu_update_checked = '' %}
+						{% set menu_delete_checked = '' %}
+					{% endif %}
+					
+					{% if not has_submenu %}
+						<li>
+							<input type="checkbox" class="simple" name="chk_permission[{{ menu_key }}][id]" value="{{ menu.role_permission.id }}" {{ menu_checked }} />
+							<span>{{ menu.label }}</span>
+							<ul>
+								<li>
+									<input type="checkbox" class="simple" name="chk_permission[{{ menu_key }}][create]" value="{{ menu.role_permission.access_create }}" {{ menu_create_checked }} />
+									<span>Create</span>
+								</li>
+								<li>
+									<input type="checkbox" class="simple" name="chk_permission[{{ menu_key }}][read]" value="{{ menu.role_permission.access_read }}" {{ menu_read_checked }} />
+									<span>Read</span>
+								</li>
+								<li>
+									<input type="checkbox" class="simple" name="chk_permission[{{ menu_key }}][update]" value="{{ menu.role_permission.access_update }}" {{ menu_update_checked }} />
+									<span>Update</span>
+								</li>
+								<li>
+									<input type="checkbox" class="simple" name="chk_permission[{{ menu_key }}][delete]" value="{{ menu.role_permission.access_delete }}" {{ menu_delete_checked }} />
+									<span>Delete</span>
+								</li>
+							</ul>
+						</li>
+					{% else %}
+						<li class="folder">
+							<input type="checkbox" class="simple" name="chk_permission[{{ menu_key }}][id]" value="{{ menu.role_permission.id }}" {{ menu_checked }} />
+							<span>{{ menu.label }}</span>
+							<ul>
+								{% for submenu_key, submenu in menu.submenus %}
+									{% if submenu.role_permission | length > 0 %}
+										{% set submenu_checked = 'checked' %}
+										{% set submenu_create_checked = (submenu.role_permission.access_create == 1) ? 'checked' : '' %}
+										{% set submenu_read_checked = (submenu.role_permission.access_read  == 1) ? 'checked' : '' %}
+										{% set submenu_update_checked = (submenu.role_permission.access_update == 1) ? 'checked' : '' %}
+										{% set submenu_delete_checked = (submenu.role_permission.access_delete == 1) ? 'checked' : '' %}
+									{% else %}
+										{% set submenu_checked = '' %}
+										{% set submenu_create_checked = '' %}
+										{% set submenu_read_checked = '' %}
+										{% set submenu_update_checked = '' %}
+										{% set submenu_delete_checked = '' %}
+									{% endif %}
+									<li>
+										<input type="checkbox" class="simple" name="chk_permission[{{ submenu_key }}][id]" value="{{ submenu.role_permission.id }}" {{ submenu_checked }} />
+										<span>{{ submenu.label }}</span>
+										<ul>
+											<li>
+												<input type="checkbox" class="simple" name="chk_permission[{{ submenu_key }}][create]" value="{{ submenu.role_permission.access_create }}" {{ submenu_create_checked }} />
+												<span>Create</span>
+											</li>
+											<li>
+												<input type="checkbox" class="simple" name="chk_permission[{{ submenu_key }}][read]" value="{{ submenu.role_permission.access_read }}" {{ submenu_read_checked }} />
+												<span>Read</span>
+											</li>
+											<li>
+												<input type="checkbox" class="simple" name="chk_permission[{{ submenu_key }}][update]" value="{{ submenu.role_permission.access_update }}" {{ submenu_update_checked }} />
+												<span>Update</span>
+											</li>
+											<li>
+												<input type="checkbox" class="simple" name="chk_permission[{{ submenu_key }}][delete]" value="{{ submenu.role_permission.access_delete }}" {{ submenu_delete_checked }} />
+												<span>Delete</span>
+											</li>
+										</ul>
+									</li>
+								{% endfor %}
+							</ul>
+						</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</form>
+{% endblock %}
+		
+{% block backend_js %}
+	{{ parent() }}
+	{{ asset_js('jquery-ui-1.11.0.min.js') | raw }}
+	{{ asset_add_path('assets/jquery-tree/js', 'js') }}
+	{{ asset_js('jquery.tree.js') | raw }}
+	<script type="text/javascript">
+		$(function(){
+			$('#tree').jquerytree({
+				dnd: false,
+				selectable: false
+			});
+		});
+	</script>
+{% endblock %}

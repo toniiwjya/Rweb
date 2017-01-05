@@ -1,0 +1,51 @@
+{% extends "backend/template.twig" %}
+
+{% block backend_content_header %}
+<!-- Content Header (Page header) -->
+<section class="content-header">
+	<h1>{# Set page title and subtitle manually #}
+		Admin Management
+		<small>Basic Setting</small>
+	</h1>
+	{# Also set breadcrumb manually #}
+	<ol class="breadcrumb">
+		<li><a href="{{ base_url() }}backend">Home</a></li>
+		<li>Admin Management</li>
+		<li class="active">Basic Setting</li>
+	</ol>
+</section>
+{% endblock %}
+
+{% block backend_content %}
+
+{% if success_message | length > 0 %}
+<div class="alert alert-success alert-dismissable">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	{{ success_message | raw }}
+</div>
+{% endif %}
+
+{% if error_message | length > 0 %}
+<div class="alert alert-danger alert-dismissable">
+	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	{{ error_message | raw }}
+</div>
+{% endif %}
+
+	<form class="form-horizontal" accept-charset="utf-8" method="post" action="" role="form" name="frm_basic_setting">
+		{% for setting_item in setting_data %}
+		<div class="form-group">
+			<label for="form_{{ setting_item.name }}" class="col-sm-2 control-label">{{ setting_item.label }}</label>
+			<div class="col-sm-10">
+				{% set form_attr = {'class':'form-control', 'placeholder':setting_item.label} %}
+				{{ form_input(setting_item.name, setting_item.value, form_attr) | raw }}
+			</div>
+		</div>
+		{% endfor %}
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-primary">Save</button>
+			</div>
+		</div>
+	</form>
+{% endblock %}

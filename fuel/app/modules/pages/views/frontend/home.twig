@@ -2,8 +2,11 @@
 
 {% block frontend_banner %}
     <ul class="bxslider">
-	  <li><img src="{{ base_url() }}assets/css/images/slide-home.jpg" /></li>
-	  <li><img src="{{ base_url() }}assets/css/images/slide-home.jpg" /></li>
+        {% for slide in banner_data %}
+            <li>
+                <a href="{{ slide.url_link }}"><img src="{{ base_url()~slide.get_image_path()~slide.filename }}" alt="{{ slide.name }}"/></a>
+            </li>
+        {% endfor %}
 	</ul>
 {% endblock %}
 
@@ -71,7 +74,7 @@
                     <a href="{{ base_url() }}reward/{{list.id}}">
                         <div class="reward">
                             <div class="img">
-                                <img src="{{ base_url() }}assets/css/images/reward-example.jpg">
+                                <img src="{{ base_url()~reward.get_image_path()~reward.image }}">
                             </div>
                             <div class="poin">
                                 <span>{{ list.point }} pts</span>

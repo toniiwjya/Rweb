@@ -275,7 +275,8 @@ return array(
 		'packages'  => array(
 			'orm',
 			'parser',
-			'facebook'
+			'facebook',
+            'jqueryfileupload',
 		),
 
 		/**
@@ -291,6 +292,8 @@ return array(
 		 	'promo',
 		 	'users',
 		 	'reward',
+            'adminmanagement',
+             'mediauploader',
 		 ),
 
 		/**
@@ -307,7 +310,9 @@ return array(
 		 * If you don't want the config in a group use null as groupname.
 		 */
 		'config'  => array(
-			'facebook'
+            'config_cms',
+            'config_basic',
+			'facebook',
 		),
 
 		/**
