@@ -3,6 +3,10 @@ namespace Promo;
 
 class Controller_Promo extends \Controller_Frontend
 {
+    public function before(){
+        parent::before();
+    }
+    
 	public function action_index(){
 		$this->_data_template['list_promo'] = Model_Promo::query()->where('status',1)->get();
 		$this->_data_template['validate_user_promo'] = \Session::get_flash('validate_user_promo');
@@ -16,12 +20,8 @@ class Controller_Promo extends \Controller_Frontend
             \Session::set_flash('ask_login','Please login before continue');
             return \Response::redirect(\Uri::base().'login');
         }
-
-        //Query to filter task base on user's promo
-        $subQuery = Model_ActivityPromo::query()->select('promo_id')->where('user_id',\Session::get('user_id'));
-        $this->_data_template['list_task'] = Model_Task::query()
-                                                        ->where('promo_id','IN', $subQuery->get_query(true))
-                                                        ->get();
+        $today = date("Y-m-d");
+        $this->_data_template['list_task'] = \Users\Model_userTask::query()->related('task')->where('user_id',$user_id)->where('date', $today )->get();
         return \Response::forge(\View::forge('promo::frontend/task.twig',$this->_data_template,FALSE));
     }
 

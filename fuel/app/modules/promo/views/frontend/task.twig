@@ -13,22 +13,29 @@
                     <h4>Task 0/5</h4>
                 </div>
                 <div class="small-12 columns content">
-                    {% for task in list_task %}
+                    {% for tasks in list_task %}
                         <div class="small-12 medium-4 columns end">
                             <div class="title">
-                                <h5>{{ task.name }}</h5>
+                                <h5>{{ tasks.task.name }}</h5>
                             </div>
                             <div class="image-task">
                                 <div class="img">
                                     <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
-                                    <a href="#">
-                                        <div class="click">
-                                            Click here
-                                        </div>
-                                    </a>
+                                    
+
+                                    {% if(tasks.task.type=='Like') %}
+                                        <div class="fb-like" data-href="{{ tasks.task.description }}" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
+                                    {% elseif (tasks.task.type=='Share') %}
+                                        <a href="#">
+                                            <div class="click">
+                                                Click here
+                                            </div>
+                                        </a>
+                                    {% endif %}
+
                                 </div>
                                 <div class="poin">
-                                    <span>{{ task.point }} pts</span>
+                                    <span>{{ tasks.task.point }} pts</span>
                                 </div>
                             </div>
                         </div>
@@ -44,7 +51,4 @@
             </div>
         </div>
     </div>
-<script>
-   
-</script>
 {% endblock %}

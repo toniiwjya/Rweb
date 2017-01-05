@@ -28,6 +28,13 @@ class Model_Task extends \Orm\Model{
 			'cascade_save'	 => true,
 			'cascade_delete' => false,
 		),
+		'user_task' => array(
+            'key_from'  => 'id',
+            'model_to'  => 'Users\\Model_userTask',
+            'key_to'    => 'task_id',
+            'cascade_save'  => true,
+            'cascade_delete'=> false,
+        ),
 	);
 
 	protected static $_belongs_to = array(
