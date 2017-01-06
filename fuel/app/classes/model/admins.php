@@ -1,6 +1,7 @@
 <?php
 class Model_Admins extends \Orm\Model {
 	private $status_name = array('InActive', 'Active');
+    private $superadmin_name = array('Admin', 'Super Admin');
 	
 	protected static $_table_name = 'admins';
 
@@ -57,7 +58,13 @@ class Model_Admins extends \Orm\Model {
 			)
 		),
 		'photo',
-		'superadmin',
+		'superadmin'=> array(
+            'label' => 'Superadmin',
+            'validation' => array(
+                'required',
+                'numeric_min' => array(0),
+            )
+        ),
 		'lock_count',
 		'locked_at',
 		'current_signin_ip',
@@ -84,14 +91,18 @@ class Model_Admins extends \Orm\Model {
 		return (bool) !$exists;
 	}
 	
-	public static function exclude_superadmin() {
-		return self::query()->where('superadmin', 0);
-	}
+//	public static function exclude_superadmin() {
+//		return self::query()->where('superadmin', 0);
+//	}
 	
 	public function get_status_name() {
 		$flag = $this->status;
 		return isset($this->status_name[$flag]) ? $this->status_name[$flag] : '-';
 	}
+    public function get_superadmin_name() {
+        $flag = $this->superadmin;
+        return isset($this->superadmin_name[$flag]) ? $this->superadmin_name[$flag] : '-';
+    }
 	
 	public function get_form_data_basic() {
 		return array(
@@ -180,7 +191,27 @@ class Model_Admins extends \Orm\Model {
 						),
 						'container_class' => 'col-sm-10'
 					)
-				)
+				),
+                array(
+                    'label' => array(
+                        'label' => 'Role',
+                        'id' => 'superadmin',
+                        'attributes' => array(
+                            'class' => 'col-sm-2 control-label'
+                        )
+                    ),
+                    'select' => array(
+                        'name' => 'superadmin',
+                        'value' => $this->superadmin,
+                        'options' => $this->superadmin_name,
+                        'attributes' => array(
+                            'class' => 'form-control',
+                            'placeholder' => 'superadmin',
+                            'required' => ''
+                        ),
+                        'container_class' => 'col-sm-10'
+                    )
+                )
 			)
 		);
 	}

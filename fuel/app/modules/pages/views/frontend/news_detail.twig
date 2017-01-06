@@ -5,9 +5,9 @@
 	<div class="small-12 medium-10 medium-centered columns">
     {% for news in news_detail %}
 		<div class="small-12 title-newsdetail">
-            <h3>{{ news.title }}</h3>
+            <h2>{{ news.title }}</h2>
             <p class="date">Posted on {{ news.created_at|date("d F Y") }}</p>
-			<img src="{{ base_url() }}assets/css/images/slide-example.jpg">
+            <img src="{{ base_url()~news.get_image_path()~news.image }}">
 		</div>
 		<div class="small-12 desc">
 			{{ news.description }}

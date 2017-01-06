@@ -74,7 +74,7 @@
                     <a href="{{ base_url() }}reward/{{list.id}}">
                         <div class="reward">
                             <div class="img">
-                                <img src="{{ base_url()~reward.get_image_path()~reward.image }}">
+                                <img src="{{ base_url()~list.get_image_path()~list.image }}">
                             </div>
                             <div class="poin">
                                 <span>{{ list.point }} pts</span>
@@ -103,14 +103,14 @@
 			<div class="small-12 medium-4 columns">
                 <div class="small-12 columns content-news" data-equalizer-watch="news">
                     <div class="small-12 medium-12 columns img no-padding">
-                        <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
+                        <img src="{{ base_url()~news.get_image_path()~'thumbnail/'~news.image }}" />
                     </div>
                     <div class="small-12 medium-12 columns no-padding">
                         <div class="small-12 columns news-title no-padding">
                             {{ news.title }}
                         </div>
                         <div class="small-12 columns news-desc no-padding">
-                            {{ news.description|length > 250 ? news.description|slice(0,250) ~ '...' : news.description }}
+                            {{ news.highlight }}
                         </div>
                         <div style="clear: both;"></div>
                     </div>

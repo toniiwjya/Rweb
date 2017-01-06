@@ -153,7 +153,7 @@ class Controller_AdminRolePermission extends \Controller_Backend
 	
 	private function _get_related_admin_by_role($role_id) {
 		$data = array();
-		$admin_list = \Model_Admins::exclude_superadmin()->get();
+		$admin_list = \Model_Admins::query()->get();
 		foreach ($admin_list as $admin_item) {
 			if (empty($admin_item->role) || $admin_item->role['role_id'] == $role_id) {
 				$data[] = $admin_item;

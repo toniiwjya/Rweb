@@ -47,8 +47,8 @@ class Controller_News extends \Controller_Backend
 				),
 				'thumbnail' => array(
 					'crop' => false,
-					'max_width' => 200,
-					'max_height' => 200,
+					'max_width' => 300,
+					'max_height' => 300,
 				)
 			),
 		);

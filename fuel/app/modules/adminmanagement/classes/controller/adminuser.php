@@ -20,7 +20,7 @@ class Controller_AdminUser extends \Controller_Backend
 	}
 	
 	public function action_index() {
-		$this->_data_template['admin_list'] = \Model_Admins::exclude_superadmin()->get();
+		$this->_data_template['admin_list'] = \Model_Admins::query()->get();
 		$this->_data_template['success_message'] = \Session::get_flash('success_message');
 		$this->_data_template['error_message'] = \Session::get_flash('error_message');
 		return \Response::forge(\View::forge('adminmanagement::list/admin_user.twig', $this->_data_template, FALSE));
@@ -77,7 +77,7 @@ class Controller_AdminUser extends \Controller_Backend
 			$admin_model->fullname = $all_post_input['fullname'];
 			$admin_model->phone = $all_post_input['phone'];
 			$admin_model->status = $all_post_input['status'];
-			$admin_model->superadmin = 0;
+			$admin_model->superadmin = $all_post_input['superadmin'];
 			$admin_model->lock_count = 0;
 			$admin_model->password = $this->_get_default_password();
 			// Save with validation, if error then throw the error
@@ -95,8 +95,7 @@ class Controller_AdminUser extends \Controller_Backend
 	}
 	
 	private function _get_default_password() {
-		$current_year = date('Y');
-		return substr($current_year, 0, 2).\Config::get('config_cms.admin_default_password').substr($current_year, 2, 2);
+		return \Config::get('config_cms.admin_default_password');
 	}
 	
 	public function action_delete($admin_id) {
@@ -112,11 +111,6 @@ class Controller_AdminUser extends \Controller_Backend
 			\Session::set_flash('error_message', 'The Admin with ID "'.$admin_id.'" is not found here');
 			\Response::redirect(\Uri::base().$this->_module_url);
 			$admin_model = \Model_Admins::forge();
-		}
-		// edit superadmin is not allowed here
-		if ($admin_model->superadmin == 1) {
-			\Session::set_flash('error_message', 'Delete Superadmin is not allowed here');
-			\Response::redirect(\Uri::base().$this->_module_url);
 		}
 		// Delete the admin
 		try {
@@ -142,12 +136,12 @@ class Controller_AdminUser extends \Controller_Backend
 			\Response::redirect(\Uri::base().$this->_module_url);
 			$admin_model = \Model_Admins::forge();
 		}
-		// edit superadmin is not allowed here
-		if ($admin_model->superadmin == 1) {
-			\Session::set_flash('error_message', 'Reset password for Superadmin is not allowed here');
-			\Response::redirect(\Uri::base().$this->_module_url);
-		}
-		// Reset password to default
+//		// edit superadmin is not allowed here
+//		if ($admin_model->superadmin == 1) {
+//			\Session::set_flash('error_message', 'Reset password for Superadmin is not allowed here');
+//			\Response::redirect(\Uri::base().$this->_module_url);
+//		}
+//		// Reset password to default
 		try {
 			$admin_model->password = \Authentication_Backend::make_password($admin_model->id, $this->_get_default_password());
 			$admin_model->save();
