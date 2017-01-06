@@ -3,6 +3,10 @@ namespace Users;
 
 class Controller_Frontend_Register extends \Controller_Frontend
 {
+    public function before(){
+        parent::before();
+    }
+    
     public function action_index(){
         if(!empty(\Session::get('user_id'))){
             \Response::redirect(\Uri::base());

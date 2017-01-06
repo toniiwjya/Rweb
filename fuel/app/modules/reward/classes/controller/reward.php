@@ -3,6 +3,10 @@ namespace Reward;
 
 class Controller_Reward extends \Controller_Frontend
 {
+	public function before(){
+        parent::before();
+    }
+    
 	public function action_index(){
 		$user_id = \Session::get('user_id');
 		$this->_data_template['brand_reward'] = Model_Brand::query()->get();

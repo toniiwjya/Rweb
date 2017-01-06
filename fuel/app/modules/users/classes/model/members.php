@@ -128,6 +128,13 @@ class Model_Members extends \Orm\Model {
             'cascade_save'  => true,
             'cascade_delete'=> false,
         ),
+        'user_task' => array(
+            'key_from'  => 'id',
+            'model_to'  => 'Users\\Model_userTask',
+            'key_to'    => 'user_id',
+            'cascade_save'  => true,
+            'cascade_delete'=> false,
+        ),
     );
    
 }
