@@ -1,5 +1,5 @@
 <?php
-class Controller_Backend extends Controller_Mama
+class Controller_Backend extends Controller
 {
 	protected $_data_template = array(
 		'meta_title' => '',

@@ -73,28 +73,14 @@ class Model_Admins extends \Orm\Model {
 		'created_at',
 		'updated_at'
 	);
-	
-	protected static $_has_one = array(
-		'role' => array(
-			'key_from' => 'id',
-			'model_to' => 'Model_AdminsRole',
-			'key_to' => 'admin_id',
-			'cascade_save' => true,
-			'cascade_delete' => true,
-		)
-	);
-	
+
 	public static function _validation_unique_email($email) {
 		$exists = DB::select(DB::expr('COUNT(id) as total_count'))->from(self::$_table_name)->where('email', '=', $email)
 			->execute()->get('total_count');
 
 		return (bool) !$exists;
 	}
-	
-//	public static function exclude_superadmin() {
-//		return self::query()->where('superadmin', 0);
-//	}
-	
+
 	public function get_status_name() {
 		$flag = $this->status;
 		return isset($this->status_name[$flag]) ? $this->status_name[$flag] : '-';

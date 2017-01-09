@@ -41,18 +41,6 @@ return array(
     'backend/admin-user/delete/(:num)' => 'adminmanagement/adminuser/delete/$1',
     'backend/admin-user/reset-password/(:num)' => 'adminmanagement/adminuser/reset_password/$1',
 
-    // Admin Role Permission
-    'backend/admin-role-permission' => 'adminmanagement/adminrolepermission',
-    'backend/admin-role-permission/add' => 'adminmanagement/adminrolepermission/form/0',
-    'backend/admin-role-permission/edit/(:num)' => 'adminmanagement/adminrolepermission/form/$1',
-    'backend/admin-role-permission/delete/(:num)' => 'adminmanagement/adminrolepermission/delete/$1',
-    'backend/admin-role-permission/assign-admin/(:num)' => 'adminmanagement/adminrolepermission/assign_admin/$1',
-    'backend/admin-role-permission/do-assign-admin/(:num)/(:num)' => 'adminmanagement/adminrolepermission/do_assign_admin/$1/$2/1',
-    'backend/admin-role-permission/do-unassign-admin/(:num)/(:num)' => 'adminmanagement/adminrolepermission/do_assign_admin/$1/$2/0',
-    'backend/admin-role-permission/set-permission/(:num)' => 'adminmanagement/adminrolepermission/set_permission/$1',
-
-    // Basic Setting
-    'backend/setting' => 'adminmanagement/setting',
 
     // Home Banner
     'backend/homebanner' => 'pages/backend/',

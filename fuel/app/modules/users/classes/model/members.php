@@ -4,12 +4,10 @@ namespace Users;
 
 class Model_Members extends \Orm\Model {
 
-    private $status_name = array('Unverif', 'Verif');
     protected static $_table_name = 'user';
 
     protected static $_properties = array(
         'id',
-        'role_id',
         'fb_id',
         'fName' => array(
             'label' => 'Full Name',
@@ -103,13 +101,6 @@ class Model_Members extends \Orm\Model {
         'activity_promo' => array(
             'key_from'       => 'id',
             'model_to'       => 'Promo\\Model_ActivityPromo',
-            'key_to'         => 'user_id',
-            'cascade_save'   => true,
-            'cascade_delete' => false,
-        ),
-        'activity_user' => array(
-            'key_from'       => 'id',
-            'model_to'       => 'Users\\Model_activityUser',
             'key_to'         => 'user_id',
             'cascade_save'   => true,
             'cascade_delete' => false,

@@ -22,6 +22,7 @@ class Controller_Promo extends \Controller_Frontend
         }
         $today = date("Y-m-d");
         $this->_data_template['list_task'] = \Users\Model_userTask::query()->related('task')->where('user_id',$user_id)->where('date', $today )->get();
+        var_dump(\Users\Model_userTask::query()->related('task')->where('user_id',$user_id)->where('date', $today )->get());
         return \Response::forge(\View::forge('promo::frontend/task.twig',$this->_data_template,FALSE));
     }
 

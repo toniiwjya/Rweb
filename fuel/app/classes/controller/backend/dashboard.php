@@ -7,7 +7,7 @@ class Controller_Backend_Dashboard extends Controller_Backend
 		$this->_data_template['menu_current_key'] = 'dashboard';
 		return Response::forge(View::forge('backend/welcome.twig', $this->_data_template));
 	}
-	
+
 	public function action_sign_in() {
 		if ($this->admin_auth->is_exists()) {
             // Redirect to dashboard home when admin is already sign in

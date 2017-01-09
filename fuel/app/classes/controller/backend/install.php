@@ -11,14 +11,14 @@ class Controller_Backend_Install extends Controller_Backend
 			$this->_create_superadmin();
 		}
 		// Check superadmin if exists
-		$superadmin_count = Model_Admins::query()->where('superadmin', 1)->count();
+		$superadmin_count = \Users\Model_Members::query()->where('role_id', 1)->count();
 		if ($superadmin_count > 0) {
 			Response::redirect(Uri::base().'backend/sign-in', 'refresh');
 		}
 		// Open superadmin registration form
-		$this->_data_template['meta_title'] = Config::get('config_cms.cms_name').' | Superadmin Registration';
+		$this->_data_template['meta_title'] = Config::get('config_cms.cms_name').' | Admin Registration';
 		$this->_data_template['body_tag_class'] = 'bg-black';
-		$this->_data_template['txtfullname'] = Input::post('fullname');
+		$this->_data_template['txtfullname'] = Input::post('fName');
 		$this->_data_template['txtphone'] = Input::post('phone');
 		$this->_data_template['txtemail'] = Input::post('email');
 		return Response::forge(View::forge('backend/form/superadmin.twig', $this->_data_template, FALSE));
@@ -26,7 +26,7 @@ class Controller_Backend_Install extends Controller_Backend
 	
 	private function _create_superadmin() {
 		try {
-			$val = Validation::forge('superadmin');
+			$val = Validation::forge('role_id');
 			$val->add('password_confirm', 'Password Confirm')
 				->add_rule('required')
 				->add_rule('trim')
@@ -36,14 +36,12 @@ class Controller_Backend_Install extends Controller_Backend
 			if (!$val->run()) {
 				$this->_data_template['error_message'] = $val->error('password_confirm')->get_message();
 			} else {
-				$admin = Model_Admins::forge();
-				$admin->fullname = Input::post('fullname');
+				$admin = \Users\Model_Members::forge();
+				$admin->fName = Input::post('fName');
 				$admin->phone = Input::post('phone');
 				$admin->email = Input::post('email');
 				$admin->password = Input::post('password');
-				$admin->superadmin = 1;
-				$admin->status = 1;
-				$admin->lock_count = 0;
+				$admin->role_id = 2;
 				$admin->save();
 				// Encrypt password then save again
 				$admin->password = Authentication_Backend::make_password($admin['id'], $admin->password);

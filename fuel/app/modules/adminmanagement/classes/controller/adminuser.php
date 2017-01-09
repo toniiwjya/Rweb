@@ -38,11 +38,6 @@ class Controller_AdminUser extends \Controller_Backend
 			}
 			$admin_model = \Model_Admins::forge();
 		}
-		// edit superadmin is not allowed here
-		if ($admin_model->superadmin == 1) {
-			\Session::set_flash('error_message', 'Edit Superadmin is not allowed here');
-			\Response::redirect(\Uri::base().$this->_module_url);
-		}
 		$this->_save_setting_data($admin_model);
 		$this->_data_template['content_header'] = 'Admin User';
 		$this->_data_template['content_subheader'] = 'Form';
@@ -74,7 +69,7 @@ class Controller_AdminUser extends \Controller_Backend
 				\Response::redirect(\Uri::base().'backend/no-permission');
 			}
 			$admin_model->email = $all_post_input['email'];
-			$admin_model->fullname = $all_post_input['fullname'];
+			$admin_model->fName = $all_post_input['fullname'];
 			$admin_model->phone = $all_post_input['phone'];
 			$admin_model->status = $all_post_input['status'];
 			$admin_model->superadmin = $all_post_input['superadmin'];
@@ -136,11 +131,6 @@ class Controller_AdminUser extends \Controller_Backend
 			\Response::redirect(\Uri::base().$this->_module_url);
 			$admin_model = \Model_Admins::forge();
 		}
-//		// edit superadmin is not allowed here
-//		if ($admin_model->superadmin == 1) {
-//			\Session::set_flash('error_message', 'Reset password for Superadmin is not allowed here');
-//			\Response::redirect(\Uri::base().$this->_module_url);
-//		}
 //		// Reset password to default
 		try {
 			$admin_model->password = \Authentication_Backend::make_password($admin_model->id, $this->_get_default_password());
