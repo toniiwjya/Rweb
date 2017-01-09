@@ -26,7 +26,7 @@
                                 <div class="small-3 column end text-right">
                                     Point : {{ point.point }}
                                 </div>
-                            {% else %}
+                            {% elseif point|length==0 %}
                                 <div class="small-3 column end text-right">
                                     <a href="{{ base_url() }}promo">Join this Promo Now!</a>
                                 </div>
@@ -41,6 +41,7 @@
                             </div>
                             <div class="medium-4 small-12 columns brand-reward end" data-equalizer="reward">
                                 <div class="small-12 box columns" data-equalizer-watch="reward">
+                                    <div class="text-center">{{ reward.name }}</div>
                                     <div class="small-12 columns img-reward">
                                         <img src="{{ base_url()~reward.get_image_path()~reward.image }}">
                                     </div>

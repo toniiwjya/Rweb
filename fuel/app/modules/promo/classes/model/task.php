@@ -66,13 +66,6 @@ class Model_Task extends \Orm\Model{
 	);
 
 	protected static $_has_many = array(
-		'activity_user' => array(
-			'key_from'		 => 'id',
-			'model_to'		 => 'Users\\Model_ActivityUser',
-			'key_to' 		 => 'task_id',
-			'cascade_save'	 => true,
-			'cascade_delete' => false,
-		),
 		'user_task' => array(
             'key_from'  => 'id',
             'model_to'  => 'Users\\Model_userTask',
