@@ -107,13 +107,6 @@ class Model_Members extends \Orm\Model {
             'cascade_save'   => true,
             'cascade_delete' => false,
         ),
-        'activity_user' => array(
-            'key_from'       => 'id',
-            'model_to'       => 'Users\\Model_activityUser',
-            'key_to'         => 'user_id',
-            'cascade_save'   => true,
-            'cascade_delete' => false,
-        ),
         'order' => array(
             'key_from'      => 'id',
             'model_to'      => 'Reward\\Model_Order',

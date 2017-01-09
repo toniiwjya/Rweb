@@ -46,7 +46,6 @@ class Controller_Frontend_Home extends \Controller_Frontend
     public function action_add_point(){
         $_post_data = \Input::post();
         $user_id = \Session::get('user_id');
-
         if(empty($user_id)){
             \Session::set_flash('ask_login','Please login before continue');
             return \Response::redirect(\Uri::base().'login');
@@ -54,7 +53,17 @@ class Controller_Frontend_Home extends \Controller_Frontend
         switch($_post_data['type']){
             case 'Share': $news = Model_News::query()->related('promo')->where('id',$_post_data['id'])->get_one();
                         $task = \Promo\Model_Task::query()->where('promo_id',$news->promo_id)->where('type','Share')->get_one();
-                        \Users\Model_activityUser::add_point($user_id,$task->id,$news->promo->brand_id);
+                        \Users\Model_userTask::add_point($user_id,$task->id,$news->promo->brand_id);
+
+                        //Check if user is doing the task
+                        // $user_task = \Users\Model_userTask::query()->where('task_id',$task->id)->where('user_id',$user_id)->get_one();
+                        // if(empty($user_task)){
+                        //     return \Response::redirect(\Uri::base());
+                        // }
+
+                        // if($user_task->action!=1){
+                        //     return \Response::redirect(\Uri::base());
+                        // }
             break;
         }
         

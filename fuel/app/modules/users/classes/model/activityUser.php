@@ -14,20 +14,7 @@ class Model_activityUser extends \Orm\Model{
 		'date'
 	);
 
-	public static function add_point($user_id,$task_id,$brand_id){
-		$data = self::forge(array(
-			'user_id'	=> $user_id,
-			'task_id'	=> $task_id,
-			'brand_id'	=> $brand_id,
-			'date'		=> date("Y-m-d H:i:s"),
-		));
-		$data->save();
-
-		$get_point = \Promo\Model_Task::query()->where('id',$task_id)->get_one();
-		$update_point = Model_userPoint::query()->where('user_id',$user_id)->where('brand_id',$brand_id)->get_one();
-		$update_point->point += $get_point['point'];
-		$update_point->save(); 
-	}
+	
 
 	protected static $_belongs_to = array(
 		'brand' => array(

@@ -8,29 +8,27 @@
     <div class="column task padd-footer">
         <div class="medium-10 medium-centered columns">
             <h3>Complete your task and get the Points !</h3>
+            
             <div class="small-12 columns">
                 <div class="small-6 columns">
                     <h4>Task 0/5</h4>
                 </div>
-                <div class="small-12 columns content">
+                <div class="small-12 columns content" data-equalizer="task">
+                    {% if list_task|length==0 %}
+                        <a href="{{ base_url() }}promo"><h5>Let's Join Some Promo</h5></a>
+                    {% endif %}
                     {% for tasks in list_task %}
                         <div class="small-12 medium-4 columns end">
-                            <div class="title">
+                            <div class="title" data-equalizer-watch="task">
                                 <h5>{{ tasks.task.name }}</h5>
                             </div>
                             <div class="image-task">
                                 <div class="img">
                                     <img src="{{ base_url()~task.get_image_path()~task.image }}">
-                                    <div class="click">
-                                        <button>Click here</button>
-                                    </div>
-                                    <img src="{{ base_url() }}assets/css/images/news-img-example.jpg">
-                                    
-
                                     {% if(tasks.task.type=='Like') %}
                                         <div class="fb-like" data-href="{{ tasks.task.description }}" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
                                     {% elseif (tasks.task.type=='Share') %}
-                                        <a href="#">
+                                        <a href="{{ base_url() }}{{ tasks.task.description }}">
                                             <div class="click">
                                                 Click here
                                             </div>

@@ -14,6 +14,17 @@ class Model_userTask extends \Orm\Model{
 		'date',
 	);
 
+	public static function add_point($user_id,$task_id,$brand_id){
+		$today = date("Y-m-d");
+		$data = self::query()->where('user_id',$user_id)->where('task_id',$task_id)->where('date',$today)->where('action','1')->get_one();
+		$data->action = '2';
+		$data->save();
+		$get_point = \Promo\Model_Task::query()->where('id',$task_id)->get_one();
+		$update_point = Model_userPoint::query()->where('user_id',$user_id)->where('brand_id',$brand_id)->get_one();
+		$update_point->point += $get_point['point'];
+		$update_point->save(); 
+	}
+
 	protected static $_belongs_to = array(
 		'user' => array(
 			'key_from' 		 => 'user_id',

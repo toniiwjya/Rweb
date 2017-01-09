@@ -29,11 +29,14 @@ class Controller_Frontend extends Controller
     
     private function set_task(){
         $today = date("Y-m-d");
+        $user_id = \Session::get('user_id');
         if(!empty($user_id)){
-            $check_task = \Users\Model_userTask::query()->where('date',$today)->get();
-            if(empty($check_task)){
-                $subQuery = \Promo\Model_ActivityPromo::query()->select('promo_id')->where('user_id',\Session::get('user_id'));
-                $task = \Promo\Model_Task::query()->where('promo_id','IN', $subQuery->get_query(true))->order_by(DB::expr('RAND()'))->limit(5)->get();
+            $check_task = \Users\Model_userTask::query()->select('task_id')->where('user_id',$user_id)->where('date',$today);
+            $count_check_task = count($check_task->get());
+            if($count_check_task<5){
+                $limit = 5-$count_check_task;
+                $subQuery = \Promo\Model_ActivityPromo::query()->select('promo_id')->where('user_id',$user_id);
+                $task = \Promo\Model_Task::query()->where('promo_id','IN', $subQuery->get_query(true))->where('id','NOT IN',$check_task->get_query(true))->order_by(DB::expr('RAND()'))->limit($limit)->get();
                 foreach ($task as $task) {
                     \Users\Model_UserTask::forge(
                         array(
