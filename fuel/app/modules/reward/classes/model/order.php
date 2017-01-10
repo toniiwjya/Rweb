@@ -14,7 +14,12 @@ class Model_Order extends \Orm\Model{
 	);
 
 	public static function check_valid($data,$user_id){
-
+		//Validate Address
+		$address = \Users\Model_Members::query()->select('address')->where('id',$user_id)->get_one();
+		if(empty($address->address) || $address->address == '-'){
+			\Session::set_flash('form_error','Please fill your address');
+			\Response::redirect(\Uri::base().'profile');
+		}
 		//Check if user have point for the reward
 		$reward_to_be_redeem = Model_Reward::query()->where('id',$data)->get_one();
 		$user_point = \Users\Model_userPoint::query()->where('user_id',$user_id)->where('brand_id',$reward_to_be_redeem->brand_id)->get_one();
@@ -23,6 +28,7 @@ class Model_Order extends \Orm\Model{
 			{
 				$user_point->point -= $reward_to_be_redeem->point;
 				$user_point->save();
+				return TRUE;
 			}
 			else{
 				return FALSE;

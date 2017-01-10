@@ -5,6 +5,7 @@ namespace Promo;
 class Model_Promo extends \Orm\Model{
     private $status_name = array('InActive', 'Active');
     private $image_path = 'media/promo/';
+    private static $_brand;
 	protected static $_table_name = "promo";
 
     protected static $_observers = array(
@@ -70,45 +71,49 @@ class Model_Promo extends \Orm\Model{
         ),
     );
 
-	protected static $_has_one = array(
-	    'news' => array(
-	        'key_from' => 'id',
-	        'model_to' => 'Pages\\Model_News',
-	        'key_to' => 'promo_id',
-	        'cascade_save' => true,
-	        'cascade_delete' => false,
-	    )
-	);
+    public static function join_promo($post_data,$user_id){
+        //Check Promo Slot
+        $selected_promo = self::query()->where('id',$post_data['id'])->get_one();
+        if($selected_promo['slot']>0){
+            //Check if user already join selected promo
+            $validate_user = Model_ActivityPromo::query()->where('user_id',$user_id)->where('promo_id',$post_data['id'])->get_one();
+            if(empty($validate_user)){
 
-	protected static $_has_many = array(
-		'activity_promo' => array(
-			'key_from'		 => 'id',
-			'model_to'		 => 'Promo\\Model_ActivityPromo',
-			'key_to' 		 => 'promo_id',
-			'cascade_save'	 => true,
-			'cascade_delete' => false,
-		),
-		'task' => array(
-			'key_from'		 => 'id',
-			'model_to'		 => 'Promo\\Model_Task',
-			'key_to' 		 => 'promo_id',
-			'cascade_save'	 => true,
-			'cascade_delete' => false,
-		),
-		
-	);
+                try{
+                    $join = Model_ActivityPromo::forge(array(
+                    'user_id' => $user_id,
+                    'promo_id' => $post_data['id'],
+                    ));
+                    $join->save();
 
-	protected static $_belongs_to = array(
-		'brand' => array(
-			'key_from'		 => 'brand_id',
-			'model_to'		 => 'Reward\\Model_Brand',
-			'key_to' 		 => 'id',
-			'cascade_save'	 => true,
-			'cascade_delete' => false,
-		)
-	);
+                    $point = \Users\Model_userPoint::forge(array(
+                        'user_id'   => $user_id,
+                        'brand_id'  => $selected_promo->brand_id,
+                        'point'     => '0'
+                    ));
 
-    private static $_brand;
+                    $point->save();
+
+                    $selected_promo['slot'] -= 1;
+                    $selected_promo->slot = $selected_promo['slot'];
+                    $selected_promo->save();
+                    return TRUE;
+                }
+                catch (\Exception $e){
+                    return FALSE;
+                }
+                
+            }else{
+                \Session::set_flash('validate_user_promo','You have been registered in this '.$selected_promo->name.' promo');
+                return \Response::redirect(\Uri::base().'promo');
+            }
+        }else{
+            \Session::set_flash('validate_user_promo','This promo have reached maximum slot');
+            return \Response::redirect(\Uri::base().'promo');
+        }
+    }
+	
+
     public function get_brand_name(){
         if(empty(self::$_brand)){
             self::$_brand = \Reward\Model_Brand::get_as_array();
@@ -297,5 +302,43 @@ class Model_Promo extends \Orm\Model{
             )
         );
     }
+
+    protected static $_has_one = array(
+        'news' => array(
+            'key_from' => 'id',
+            'model_to' => 'Pages\\Model_News',
+            'key_to' => 'promo_id',
+            'cascade_save' => true,
+            'cascade_delete' => false,
+        )
+    );
+
+    protected static $_has_many = array(
+        'activity_promo' => array(
+            'key_from'       => 'id',
+            'model_to'       => 'Promo\\Model_ActivityPromo',
+            'key_to'         => 'promo_id',
+            'cascade_save'   => true,
+            'cascade_delete' => false,
+        ),
+        'task' => array(
+            'key_from'       => 'id',
+            'model_to'       => 'Promo\\Model_Task',
+            'key_to'         => 'promo_id',
+            'cascade_save'   => true,
+            'cascade_delete' => false,
+        ),
+        
+    );
+
+    protected static $_belongs_to = array(
+        'brand' => array(
+            'key_from'       => 'brand_id',
+            'model_to'       => 'Reward\\Model_Brand',
+            'key_to'         => 'id',
+            'cascade_save'   => true,
+            'cascade_delete' => false,
+        )
+    );
 
 }

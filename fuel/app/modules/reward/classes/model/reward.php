@@ -5,6 +5,7 @@ namespace Reward;
 class Model_Reward extends \Orm\Model {
     private $status_name = array('InActive', 'Active');
     private $image_path = 'media/reward/';
+    private static $_brand;
 	protected static $_table_name = 'reward';
 
     protected static $_observers = array(
@@ -59,27 +60,6 @@ class Model_Reward extends \Orm\Model {
         ),
     );
 
-	protected static $_has_many = array(
-		'order' => array(
-			'key_from'		 => 'id',
-			'model_to'		 => 'Reward\\Model_Order',
-			'key_to' 		 => 'reward_id',
-			'cascade_save'	 => true,
-			'cascade_delete' => false,
-		),
-	);
-
-	protected static $_belongs_to = array(
-	    'brand' => array(
-	        'key_from' => 'brand_id',
-	        'model_to' => 'Reward\\Model_Brand',
-	        'key_to' => 'id',
-	        'cascade_save' => true,
-	        'cascade_delete' => false,
-	    )
-	);
-
-    private static $_brand;
     public function get_brand_name(){
         if(empty(self::$_brand)){
             self::$_brand = \Reward\Model_Brand::get_as_array();
@@ -249,4 +229,24 @@ class Model_Reward extends \Orm\Model {
             )
         );
     }
+
+    protected static $_has_many = array(
+        'order' => array(
+            'key_from'       => 'id',
+            'model_to'       => 'Reward\\Model_Order',
+            'key_to'         => 'reward_id',
+            'cascade_save'   => true,
+            'cascade_delete' => false,
+        ),
+    );
+
+    protected static $_belongs_to = array(
+        'brand' => array(
+            'key_from' => 'brand_id',
+            'model_to' => 'Reward\\Model_Brand',
+            'key_to' => 'id',
+            'cascade_save' => true,
+            'cascade_delete' => false,
+        )
+    );
 }

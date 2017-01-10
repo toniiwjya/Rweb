@@ -14,59 +14,31 @@ class Controller_Promo extends \Controller_Frontend
 	}
 
     public function action_task(){
+        $today = date("Y-m-d");
         $user_id = \Session::get('user_id');
-        
         if(empty($user_id)){
             \Session::set_flash('ask_login','Please login before continue');
             return \Response::redirect(\Uri::base().'login');
         }
-        $today = date("Y-m-d");
-        $this->_data_template['list_task'] = \Users\Model_userTask::query()->related('task')->where('user_id',$user_id)->where('date', $today )->get();
+        $this->_data_template['list_task'] = \Users\Model_userTask::query()->related('task')->where('user_id',$user_id)->where('date',$today)->where('action','1')->get();
+        $this->_data_template['completed_task'] = \Users\Model_userTask::query()->related('task')->where('user_id',$user_id)->where('date',$today)->where('action','2')->get();
         return \Response::forge(\View::forge('promo::frontend/task.twig',$this->_data_template,FALSE));
     }
 
     public function action_join(){
-        $post_data = \Input::post();
-    	
-    	if(empty(\Session::get('user_id'))){
+        $_post_data = \Input::post();
+    	$user_id = \Session::get('user_id');
+
+    	if(empty($user_id)){
     		\Session::set_flash('ask_login','Please login before continue');
     		return \Response::redirect(\Uri::base().'login');
-    	}else{
-    		$user_id = \Session::get('user_id');
     	}
 
-		//Check Promo Slot
-    	$selected_promo = Model_Promo::query()->where('id',$post_data['id'])->get_one();
-    	if($selected_promo['slot']>0){
-    		//Check if user already join selected promo
-    		$validate_user = Model_ActivityPromo::query()->where('user_id',$user_id)->where('promo_id',$post_data['id'])->get_one();
-    		if(empty($validate_user)){
-    			$join = Model_ActivityPromo::forge(array(
-    			'user_id' => $user_id,
-    			'promo_id' => $post_data['id'],
-	    		));
-	    		$join->save();
-
-                $point = \Users\Model_userPoint::forge(array(
-                    'user_id'   => $user_id,
-                    'brand_id'  => $selected_promo->brand_id,
-                    'point'     => '0'
-                ));
-
-                $point->save();
-
-	    		$selected_promo['slot'] -= 1;
-	    		$selected_promo->slot = $selected_promo['slot'];
-	    		$selected_promo->save();
-
-	    		return \Response::redirect(\Uri::base().'task');
-    		}else{
-    			\Session::set_flash('validate_user_promo','You have been registered in this '.$selected_promo->name.' promo');
-    			return \Response::redirect(\Uri::base().'promo');
-    		}
-    	}else{
-    		\Session::set_flash('validate_user_promo','This promo have reached maximum slot');
-    		return \Response::redirect(\Uri::base().'promo');
-    	}
-    }
+        if(Model_Promo::join_promo($_post_data,$user_id)){
+            return \Response::redirect(\Uri::base().'task');
+        }else{
+            \Session::set_flash('validate_user_promo','Oops! Something went wrong,please try again.');
+            return \Response::redirect(\Uri::base().'promo');
+        }
+	}
 }

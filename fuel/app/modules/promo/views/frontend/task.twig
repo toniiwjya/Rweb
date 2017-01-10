@@ -11,7 +11,7 @@
             
             <div class="small-12 columns">
                 <div class="small-6 columns">
-                    <h4>Task 0/5</h4>
+                    <h4>Task {{ completed_task|length }}/5</h4>
                 </div>
                 <div class="small-12 columns content" data-equalizer="task">
                     {% if list_task|length==0 %}
@@ -46,9 +46,13 @@
             </div>
 
             <div class="small-12 columns">
-                <h4>Complete :</h4>
+                <h4>Completed Today :</h4>
                 <div class="history">
-
+                    <ul>
+                    {% for completed in completed_task %}
+                        <li>{{ completed.task.name }} : {{ completed.task.point }} pts</li>
+                    {% endfor %}
+                    </ul>
                 </div>
             </div>
         </div>

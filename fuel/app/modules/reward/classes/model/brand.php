@@ -37,23 +37,6 @@ class Model_Brand extends \Orm\Model {
         ),
     );
 
-	protected static $_has_many = array(
-		'promo' => array(
-			'key_from'		 => 'id',
-			'model_to'		 => 'Promo\\Model_Promo',
-			'key_to' 		 => 'brand_id',
-			'cascade_save'	 => true,
-			'cascade_delete' => false,
-		),
-	    'reward' => array(
-	        'key_from' => 'id',
-	        'model_to' => 'Reward\\Model_Reward',
-	        'key_to' => 'brand_id',
-	        'cascade_save' => true,
-	        'cascade_delete' => false,
-	    )
-	);
-
     public function get_status_name() {
         $flag = $this->status;
         return isset($this->status_name[$flag]) ? $this->status_name[$flag] : '-';
@@ -124,4 +107,21 @@ class Model_Brand extends \Orm\Model {
             )
         );
     }
+
+    protected static $_has_many = array(
+        'promo' => array(
+            'key_from'       => 'id',
+            'model_to'       => 'Promo\\Model_Promo',
+            'key_to'         => 'brand_id',
+            'cascade_save'   => true,
+            'cascade_delete' => false,
+        ),
+        'reward' => array(
+            'key_from' => 'id',
+            'model_to' => 'Reward\\Model_Reward',
+            'key_to' => 'brand_id',
+            'cascade_save' => true,
+            'cascade_delete' => false,
+        )
+    );
 }

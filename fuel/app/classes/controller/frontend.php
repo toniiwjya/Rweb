@@ -10,7 +10,7 @@ class Controller_Frontend extends Controller
         $this->set_task();
         $this->_data_template['is_login'] = $this->_is_login;
         $this->_data_template['member'] = $this->_member;
-        $this->_data_template['list_news'] = \Pages\Model_News::query()->get();
+        $this->_data_template['list_news'] = \Pages\Model_News::query()->where('status','1')->get();
     }
 
 	private function _check_login_session() {

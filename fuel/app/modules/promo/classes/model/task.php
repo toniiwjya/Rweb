@@ -5,6 +5,7 @@ namespace Promo;
 class Model_Task extends \Orm\Model{
     private $status_name = array('InActive', 'Active');
     private $image_path = 'media/task/';
+    private static $_promo;
 	protected static $_table_name = "task";
 
     protected static $_observers = array(
@@ -65,27 +66,6 @@ class Model_Task extends \Orm\Model{
         ),
 	);
 
-	protected static $_has_many = array(
-		'user_task' => array(
-            'key_from'  => 'id',
-            'model_to'  => 'Users\\Model_userTask',
-            'key_to'    => 'task_id',
-            'cascade_save'  => true,
-            'cascade_delete'=> false,
-        ),
-	);
-
-	protected static $_belongs_to = array(
-		'promo' => array(
-			'key_from' 		 => 'promo_id',
-			'model_to' 		 => 'Promo\\Model_Promo',
-			'key_to'		 => 'id',
-			'cascade_save'	 => true,
-			'cascade_delete' => false,
-		)
-	);
-
-    private static $_promo;
     public function get_promo_name(){
         if(empty(self::$_promo)){
             self::$_promo = \Promo\Model_Promo::get_as_array();
@@ -274,4 +254,24 @@ class Model_Task extends \Orm\Model{
             )
         );
     }
+
+    protected static $_has_many = array(
+        'user_task' => array(
+            'key_from'  => 'id',
+            'model_to'  => 'Users\\Model_userTask',
+            'key_to'    => 'task_id',
+            'cascade_save'  => true,
+            'cascade_delete'=> false,
+        ),
+    );
+
+    protected static $_belongs_to = array(
+        'promo' => array(
+            'key_from'       => 'promo_id',
+            'model_to'       => 'Promo\\Model_Promo',
+            'key_to'         => 'id',
+            'cascade_save'   => true,
+            'cascade_delete' => false,
+        )
+    );
 }

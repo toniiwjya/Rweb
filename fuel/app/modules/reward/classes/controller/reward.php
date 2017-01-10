@@ -9,8 +9,8 @@ class Controller_Reward extends \Controller_Frontend
     
 	public function action_index(){
 		$user_id = \Session::get('user_id');
-		$this->_data_template['brand_reward'] = Model_Brand::query()->get();
-		$this->_data_template['reward_list'] = Model_Reward::query()->get();
+		$this->_data_template['brand_reward'] = Model_Brand::query()->where('status','1')->get();
+		$this->_data_template['reward_list'] = Model_Reward::query()->where('status','1')->get();
 		if(!empty($user_id)){
 			$this->_data_template['point_user'] = \Users\Model_userPoint::query()->where('user_id',$user_id)->get();
 		}

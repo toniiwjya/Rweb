@@ -72,12 +72,31 @@ class Model_Members extends \Orm\Model {
     }
 
      public static function update_profile($post_data,$user_id){
-        $update = self::query()->where('id',$user_id)->get_one();
-        $update->fName = $post_data['fName'];
-        $update->phone = $post_data['phone'];
-        $update->gender = $post_data['gender'];
-        $update->address = $post_data['address'];
-        $update->save();
+
+        if(count($post_data)>0){
+            $_err = self::validate_profile($post_data);
+            if(count($_err) > 0){
+                \Session::set_flash('form_error',$_err);
+                return FALSE;
+            }
+            try{
+                $update = self::query()->where('id',$user_id)->get_one();
+                $update->fName = $post_data['fName'];
+                $update->phone = $post_data['phone'];
+                $update->gender = $post_data['gender'];
+                $update->address = $post_data['address'];
+                $update->save();
+
+                \Session::set_flash('success_update','Profile has been updated');
+                return TRUE;  
+            }
+            catch (\Exception $e){
+                \Session::set_flash('form_error','Fail to Update, please try again.');
+                return FALSE;
+            }
+        }else{
+            return FALSE;   
+        }   
     }
 
     public static function validate_profile($_post_data){
