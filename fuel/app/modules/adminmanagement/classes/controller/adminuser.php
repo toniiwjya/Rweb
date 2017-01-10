@@ -73,7 +73,7 @@ class Controller_AdminUser extends \Controller_Backend
 			$admin_model->phone = $all_post_input['phone'];
 			$admin_model->status = $all_post_input['status'];
 			$admin_model->superadmin = $all_post_input['superadmin'];
-			$admin_model->lock_count = 0;
+//			$admin_model->lock_count = 0;
 			$admin_model->password = $this->_get_default_password();
 			// Save with validation, if error then throw the error
 			try {

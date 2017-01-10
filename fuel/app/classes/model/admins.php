@@ -57,7 +57,6 @@ class Model_Admins extends \Orm\Model {
 				'numeric_min' => array(0),
 			)
 		),
-		'photo',
 		'superadmin'=> array(
             'label' => 'Superadmin',
             'validation' => array(
@@ -65,11 +64,6 @@ class Model_Admins extends \Orm\Model {
                 'numeric_min' => array(0),
             )
         ),
-		'lock_count',
-		'locked_at',
-		'current_signin_ip',
-		'last_signin_ip',
-		'last_signin_at',
 		'created_at',
 		'updated_at'
 	);
