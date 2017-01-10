@@ -47,6 +47,9 @@
                                             {#<input type="hidden" name="id" value="{{ reward.id }}">#}
                                             {#<input type="submit"  class="button small" value="{{ reward.point }} point">#}
                                         {#</form>#}
+                                        {% if is_login == TRUE %}
+                                            <a class="button" data-open="popup-{{ reward.id }}">{{ reward.point }} point</a>
+                                        {% endif %}
                                         <a class="button" data-open="popup-{{ reward.id }}">{{ reward.point }} point</a>
                                     </div>
                                 </div>

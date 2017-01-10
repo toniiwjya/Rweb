@@ -1,5 +1,5 @@
 <?php
-class Controller_Backend extends Controller_Mama
+class Controller_Backend extends Controller
 {
 	protected $_data_template = array(
 		'meta_title' => '',
@@ -20,7 +20,6 @@ class Controller_Backend extends Controller_Mama
 			$this->_data_template['cms_menus'] = $this->_get_cms_menus();
 			$this->_data_template['current_admin_fullname'] = $this->admin_auth->getCurrentAdmin()->fullname;
 			$this->_data_template['current_admin_phone'] = $this->admin_auth->getCurrentAdmin()->phone;
-			$this->_data_template['current_admin_photo'] = $this->admin_auth->getCurrentAdmin()->photo;
 		}
 	}
 	
@@ -112,7 +111,6 @@ class Controller_Backend extends Controller_Mama
                     ->where('role_id', $role_id)
                     ->where_open()
                         ->where('menu_key', 'admin_user')
-                        ->or_where('menu_key', 'admin_role_permission')
                     ->where_close()
                     ->where('access_create', 1)
                     ->where('access_read', 1)

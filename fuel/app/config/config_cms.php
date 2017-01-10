@@ -25,24 +25,6 @@ return array(
                     'icon_class' => 'fa fa-users',
                     'permission' => true,
                 ),
-                'admin_role_permission' => array(
-                    'label' => 'Admin Role Permission',
-                    'route' => 'backend/admin-role-permission',
-                    'icon_class' => 'fa fa-shield',
-                    'permission' => true,
-                ),
-                'admin_setting' => array(
-                    'label' => 'Basic Setting',
-                    'route' => 'backend/setting',
-                    'icon_class' => 'fa fa-gear',
-                    'permission' => true,
-                ),
-                'admin_role_permission' => array(
-                    'label' => 'Admin Role Permission',
-                    'route' => 'backend/admin-role-permission',
-                    'icon_class' => 'fa fa-shield',
-                    'permission' => true,
-                )
             )
         ),
         'homebanner' => array(

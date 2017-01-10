@@ -7,7 +7,7 @@ class Controller_Backend_Dashboard extends Controller_Backend
 		$this->_data_template['menu_current_key'] = 'dashboard';
 		return Response::forge(View::forge('backend/welcome.twig', $this->_data_template));
 	}
-	
+
 	public function action_sign_in() {
 		if ($this->admin_auth->is_exists()) {
             // Redirect to dashboard home when admin is already sign in
@@ -29,12 +29,6 @@ class Controller_Backend_Dashboard extends Controller_Backend
 			}
 			
 			if ($is_success) {
-				if ($this->admin_auth->is_locked()) {
-					$this->_data_template['error_message'] = 'Your acount is locked';
-				}
-				
-				$this->admin_auth->after_success_sign_in();
-				
 				if (Input::post('chkrememberme')) {
 					Session::instance()->set_config('expire_on_close', true);
 				}
@@ -43,7 +37,6 @@ class Controller_Backend_Dashboard extends Controller_Backend
 				Session::set(Config::get('config_cms.cms_session_name.admin_id'), $current_admin['id']);
 				Response::redirect(Uri::base().'backend', 'refresh'); // Redirect to dashboard
 			} else {
-				$this->admin_auth->lock_admin();
 				$this->_data_template['error_message'] = 'Combination Email and Password is incorrect';
 			}
 		}
@@ -55,7 +48,6 @@ class Controller_Backend_Dashboard extends Controller_Backend
 	public function action_sign_out() {
 		if ($this->admin_auth->is_exists()) {
 			$current_admin = $this->admin_auth->getCurrentAdmin();
-			$current_admin['last_signin_ip'] = $current_admin['current_signin_ip'];
 			$current_admin->save();
 		}
 		Session::delete(Config::get('config_cms.cms_session_name.admin_id'));
@@ -119,11 +111,6 @@ class Controller_Backend_Dashboard extends Controller_Backend
 		$all_post_input = \Input::post();
 		$admin_model = $this->admin_auth->getCurrentAdmin();
 		if (count($all_post_input)) {
-			// upload photo
-			$photo_filename = $this->_do_save_profile_photo($admin_model->photo);
-			if (strlen($photo_filename) > 0) {
-				$admin_model->photo = $photo_filename;
-			}
 			// save admin profile
 			$admin_model->fullname = \Input::post('txtfullname');
 			$admin_model->phone = \Input::post('txtphone');
@@ -136,59 +123,5 @@ class Controller_Backend_Dashboard extends Controller_Backend
 			\Response::redirect(\Uri::current());
 		}
 	}
-	
-	private function _do_save_profile_photo($current_photo) {
-		$photo_tmp = \Input::file('txtphoto');
-		$photo_ext = pathinfo($photo_tmp['name'], PATHINFO_EXTENSION);
-		$photo_path = DOCROOT.'media'.DIRECTORY_SEPARATOR.'admin'.DIRECTORY_SEPARATOR.'photos';
-		$photo_filename = '';
-		// Custom configuration for this upload
-		$config = array(
-			'path' => $photo_path,
-			'create_path'=> true,
-			'path_chmod'=> 0755,
-			'file_chmod'=> 0644,
-			'ext_whitelist' => array('jpg', 'jpeg', 'png')
-		);
-		if (empty($current_photo)) {
-			$config['randomize'] = true;
-		} else {
-			$config['auto_rename'] = false;
-			$config['overwrite'] = true;
-			$config['new_name'] = $current_photo;
-			$config['extension'] = $photo_ext;
-			// Delete if old photo has different ext
-			if (file_exists($photo_path.DIRECTORY_SEPARATOR.$current_photo)) {
-				$photo_ext_old = pathinfo($photo_path.DIRECTORY_SEPARATOR.$current_photo, PATHINFO_EXTENSION);
-				if (strcmp($photo_ext_old, $photo_ext) != 0) {
-					\File::delete($photo_path.DIRECTORY_SEPARATOR.$current_photo);
-				}
-			}
-		}
-		// process the uploaded files in $_FILES
-		\Upload::process($config);
-		// if there are any valid files
-		if (\Upload::is_valid())
-		{
-			// save them according to the config
-			\Upload::save();
-			$saved_photo = \Upload::get_files();
-			$photo_filename = $saved_photo[0]['saved_as'];
-			$photo_fullpath = $saved_photo[0]['saved_to'].$photo_filename;
-			// Resize function
-			$resized_photo = \Image::load($photo_fullpath);
-			//$resized_photo->config('temp_dir', 'D:\xampp_webroot\tmp_image_fuelphp');
-			$resized_photo->resize(90, 90);
-			$resized_photo->save($photo_fullpath);
-		}
-		// and process any errors
-		foreach (\Upload::get_errors() as $file)
-		{
-			//var_dump($file);
-			// $file is an array with all file information,
-			// $file['errors'] contains an array of all error occurred
-			// each array element is an an array containing 'error' and 'message'
-		}
-		return $photo_filename;
-	}
+
 }

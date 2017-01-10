@@ -15,7 +15,6 @@ class Model_Register extends \Model {
 			'fName' => $post_data['fName'],
 			'email' => $post_data['email'],
 			'gender' => $post_data['gender'],
-			'role_id' => '2',
 		));
 		$member->password = \Crypt::encode($post_data['password']);
 		$member->save();

@@ -4,12 +4,10 @@ namespace Users;
 
 class Model_Members extends \Orm\Model {
 
-    private $status_name = array('Unverif', 'Verif');
     protected static $_table_name = 'user';
 
     protected static $_properties = array(
         'id',
-        'role_id',
         'fb_id',
         'fName' => array(
             'label' => 'Full Name',

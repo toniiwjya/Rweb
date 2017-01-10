@@ -1,13 +1,4 @@
 <?php
-/**
- * Helper Class for Form
- * 
- *
- * @category  Classes
- * @package   Classes
- * @author    Peter
- * @copyright 2014 Microad Indonesia
- */
 class Helper_Form
 {
 	/**

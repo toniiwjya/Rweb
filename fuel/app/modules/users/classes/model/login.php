@@ -80,7 +80,6 @@ class Model_Login extends \Model {
 					'fName' => $user->getName(),
 					'email' => $user->getEmail(),
 					'gender' => '-',
-					'role_id' => '2',
 					'password' => $pass,
 				));
 
