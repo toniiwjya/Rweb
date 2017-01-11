@@ -43,14 +43,11 @@
                                         <img src="{{ base_url()~reward.get_image_path()~reward.image }}">
                                     </div>
                                     <div class="small-12 columns btn-reedem">
-                                        {#<form method="post" action="{{ base_url() }}thankyou" >#}
-                                            {#<input type="hidden" name="id" value="{{ reward.id }}">#}
-                                            {#<input type="submit"  class="button small" value="{{ reward.point }} point">#}
-                                        {#</form>#}
-                                        {% if is_login == TRUE %}
-                                            <a class="button" data-open="popup-{{ reward.id }}">{{ reward.point }} point</a>
-                                        {% endif %}
+                                        {% if login == TRUE %}
                                         <a class="button" data-open="popup-{{ reward.id }}">{{ reward.point }} point</a>
+                                        {% else %}
+                                        <a class="button" data-open="popup-info">{{ reward.point }} point</a>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <div class="small-12 medium-4 columns no-padding">
@@ -76,6 +73,23 @@
                                         </button>
                                     </div>
                                 </div>
+
+                                <div class="small-12 medium-4 columns no-padding">
+                                    <div class="reveal confirm" id="popup-info" data-reveal>
+                                        <div class="small-12 columns info-text">
+                                            <h5>You must login to reedem points!</h5>
+                                        </div>
+                                        <div class="small-12 columns">
+                                            <div class="small-12 columns btn-confirm text-center">
+                                                <a href="{{ base_url() }}login" class="button">Login</a>
+                                            </div>
+                                        </div>
+                                        <button class="close-button" style="color: black" data-close aria-label="Close modal" type="button">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+
                             </div>
                             {% endif %}
                         {% endfor %}
