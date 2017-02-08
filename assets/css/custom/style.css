@@ -927,6 +927,18 @@ input[type=button], input[type=reset], input[type=submit] {
     margin-top: 15px;
 }
 
+/*Youtube Player*/
+
+.uplayer{
+    text-align: center;
+    margin-top:2%;
+}
+
+@media screen and (max-width: 840px){
+    .uplayer{
+        overflow-y: scroll;
+    }
+}
 
 @media screen and (min-width: 640px) and (max-width: 840px) {
     .reward .poin {

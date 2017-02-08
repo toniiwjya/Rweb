@@ -18,24 +18,24 @@
                         <a href="{{ base_url() }}promo"><h5>Let's Join Some Promo</h5></a>
                     {% endif %}
                     {% for tasks in list_task %}
-                        <div class="small-12 medium-4 columns end">
+                        <div class="small-12 medium-4 columns end task-box">
                             <div class="title" data-equalizer-watch="task">
                                 <h5>{{ tasks.task.name }}</h5>
                             </div>
                             <div class="image-task">
                                 <div class="img">
-                                    <img src="{{ base_url()~tasks.task.get_image_path()~tasks.task.image }}">
-                                    {#<div class="click">#}
-                                        {#<button>Click here</button>#}
-                                    {#</div>#}
-                                    {#<img src="{{ base_url() }}assets/css/images/news-img-example.jpg">#}
-
-
-                                    {#<img src="{{ base_url()~task.get_image_path()~task.image }}">#}
+                                   <img src="{{ base_url()~tasks.task.get_image_path()~tasks.task.image }}">
+                                    
                                     {% if(tasks.task.type=='Like') %}
                                         <div class="fb-like" data-href="{{ tasks.task.description }}" data-layout="standard" data-action="like" data-size="small" data-show-faces="false" data-share="true"></div>
                                     {% elseif (tasks.task.type=='Share') %}
                                         <a href="{{ base_url() }}{{ tasks.task.description }}">
+                                            <div class="click">
+                                                Click here
+                                            </div>
+                                        </a>
+                                    {% elseif (tasks.task.type=='Watch') %}
+                                        <a href="{{ base_url() }}watch/{{ tasks.task.id }}">
                                             <div class="click">
                                                 Click here
                                             </div>

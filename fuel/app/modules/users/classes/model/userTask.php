@@ -26,6 +26,18 @@ class Model_userTask extends \Orm\Model{
                         	return FALSE;
                         }
             break;
+            case 'Like' :
+            break;
+            case 'Watch': if($post_data['id']==NULL){
+            				return FALSE;
+            			}
+            			$brand = \Promo\Model_Task::query()->related('promo')->where('id',$post_data['id'])->where('type','Watch')->get_one();
+            			if(self::calc_point($user_id,$post_data['id'],$brand->promo->brand_id)){
+                        	return TRUE;
+                        }else{
+                        	return FALSE;
+                        }
+            break;
         }
 	}
 

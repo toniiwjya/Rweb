@@ -16,6 +16,10 @@ class Model_Login extends \Model {
     ];
 
 	public static function validate_login($post_data){
+		if(count($post_data)<=1 || $post_data['email']==NULL || $post_data['password']==NULL){
+			return FALSE;
+		}
+
 		$member = Model_Members::query()->where('email', $post_data['email'])->get_one();
 		if(!empty($member)){
 			if(strcasecmp(\Crypt::decode($member->password), $post_data['password'])==0)
