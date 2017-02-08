@@ -44,22 +44,22 @@ return array(
 
 
     // Home Banner
-    'backend/homebanner' => 'pages/backend/',
-    'backend/homebanner/add' => 'pages/backend/form/0',
-    'backend/homebanner/edit/(:num)' => 'pages/backend/form/$1',
-    'backend/homebanner/delete/(:num)' => 'pages/backend/delete/$1',
+    'backend/homebanner' => 'pages/backend/home',
+    'backend/homebanner/add' => 'pages/backend/home/form/0',
+    'backend/homebanner/edit/(:num)' => 'pages/backend/home/form/$1',
+    'backend/homebanner/delete/(:num)' => 'pages/backend/home/delete/$1',
 
     // Brand  //
-    'backend/brand' => 'reward/backend',
-    'backend/brand/add' => 'reward/backend/form/0',
-    'backend/brand/edit/(:num)' => 'reward/backend/form/$1',
-    'backend/brand/delete/(:num)' => 'reward/backend/delete/$1',
+    'backend/brand' => 'reward/backend/brand',
+    'backend/brand/add' => 'reward/backend/brand/form/0',
+    'backend/brand/edit/(:num)' => 'reward/backend/brand/form/$1',
+    'backend/brand/delete/(:num)' => 'reward/backend/brand/delete/$1',
 
     // Promo //
-    'backend/promo' => 'promo/backend',
-    'backend/promo/add' => 'promo/backend/form/0',
-    'backend/promo/edit/(:num)' => 'promo/backend/form/$1',
-    'backend/promo/delete/(:num)' => 'promo/backend/delete/$1',
+    'backend/promo' => 'promo/backend/promo',
+    'backend/promo/add' => 'promo/backend/promo/form/0',
+    'backend/promo/edit/(:num)' => 'promo/backend/promo/form/$1',
+    'backend/promo/delete/(:num)' => 'promo/backend/promo/delete/$1',
 
     // Task //
     'backend/task' => 'promo/backend/task',

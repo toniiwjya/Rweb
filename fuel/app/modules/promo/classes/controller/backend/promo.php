@@ -2,7 +2,7 @@
 
 namespace Promo;
 
-class Controller_Backend extends \Controller_Backend {
+class Controller_Backend_Promo extends \Controller_Backend {
 
     private $_module_url = 'backend/promo';
     private $_menu_key = 'promo';

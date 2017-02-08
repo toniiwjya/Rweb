@@ -2,7 +2,7 @@
 
 namespace Pages;
 
-class Controller_Backend extends \Controller_Backend {
+class Controller_Backend_Home extends \Controller_Backend {
     private $_module_url = 'backend/homebanner';
     private $_menu_key = 'homebanner';
 

@@ -1,7 +1,7 @@
 <?php
 namespace Reward;
 
-class Controller_Backend extends \Controller_Backend
+class Controller_Backend_Brand extends \Controller_Backend
 {
 	private $_module_url = 'backend/brand';
 	private $_menu_key = 'brand';

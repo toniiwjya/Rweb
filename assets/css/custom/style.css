@@ -818,6 +818,11 @@ footer .social-media > li > a.instagram:hover {
     border-radius: 5px;
 }
 
+.info-text{
+    text-align: center;
+    margin-top: 10%;
+}
+
 .padd-confirm{
     margin-top: 10px;
 }
