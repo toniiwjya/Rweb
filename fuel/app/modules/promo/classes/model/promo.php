@@ -69,6 +69,10 @@ class Model_Promo extends \Orm\Model{
                 'required',
             )
         ),
+        'created_by',
+        'created_at',
+        'updated_by',
+        'updated_at'
     );
 
     public static function join_promo($post_data,$user_id){

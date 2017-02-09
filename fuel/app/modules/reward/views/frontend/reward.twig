@@ -43,7 +43,7 @@
                                         <img src="{{ base_url()~reward.get_image_path()~reward.image }}">
                                     </div>
                                     <div class="small-12 columns btn-reedem">
-                                        {% if login == TRUE %}
+                                        {% if is_login == TRUE %}
                                         <a class="button" data-open="popup-{{ reward.id }}">{{ reward.point }} point</a>
                                         {% else %}
                                         <a class="button" data-open="popup-info">{{ reward.point }} point</a>
@@ -65,7 +65,6 @@
                                                     <input type="hidden" name="id" value="{{ reward.id }}">
                                                     <input type="submit"  class="button" value="Yes">
                                                 </form>
-                                                {#<a href="{{ base_url() }}thankyou" class="button">Yes</a>#}
                                             </div>
                                         </div>
                                         <button class="close-button" data-close aria-label="Close modal" type="button">

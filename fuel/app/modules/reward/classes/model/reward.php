@@ -3,7 +3,7 @@
 namespace Reward;
 
 class Model_Reward extends \Orm\Model {
-    private $status_name = array('InActive', 'Active');
+    private $status_name =  array('InActive', 'Active');
     private $image_path = 'media/reward/';
     private static $_brand;
 	protected static $_table_name = 'reward';
@@ -58,6 +58,10 @@ class Model_Reward extends \Orm\Model {
                 'required',
             )
         ),
+        'created_by',
+        'created_at',
+        'updated_by',
+        'updated_at'
     );
 
     public function get_brand_name(){

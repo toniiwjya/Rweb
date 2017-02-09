@@ -35,6 +35,10 @@ class Model_Brand extends \Orm\Model {
                 'required',
             )
         ),
+        'created_by',
+        'created_at',
+        'updated_by',
+        'updated_at'
     );
 
     public function get_status_name() {
