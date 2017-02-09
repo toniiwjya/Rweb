@@ -7,6 +7,7 @@ return array(
     'home'  			=> 'pages/frontend/home',
     'news'				=> 'pages/frontend/home/news',
     'news_detail/(:id)'	=> 'pages/frontend/home/news_detail',
+    'watch/(:id)'       => 'pages/frontend/home/watch',
     'profile'       	=> 'pages/frontend/home/profile',
     'logout'			=> 'pages/frontend/home/logout',
     'done'				=> 'pages/frontend/home/add_point',

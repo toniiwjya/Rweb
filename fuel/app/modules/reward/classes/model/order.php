@@ -34,6 +34,7 @@ class Model_Order extends \Orm\Model{
 				return FALSE;
 			}
 		}
+		return FALSE;
 
 	}
 

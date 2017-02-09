@@ -28,7 +28,7 @@ class Controller_Frontend_Register extends \Controller_Frontend
                 \Response::redirect(\Uri::base().'login');  
             }
             catch (\Exception $e){
-               // $this->_data_template['error_message'] = $e -> getMessage();
+                // $this->_data_template['error_message'] = $e -> getMessage();
                 $this->_data_template['error_message'] = "Fail to register, please try again.";
             }
         }

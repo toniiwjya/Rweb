@@ -23,6 +23,12 @@ class Controller_Frontend_Home extends \Controller_Frontend
     	return \Response::forge(\View::forge('pages::frontend/news_detail.twig',$this->_data_template,FALSE));
     }
 
+    public function action_watch(){
+        $id = $this->param('id');
+        $this->_data_template['watch_detail'] = \Promo\Model_Task::query()->where('id',$id)->get_one();
+        return \Response::forge(\View::forge('pages::frontend/watch.twig',$this->_data_template,FALSE));
+    }
+
     public function action_profile(){
         $user_id = \Session::get('user_id');
         if(empty($user_id)){
