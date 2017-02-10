@@ -34,7 +34,7 @@ class Authentication_Backend {
 		}
 		return $result;
 	}
-	
+
 
 	public function check_password($pswd) {
 		$result = false;

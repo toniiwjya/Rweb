@@ -37,8 +37,10 @@ class Model_Task extends \Orm\Model{
 			)
 		),
         'description'  => array(
-            'label' => 'Description',
-            'validation' => array()
+            'label' => 'URL link',
+               'validation' => array(
+                    'max_length' => array(500),
+                )
         ),
         'image'=> array(
             'label' => 'Image',
@@ -64,6 +66,10 @@ class Model_Task extends \Orm\Model{
                 'required',
             )
         ),
+        'created_by',
+        'created_at',
+        'updated_by',
+        'updated_at'
 	);
 
     public function get_promo_name(){
@@ -157,19 +163,18 @@ class Model_Task extends \Orm\Model{
                 ),
                 array(
                     'label' => array(
-                        'label' => 'Description',
+                        'label' => 'URL link',
                         'id' => 'description',
                         'attributes' => array(
                             'class' => 'col-sm-2 control-label'
                         )
                     ),
-                    'textarea' => array(
+                    'input' => array(
                         'name' => 'description',
                         'value' => $this->description,
                         'attributes' => array(
-                            'class' => 'form-control ckeditor',
-                            'placeholder' => 'description',
-                            'required' => '',
+                            'class' => 'form-control',
+                            'placeholder' => 'External link is start with http:// or https://, Internal link is just fill url path',
                         ),
                         'container_class' => 'col-sm-10'
                     )
