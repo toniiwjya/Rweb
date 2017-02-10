@@ -156,8 +156,9 @@
             version    : 'v2.8'
         });
         FB.AppEvents.logPageView();
-        FB.Event.subscribe('edge.create', function (response) {
-            alert('Liked');
+        FB.Event.subscribe('edge.create', function (url) {
+            //console.log(response);
+            validlike(url);
         });
         FB.Event.subscribe('edge.remove', function (response) {
             alert('DisLiked')

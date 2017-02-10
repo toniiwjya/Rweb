@@ -17,6 +17,9 @@ class Model_userTask extends \Orm\Model{
 	
 
 	public static function add_point($post_data,$user_id){
+		if($post_data['id']==NULL){
+			return FALSE;
+		}
 		switch($post_data['type']){
             case 'Share': $news = \Pages\Model_News::query()->related('promo')->where('id',$post_data['id'])->get_one();
                         $task = \Promo\Model_Task::query()->where('promo_id',$news->promo_id)->where('type','Share')->get_one();
@@ -26,12 +29,14 @@ class Model_userTask extends \Orm\Model{
                         	return FALSE;
                         }
             break;
-            case 'Like' :
+            case 'Like' : $task = \Promo\Model_Task::query()->related('promo')->where('description',$post_data['id'])->where('type','Like')->get_one();
+		            	if(self::calc_point($user_id,$task->id,$task->promo->brand_id)){
+                        	return TRUE;
+                        }else{
+                        	return FALSE;
+                        }
             break;
-            case 'Watch': if($post_data['id']==NULL){
-            				return FALSE;
-            			}
-            			$brand = \Promo\Model_Task::query()->related('promo')->where('id',$post_data['id'])->where('type','Watch')->get_one();
+            case 'Watch':$brand = \Promo\Model_Task::query()->related('promo')->where('id',$post_data['id'])->where('type','Watch')->get_one();
             			if(self::calc_point($user_id,$post_data['id'],$brand->promo->brand_id)){
                         	return TRUE;
                         }else{
