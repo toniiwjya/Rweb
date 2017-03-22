@@ -25,8 +25,6 @@ function onYouTubeIframeAPIReady() {
 function onPlayerStateChange(event) {
     if(event.data === 1) { // Started playing
         task_id = $('#player').attr('task');
-        console.log(task_id);
-        console.log('after id');
         if(!timeSpent.length){
             for(var i=0, l=parseInt(player.getDuration()); i<l; i++) timeSpent.push(false);
         }
@@ -37,8 +35,6 @@ function onPlayerStateChange(event) {
     }
 
 }
-
-console.log(task_id);
 
 function record(){
     timeSpent[ parseInt(player.getCurrentTime()) ] = true;
@@ -51,10 +47,11 @@ function showPercentage(){
         if(timeSpent[i]) percent++;
     }
     percent = Math.round(percent / timeSpent.length * 100);
-    //display.innerHTML = percent + "%";
+    display.innerHTML = percent + "%";
 
     //If video watch more than 99% length
-    if(percent==85 && flag!=1){
+    if(percent>85 && flag!=1){
+        console.log('addpoint');
         addpoint();
     }
 }

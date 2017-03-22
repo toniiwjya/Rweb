@@ -33,14 +33,13 @@ $(document).ready(function(){
     $('.facebook-share').on('click', function(){
         var news_id = $(this).attr('id');
         var loc = location.href;
-        console.log(loc);
         FB.ui({
             display: 'popup',
             method:  'share',
             href: 'http://facebook.com',
             //href: loc,
         },function(response) {
-            if (response && response.post_id) {
+            if (response) {
             //if(true){
                     $.ajax({
                         url : '{{ base_url() }}/done',

@@ -16,11 +16,11 @@ class Controller_Frontend_Register extends \Controller_Frontend
             $_err = Model_Register::form_validate();
             if(count($_err) > 0){
                 $this->_data_template['error_message'] = $_err;
-                return;
+                return \Response::forge(\View::forge('users::frontend/register.twig',$this->_data_template,FALSE));
             }
             if(Model_Members::check_regis($_post_data['email'])){
                 $this->_data_template['error_message'] = 'Email has been used to register';
-                return;
+                return \Response::forge(\View::forge('users::frontend/register.twig',$this->_data_template,FALSE));
             }
             try{
                 Model_Register::fill($_post_data);
